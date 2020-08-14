@@ -2,6 +2,7 @@ HELP.md
 target/
 mvnw.cmd
 mvnw
+application.yml
 GeekPlatform.iml
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

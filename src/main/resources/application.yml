@@ -1,10 +1,36 @@
 server:
   port: 8080
 
-#���ݿ�
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    url: jdbc:mysql://121.89.174.31:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+
+  redis:
+    port: 6379
+    host: 121.89.174.31
+    password: 123456
+    timeout: 3000
+    # 连接池
+    lettuce:
+      pool:
+        # 最大连接数
+        max-active: 8
+        # 最大空闲连接
+        max-idle: 8
+        # 最新空连接
+        min-idle: 0
+        # 阻塞时间
+        max-wait: -1
+
+logging:
+  file:
+    name: my.log
+    path: ./
+    max-history: 1
+    max-size: 10MB
+  level:
+    root: info

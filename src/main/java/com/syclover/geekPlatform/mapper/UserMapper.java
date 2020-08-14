@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
  * @Author: Playwi0
  * @Data: 2020/8/12
  */
+@Repository
 public interface UserMapper {
 
     @Select("select * from Users where id = #{id}")
