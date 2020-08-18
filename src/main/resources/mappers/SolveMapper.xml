@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syclover.geekPlatform.dao.SolveMapper">
+
+    <insert id="addSolve" parameterType="com.syclover.geekPlatform.entity.Solve">
+        INSERT INTO
+            Solves(
+                team_id,
+                token,
+                user_id,
+                flag
+            )
+        VALUES (
+            #{team.id},
+            #{team.token},
+            #{user.id},
+            #{flag}
+        )
+    </insert>
+
+</mapper>

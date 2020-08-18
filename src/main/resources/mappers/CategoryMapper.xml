@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syclover.geekPlatform.dao.CategoryMapper">
+
+    <select id="getById" resultMap="allColumnsMapper">
+        select * from Categories where id = #{id}
+    </select>
+
+    <!-- 所有字段映射 -->
+    <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Category">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="count" property="count"/>
+    </resultMap>
+
+
+</mapper>

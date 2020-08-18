@@ -34,3 +34,7 @@ logging:
     max-size: 10MB
   level:
     root: info
+
+mybatis:
+#  type-aliases-package: com.syclover.geekPlatform.entity
+  mapper-locations: classpath:mappers/*.xml

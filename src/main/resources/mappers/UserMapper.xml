@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syclover.geekPlatform.dao.UserMapper">
+
+    <!--根据id查找user-->
+    <select id="getUserById" resultMap="allColumnsMapper">
+        select * from Users where id = #{id}
+    </select>
+
+    <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="real_name" property="realName"/>
+        <result column="student_id" property="studentId"/>
+        <result column="is_cuit" property="isCuit"/>
+        <result column="motto" property="motto"/>
+        <result column="header_img" property="headerImg"/>
+        <result column="is_del" property="isDel"/>
+        <result column="team_id" property="teamId"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <!-- 查找所有的user -->
+    <select id="getAllUser" resultMap="allColumnsMapper">
+        select * from Users
+    </select>
+</mapper>

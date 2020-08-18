@@ -2,8 +2,8 @@ package com.syclover.geekPlatform.service.impl;
 
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.dao.UserMapper;
 import com.syclover.geekPlatform.entity.User;
-import com.syclover.geekPlatform.mapper.UserMapper;
 import com.syclover.geekPlatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResultT<User> getUser(long id) {
 
-        User user = userMapper.getById(id);
+        User user = userMapper.getUserById(id);
         if (user == null){
             return ResultT.ERROR;
         }
