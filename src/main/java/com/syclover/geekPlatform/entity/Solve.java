@@ -17,6 +17,9 @@ public class Solve {
     // 队伍token
     private String token;
 
+    // 题目
+    private Challenge challenge;
+
     // 用户
     private User user;
 
@@ -29,6 +32,13 @@ public class Solve {
     // 修改时间
     private Timestamp updatedTime;
 
+    public Challenge getChallenge() {
+        return challenge;
+    }
+
+    public void setChallenge(Challenge challenge) {
+        this.challenge = challenge;
+    }
 
     public int getId() {
         return id;

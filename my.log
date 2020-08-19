@@ -7988,3 +7988,179 @@ Caused by: java.lang.StringIndexOutOfBoundsException: String index out of range:
 2020-08-18 14:52:56.961  INFO 10016 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
 2020-08-18 14:52:56.998  INFO 10016 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2020-08-18 14:52:57.426  INFO 10016 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:37:09.413  INFO 5852 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 5852 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:37:09.423  INFO 5852 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:37:10.203  INFO 5852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:37:10.208  INFO 5852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:37:10.243  INFO 5852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-08-19 14:37:12.188  INFO 5852 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:37:12.742  INFO 5852 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.775 seconds (JVM running for 5.703)
+2020-08-19 14:37:13.023  INFO 5852 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:37:14.563  INFO 5852 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:37:14.793  INFO 5852 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:37:14.813  INFO 5852 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:37:15.263  INFO 5852 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:37:43.993  INFO 768 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 768 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:37:44.003  INFO 768 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:37:44.647  INFO 768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:37:44.655  INFO 768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:37:44.684  INFO 768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-08-19 14:37:46.455  INFO 768 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:37:46.985  INFO 768 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.396 seconds (JVM running for 4.936)
+2020-08-19 14:37:47.257  INFO 768 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:37:48.693  INFO 768 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:37:48.943  INFO 768 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:37:48.973  INFO 768 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:37:49.393  INFO 768 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:38:35.812  INFO 5376 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 5376 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:38:35.822  INFO 5376 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:38:36.629  INFO 5376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:38:36.641  INFO 5376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:38:36.683  INFO 5376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
+2020-08-19 14:38:38.707  INFO 5376 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:38:39.374  INFO 5376 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.986 seconds (JVM running for 5.666)
+2020-08-19 14:38:39.637  INFO 5376 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:38:41.142  INFO 5376 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:38:41.423  INFO 5376 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:38:41.442  INFO 5376 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:38:41.903  INFO 5376 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:39:16.368  INFO 11712 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 11712 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:39:16.372  INFO 11712 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:39:17.053  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:39:17.057  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:39:17.083  INFO 11712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17ms. Found 0 Redis repository interfaces.
+2020-08-19 14:39:18.867  INFO 11712 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:39:19.408  INFO 11712 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.452 seconds (JVM running for 5.025)
+2020-08-19 14:39:19.659  INFO 11712 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:39:21.032  INFO 11712 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:39:21.193  INFO 11712 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:39:21.212  INFO 11712 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:39:21.723  INFO 11712 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:48:48.592  INFO 11528 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 11528 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:48:48.604  INFO 11528 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:48:49.316  INFO 11528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:48:49.321  INFO 11528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:48:49.357  INFO 11528 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 20ms. Found 0 Redis repository interfaces.
+2020-08-19 14:48:51.152  INFO 11528 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:48:51.722  INFO 11528 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.526 seconds (JVM running for 5.065)
+2020-08-19 14:48:51.961  INFO 11528 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:48:53.323  INFO 11528 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:48:53.607  INFO 11528 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:48:53.632  INFO 11528 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:48:54.002  INFO 11528 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:49:14.142  INFO 3388 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 3388 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:49:14.147  INFO 3388 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:49:14.822  INFO 3388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:49:14.827  INFO 3388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:49:14.862  INFO 3388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-08-19 14:49:16.635  INFO 3388 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:49:17.234  INFO 3388 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.499 seconds (JVM running for 5.165)
+2020-08-19 14:49:17.511  INFO 3388 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:49:18.962  INFO 3388 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:49:19.142  INFO 3388 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:49:19.157  INFO 3388 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:49:19.702  INFO 3388 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:52:28.186  INFO 9184 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 9184 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:52:28.191  INFO 9184 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:52:28.987  INFO 9184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:52:28.991  INFO 9184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:52:29.021  INFO 9184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-08-19 14:52:30.791  INFO 9184 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:52:31.350  INFO 9184 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.58 seconds (JVM running for 5.229)
+2020-08-19 14:52:31.596  INFO 9184 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:52:33.012  INFO 9184 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:52:33.182  INFO 9184 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:52:33.201  INFO 9184 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:52:33.692  INFO 9184 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 14:52:40.501  INFO 4764 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 4764 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 14:52:40.506  INFO 4764 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 14:52:41.141  INFO 4764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 14:52:41.146  INFO 4764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 14:52:41.181  INFO 4764 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2020-08-19 14:52:43.011  INFO 4764 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:52:43.536  INFO 4764 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.419 seconds (JVM running for 4.886)
+2020-08-19 14:52:43.781  INFO 4764 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 14:52:45.185  INFO 4764 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 14:52:45.361  INFO 4764 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 14:52:45.385  INFO 4764 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 14:52:45.886  INFO 4764 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 15:34:59.992  INFO 1428 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 1428 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:35:00.007  INFO 1428 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:35:00.672  INFO 1428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:35:00.682  INFO 1428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:35:00.722  INFO 1428 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2020-08-19 15:35:02.667  INFO 1428 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:35:03.247  INFO 1428 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.633 seconds (JVM running for 5.164)
+2020-08-19 15:35:03.562  INFO 1428 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:36:03.152  INFO 10920 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 10920 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:36:03.157  INFO 10920 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:36:03.824  INFO 10920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:36:03.832  INFO 10920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:36:03.863  INFO 10920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2020-08-19 15:36:05.627  INFO 10920 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:36:06.152  INFO 10920 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.38 seconds (JVM running for 4.776)
+2020-08-19 15:36:06.392  INFO 10920 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 15:36:07.813  INFO 10920 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 15:36:08.172  INFO 10920 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:36:08.192  INFO 10920 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 15:36:08.523  INFO 10920 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 15:40:05.859  INFO 7048 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 7048 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:40:05.869  INFO 7048 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:40:06.583  INFO 7048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:40:06.589  INFO 7048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:40:06.618  INFO 7048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2020-08-19 15:40:08.688  INFO 7048 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:40:09.283  INFO 7048 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.785 seconds (JVM running for 5.269)
+2020-08-19 15:40:09.572  INFO 7048 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 15:40:11.089  INFO 7048 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 15:40:11.218  INFO 7048 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:40:11.238  INFO 7048 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 15:40:11.768  INFO 7048 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 15:41:13.948  INFO 4496 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 4496 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:41:13.958  INFO 4496 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:41:14.598  INFO 4496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:41:14.603  INFO 4496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:41:14.638  INFO 4496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-08-19 15:41:16.441  INFO 4496 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:41:16.968  INFO 4496 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.401 seconds (JVM running for 4.805)
+2020-08-19 15:41:17.213  INFO 4496 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 15:41:18.599  INFO 4496 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 15:41:18.718  INFO 4496 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:41:18.738  INFO 4496 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 15:41:19.279  INFO 4496 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 15:43:42.508  INFO 2352 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 2352 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:43:42.508  INFO 2352 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:43:43.133  INFO 2352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:43:43.138  INFO 2352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:43:43.178  INFO 2352 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 21ms. Found 0 Redis repository interfaces.
+2020-08-19 15:43:44.948  INFO 2352 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:43:45.538  INFO 2352 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.409 seconds (JVM running for 4.818)
+2020-08-19 15:43:45.778  INFO 2352 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 15:43:47.169  INFO 2352 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 15:43:47.298  INFO 2352 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:43:47.308  INFO 2352 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 15:43:47.828  INFO 2352 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 15:48:04.478  INFO 9512 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 9512 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:48:04.487  INFO 9512 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:48:05.132  INFO 9512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:48:05.138  INFO 9512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:48:05.168  INFO 9512 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18ms. Found 0 Redis repository interfaces.
+2020-08-19 15:48:06.928  INFO 9512 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:48:07.468  INFO 9512 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.395 seconds (JVM running for 4.91)
+2020-08-19 15:48:07.712  INFO 9512 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 15:48:09.098  INFO 9512 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 15:48:09.218  INFO 9512 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:48:09.238  INFO 9512 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 15:48:09.779  INFO 9512 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-08-19 15:48:15.837  INFO 2732 --- [main] c.s.g.m.SolveMapperTest                  : Starting SolveMapperTest on DESKTOP-OBU16L0 with PID 2732 (started by Playwi0 in C:\MyJavaProject\GitHub\GeekPlatform)
+2020-08-19 15:48:15.847  INFO 2732 --- [main] c.s.g.m.SolveMapperTest                  : No active profile set, falling back to default profiles: default
+2020-08-19 15:48:16.513  INFO 2732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-08-19 15:48:16.518  INFO 2732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-08-19 15:48:16.548  INFO 2732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 19ms. Found 0 Redis repository interfaces.
+2020-08-19 15:48:18.404  INFO 2732 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:48:19.028  INFO 2732 --- [main] c.s.g.m.SolveMapperTest                  : Started SolveMapperTest in 3.577 seconds (JVM running for 4.999)
+2020-08-19 15:48:19.311  INFO 2732 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-08-19 15:48:20.688  INFO 2732 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-08-19 15:48:21.038  INFO 2732 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-08-19 15:48:21.048  INFO 2732 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-08-19 15:48:21.378  INFO 2732 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.

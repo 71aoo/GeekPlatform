@@ -10,15 +10,78 @@
             Solves(
                 team_id,
                 token,
+                challenge_id,
                 user_id,
                 flag
             )
         VALUES (
             #{team.id},
             #{team.token},
+            #{challenge.id},
             #{user.id},
             #{flag}
         )
     </insert>
+
+
+    <!-- 找某用户所有解答的题目按时间排序 -->
+    <select id="getSolvedChallengesByUser" resultMap="com.syclover.geekPlatform.dao.ChallengeMapper.allColumnsMapper">
+        select
+            Challenges.*
+        from
+            Solves,
+            Challenges,
+            Users
+        where
+            Solves.user_id = Users.id and
+            Solves.challenge_id = Challenges.id and
+            Users.id = #{id}
+        order by
+            -Solves.created_time
+    </select>
+
+    <!-- 找出某队伍所有解答的题目按时间排序 -->
+    <select id="getSolvedChallengesByTeam" resultMap="com.syclover.geekPlatform.dao.ChallengeMapper.allColumnsMapper">
+        select
+            Challenges.*
+        from
+            Solves,
+            Challenges,
+            Teams
+        where
+            Solves.team_id = Teams.id and
+            Solves.challenge_id = Challenges.id and
+            Teams.id = #{id}
+        order by
+            -Solves.created_time
+    </select>
+
+    <!-- 根据 Solve 表得出用户个人总分 -->
+    <select id="getPointsByUser" resultType="INT">
+        select
+            sum(Challenges.score)
+        from
+            Solves,
+            Challenges,
+            Users
+        where
+            Solves.user_id = Users.id and
+            Solves.challenge_id = Challenges.id and
+            Users.id = #{id}
+    </select>
+
+    <!-- 根据 Solve 表得出队伍总分 -->
+    <select id="getPointsByTeam" resultType="INT">
+        select
+            sum(Challenges.score)
+        from
+            Solves,
+            Challenges,
+            Teams
+        where
+            Solves.team_id = Teams.id and
+            Solves.challenge_id = Challenges.id and
+            Teams.id = #{id}
+    </select>
 
 </mapper>
