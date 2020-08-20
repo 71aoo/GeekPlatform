@@ -10,7 +10,8 @@ public enum ResponseCode {
 
     SUCCESS(200, "SUCCESS"),
     FAIL(601, "FAIL"),
-    ERROR(602, "ERROR");
+    ERROR(602, "ERROR"),
+    PARAMETER_ERROR(603, "PARAMETER ERROR");
 
     // 响应码
     private final int code;
