@@ -1,6 +1,5 @@
 package com.syclover.geekPlatform;
 
-import com.syclover.geekPlatform.mapper.UserMapper;
 import com.syclover.geekPlatform.entity.User;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

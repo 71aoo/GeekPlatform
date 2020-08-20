@@ -10,4 +10,8 @@ import com.syclover.geekPlatform.entity.User;
 public interface UserService {
 
     ResultT<User> getUser(long id);
+
+    int registerUser(User user);
+
+    ResultT<User> getLoginUser(String username);
 }
