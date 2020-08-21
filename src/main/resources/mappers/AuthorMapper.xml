@@ -5,8 +5,15 @@
 
 <mapper namespace="com.syclover.geekPlatform.dao.AuthorMapper">
 
-    <select id="getById" resultType="com.syclover.geekPlatform.entity.Author">
+    <!-- 根据id获取出题人 -->
+    <select id="getById" resultMap="allColumnsMapper">
         select * from Authors where id = #{id}
+    </select>
+
+
+    <!-- 获取所有分类 -->
+    <select id="getAll" resultMap="allColumnsMapper">
+        select * from Authors
     </select>
 
     <!-- 所有字段映射 -->

@@ -12,12 +12,6 @@ public class ResultT<T> implements Serializable{
 
     private static final long serialVersionUID = -399311564206921895L;
 
-    public final static int SUCCESS_CODE = 200;
-    public final static int ERROR_CODE = 500;
-
-    public final static ResultT SUCCESS = new ResultT(SUCCESS_CODE, null, null);
-    public final static ResultT ERROR = new ResultT(ERROR_CODE, null, null);
-
     private int status;
     private String msg;
     private T data;

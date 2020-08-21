@@ -22,12 +22,12 @@ public interface ChallengeMapper {
     List<Challenge> getByCategoryName(String name);
 
     // 根据 Challenge id 修改字段
-    int updateByID(Challenge challenge);
+    boolean updateByID(Challenge challenge);
 
     // 增加
-    int addChallenge(Challenge challenge);
+    boolean addChallenge(Challenge challenge);
 
     // 根据 id 逻辑删除一个 challenge
-    int logicallyDelByID(int id);
+    boolean logicallyDelByID(int id);
 
 }

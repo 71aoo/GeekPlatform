@@ -23,6 +23,7 @@
             Challenges.intro As intro,
             Challenges.hint As hint,
             Challenges.score As score,
+            Challenges.flag As flag,
             Challenges.author As author,
             Challenges.category As category,
             Challenges.first_blood As first_blood,
@@ -44,11 +45,11 @@
         UPDATE
             Challenges
         SET
-
             name = #{name},
             intro = #{intro},
             hint = #{hint},
             score = #{score},
+            flag = #{flag},
             author = #{author.id},
             category = #{category.id},
             first_blood = #{firstBlood},
@@ -65,6 +66,7 @@
                 intro,
                 hint,
                 score,
+                flag,
                 author,
                 category,
                 hidden
@@ -74,6 +76,7 @@
             #{intro},
             #{hint},
             #{score},
+            #{flag},
             #{author.id},
             #{category.id},
             #{hidden}
@@ -98,6 +101,7 @@
         <result column="intro" property="intro"/>
         <result column="hint" property="hint"/>
         <result column="score" property="score"/>
+        <result column="flag" property="flag"/>
         <result column="hidden" property="hidden"/>
         <result column="first_blood" property="firstBlood"/>
         <result column="is_del" property="isDel"/>

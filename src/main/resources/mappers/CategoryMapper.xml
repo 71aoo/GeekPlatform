@@ -5,8 +5,14 @@
 
 <mapper namespace="com.syclover.geekPlatform.dao.CategoryMapper">
 
+    <!-- 根据id查询某个分类 -->
     <select id="getById" resultMap="allColumnsMapper">
         select * from Categories where id = #{id}
+    </select>
+
+    <!-- 获取所有分类 -->
+    <select id="getAll" resultMap="allColumnsMapper">
+        select * from Categories
     </select>
 
     <!-- 所有字段映射 -->
