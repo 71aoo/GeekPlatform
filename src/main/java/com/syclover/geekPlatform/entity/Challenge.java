@@ -18,6 +18,8 @@ public class Challenge {
     private String hint;
     // 分数
     private int score;
+    // flag
+    private String flag;
     // 作者
     private Author author;
     // 分类
@@ -32,6 +34,14 @@ public class Challenge {
     private Timestamp createdTime;
     // 修改时间
     private Timestamp updatedTime;
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
+    }
 
     public int getId() {
         return id;
@@ -137,6 +147,7 @@ public class Challenge {
                 ", intro='" + intro + '\'' +
                 ", hint='" + hint + '\'' +
                 ", score=" + score +
+                ", flag='" + flag + '\'' +
                 ", author=" + author +
                 ", category=" + category +
                 ", hidden=" + hidden +

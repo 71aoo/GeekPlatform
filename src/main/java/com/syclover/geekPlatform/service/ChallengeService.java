@@ -19,5 +19,11 @@ public interface ChallengeService {
     ResultT<Challenge> getChallengesByID(int id);
 
     // 修改题目信息
+    ResultT changeChallengeInfo(Challenge challenge);
 
+    // 添加题目
+    ResultT addChallenge(Challenge challenge);
+
+    // 根据 id 逻辑删除一个题目
+    ResultT LogicallyDelChallenge(int id);
 }

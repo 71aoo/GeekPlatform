@@ -63,18 +63,18 @@ public class ChallengeMapperTest {
 //        byID.setScore(200);
 
         Challenge challenge = new Challenge();
-        challenge.setName("dssd");
+        challenge.setName("ttttt");
         challenge.setScore(200);
         challenge.setHidden(0);
 
-        int i = challengeMapper.addChallenge(challenge);
-        System.out.println(i);
+        boolean b = challengeMapper.addChallenge(challenge);
+        System.out.println(b);
     }
 
     @Test
     public void logicallyDelByID(){
 
-        int i = challengeMapper.logicallyDelByID(102);
-        System.out.println(i);
+        boolean b = challengeMapper.logicallyDelByID(102);
+        System.out.println(b);
     }
 }

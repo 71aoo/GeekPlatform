@@ -20,12 +20,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultT<User> getUser(long id) {
-
-        User user = userMapper.getUserById(id);
-        if (user == null){
-            return ResultT.ERROR;
-        }
-
-        return new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
+        return null;
     }
+
+//    @Override
+//    public ResultT<User> getUser(long id) {
+//
+//        User user = userMapper.getUserById(id);
+//        if (user == null){
+//            return ResultT.ERROR;
+//        }
+//
+//        return new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
+//    }
 }
