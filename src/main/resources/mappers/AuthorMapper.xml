@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syclover.geekPlatform.dao.AuthorMapper">
+
+    <select id="getById" resultType="com.syclover.geekPlatform.entity.Author">
+        select * from Authors where id = #{id}
+    </select>
+
+    <!-- 所有字段映射 -->
+    <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Author">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="header_img" property="headerImg"/>
+        <result column="motto" property="motto"/>
+        <result column="challenge_count" property="challengeCount"/>
+        <result column="created_time" property="createdTime"/>
+    </resultMap>
+
+
+</mapper>
