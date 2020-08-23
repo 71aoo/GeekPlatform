@@ -14,4 +14,11 @@ public interface UserService {
     int registerUser(User user);
 
     ResultT<User> getLoginUser(String username);
+
+    int getTeamId(long id);
+
+    int getTeamId(User user);
+
+//    感觉合成在teamService里面会好一点 但这样需要teamService自动装配一个userMapper
+    int updateTeam(long id,long teamid);
 }

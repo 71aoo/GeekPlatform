@@ -3,8 +3,8 @@ package com.syclover.geekPlatform.entity;
 import java.sql.Timestamp;
 
 /**
- * @Author: Playwi0
- * @Data: 2020/8/18
+ * @Author cueyu
+ * @Date 2020/8/21
  */
 public class Team {
 

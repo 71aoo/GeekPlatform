@@ -25,7 +25,6 @@ class GeekApplicationTests {
 
         User user = new User();
         user.setId(1);
-        user.setName("dsdsd");
         redisTemplate.opsForValue().set("ojbk", user);
 //        String ok = (String)redisTemplate.opsForValue().get("ok");
 //        System.out.println(ok);
@@ -35,7 +34,7 @@ class GeekApplicationTests {
     @Test
     void Loads() {
 
-        User user = userMapper.getUserById(105);
+        User user = userMapper.getUserById(1);
         System.out.println(user);
     }
 

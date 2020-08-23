@@ -12,4 +12,6 @@ public interface UserMapper {
 
     User getUserById(long id);
 
+    int updateTeam(long id,long teamid);
+
 }

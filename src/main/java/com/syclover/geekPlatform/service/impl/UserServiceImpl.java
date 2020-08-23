@@ -20,17 +20,46 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public ResultT<User> getUser(long id) {
-        return null;
+        User user = userMapper.getUserById(id);
+        if (user != null) {
+            ResultT<User> result = new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
+            return result;
+        }else{
+            return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null );
+        }
     }
 
-//    @Override
-//    public ResultT<User> getUser(long id) {
-//
-//        User user = userMapper.getUserById(id);
-//        if (user == null){
-//            return ResultT.ERROR;
-//        }
-//
-//        return new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
-//    }
+    @Override
+    public int registerUser(User user) {
+        return userMapper.addUser(user);
+    }
+
+    @Override
+    public ResultT<User> getLoginUser(String username) {
+        User user = userMapper.getUserByUsername(username);
+        if (user != null) {
+             return new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
+        }else{
+            return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null );
+        }
+    }
+
+    @Override
+    public int getTeamId(long id) {
+        User user = userMapper.getUserById(id);
+        return user.getTeamId();
+    }
+
+    @Override
+    public int getTeamId(User user) {
+        return user.getTeamId();
+    }
+
+    @Override
+    public int updateTeam(long id, long teamid) {
+        int result = userMapper.updateTeam(id, teamid);
+        return result;
+    }
+
+
 }

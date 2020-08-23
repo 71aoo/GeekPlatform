@@ -10,8 +10,6 @@ public class User {
 
     // 主键id
     private int id;
-    // 用户名
-    private String name;
     // 真实姓名
     private String realName;
     // 学号
@@ -57,14 +55,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getRealName() {
@@ -143,7 +133,6 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
                 ", realName='" + realName + '\'' +
                 ", studentId='" + studentId + '\'' +
                 ", isCuit=" + isCuit +
@@ -153,6 +142,8 @@ public class User {
                 ", teamId=" + teamId +
                 ", createdTime=" + createdTime +
                 ", updatedTime=" + updatedTime +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }

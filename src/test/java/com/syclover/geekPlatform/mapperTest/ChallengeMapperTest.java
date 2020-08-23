@@ -51,7 +51,7 @@ public class ChallengeMapperTest {
 
         Challenge byID = challengeMapper.getByID(52);
         byID.setScore(100);
-        int i = challengeMapper.updateByID(byID);
+        boolean i = challengeMapper.updateByID(byID);
         System.out.println(i);
 
     }

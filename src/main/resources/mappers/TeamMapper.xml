@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syclover.geekPlatform.dao.TeamMapper">
+
+    <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Team">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="token" property="token"/>
+        <result column="header_img" property="headerImg"/>
+        <result column="motto" property="motto"/>
+        <result column="points" property="points"/>
+        <result column="is_cuit" property="isCuit"/>
+        <result column="is_del" property="isDel"/>
+        <result column="last_points_time" property="lastPointsTime"/>
+        <result column="created_time" property="createdTime"/>
+        <association column="member_one" property="memberOne"
+                     javaType="com.syclover.geekPlatform.entity.User"
+                     select="com.syclover.geekPlatform.dao.UserMapper.getUserById">
+
+        </association>
+        <association column="member_two" property="memberTwo"
+                     javaType="com.syclover.geekPlatform.entity.User"
+                     select="com.syclover.geekPlatform.dao.UserMapper.getUserById">
+
+        </association>
+    </resultMap>
+
+    <resultMap id="nameMapper" type="com.syclover.geekPlatform.entity.Team">
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <insert id="addTeam">
+        insert into Teams (name,token,member_one) values (#{name},#{token},#{memberOne.id});
+    </insert>
+
+<!--    之后改成全字段更新-->
+    <insert id="addTeamate">
+        UPDATE
+            Teams
+        SET
+            member_two = #{id}
+        WHERE
+            token = #{token}
+    </insert>
+
+    <select id="getTeamById" resultMap="allColumnsMapper">
+        select * from Teams where id = #{id} and is_del = 0
+    </select>
+
+    <select id="getTeamByName" resultMap="allColumnsMapper">
+        select * from Teams where name = #{name} and is_del = 0
+    </select>
+
+    <select id="getTeamByToken" resultMap="allColumnsMapper">
+        select * from Teams where token = #{token} and is_del = 0
+    </select>
+
+    <select id="getAllName" resultMap="nameMapper">
+        select name from Teams where is_del = 0
+    </select>
+</mapper>

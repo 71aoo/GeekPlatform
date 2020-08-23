@@ -27,11 +27,17 @@ public class UserMapperTest {
 
     @Test
     public void getAllUser(){
+//
+//        List<User> allUser = userMapper.getAllUser();
+//        for (User user : allUser){
+//            System.out.println(user);
+//        }
 
-        List<User> allUser = userMapper.getAllUser();
-        for (User user : allUser){
-            System.out.println(user);
-        }
+    }
 
+    @Test
+    public void getTeamId(){
+        int teamId = userMapper.getUserById(1).getTeamId();
+        System.out.println(teamId);
     }
 }

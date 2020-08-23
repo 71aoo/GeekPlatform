@@ -1,10 +1,12 @@
 package com.syclover.geekPlatform.controller;
 
+import com.fasterxml.jackson.databind.ext.NioPathDeserializer;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,7 +29,6 @@ public class LoginController {
 
 
     //    用户注册控制器
-//    还需要用户名不重复逻辑
     @PostMapping("/addUser")
     @ResponseBody
     public String addUser(HttpServletRequest request){
@@ -44,7 +45,7 @@ public class LoginController {
 
 //        密码为空
         if (StringUtils.isEmpty(password) || StringUtils.isEmpty(username)){
-            return "password or username cannot be null";
+            return "请输入用户名和密码";
         }
         user.setUsername(username);
         user.setPassword(password);
@@ -52,31 +53,40 @@ public class LoginController {
         if (userService.getLoginUser(username).getStatus() == 500) {
             int result = userService.registerUser(user);
             if (result == 1) {
-                return "register succeed";
+                return "注册成功";
             } else {
-                return "something wrong";
+                return "发生错误";
             }
         }else{
-            return "username already been used!";
+            return "用户名已被使用";
         }
     }
 
     //    登陆控制器
     @PostMapping("/login")
-    @ResponseBody
     public String login(HttpServletRequest request, HttpSession session){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
-            return "请输入用户名和密码！";
+            return "请输入用户名和密码";
         }
 
         User user = userService.getLoginUser(username).getData();
         if (password.equals(user.getPassword())){
             session.setAttribute("user",username);
-            return "login succeed";
+            return "redirect:/profile";
         }else{
-            return "login failed";
+            return "index";
+        }
+    }
+
+//    登录后跳转至profile路由
+    @GetMapping("/profile")
+    public String profile(HttpServletRequest request,HttpSession session){
+        if (session.getAttribute("user") == null){
+            return "index";
+        }else {
+            return "profile";
         }
     }
 
