@@ -22,8 +22,12 @@ public class User {
     private String headerImg;
     // 逻辑删除
     private int isDel;
+    // 得分
+    private int points;
     // 队伍ID
     private int teamId;
+    //分数更新时间
+    private Timestamp lastPointsTime;
     // 创建时间
     private Timestamp createdTime;
     // 更新时间
@@ -32,6 +36,30 @@ public class User {
     private String username;
 
     private String password;
+
+
+    public User() {
+    }
+
+    public User(int id) {
+        this.id = id;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
+    public Timestamp getLastPointsTime() {
+        return lastPointsTime;
+    }
+
+    public void setLastPointsTime(Timestamp lastPointsTime) {
+        this.lastPointsTime = lastPointsTime;
+    }
 
     public String getUsername() {
         return username;
@@ -139,7 +167,9 @@ public class User {
                 ", motto='" + motto + '\'' +
                 ", headerImg='" + headerImg + '\'' +
                 ", isDel=" + isDel +
+                ", points=" + points +
                 ", teamId=" + teamId +
+                ", lastPointsTime=" + lastPointsTime +
                 ", createdTime=" + createdTime +
                 ", updatedTime=" + updatedTime +
                 ", username='" + username + '\'' +

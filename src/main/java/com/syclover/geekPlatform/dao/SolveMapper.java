@@ -4,6 +4,7 @@ import com.syclover.geekPlatform.entity.Challenge;
 import com.syclover.geekPlatform.entity.Solve;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
 public interface SolveMapper {
 
     // 新增
-    int addSolve(Solve solve);
+    boolean addSolve(Solve solve);
 
     // 找某用户所有解答的题目按时间排序
     List<Challenge> getSolvedChallengesByUser(User user);
@@ -29,5 +30,11 @@ public interface SolveMapper {
 
     // 根据 Solve 表得出队伍总分
     int getPointsByTeam(Team team);
+
+    // 判断队伍是否提交该题目
+    Solve isSolve(@Param("teamID")int teamID,@Param("token") String token,@Param("challengeID") int challengeID);
+
+    // 更新用户和队伍分数
+    boolean updatedScore(@Param("teamID") int teamID,@Param("userID") int userID,@Param("challengeID") int challengeID);
 
 }

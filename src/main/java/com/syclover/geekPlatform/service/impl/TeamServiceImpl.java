@@ -82,5 +82,26 @@ public class TeamServiceImpl implements TeamService {
         return new ResultT<List<String>>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),names);
     }
 
+    @Override
+    public ResultT<Team> checkUserInTeam(String token, int teamID, int userID) {
+
+        // 参数验证
+        if (token == null || teamID < 0 || userID < 0){
+
+            return new ResultT<Team>(ResponseCode.PARAMETER_ERROR.getCode(), ResponseCode.PARAMETER_ERROR.getMsg(), null);
+        }
+
+        // 数据库中取
+        Team userInTeam = teamMapper.isUserInTeam(token, teamID, userID);
+
+        if (userInTeam == null){
+
+            return  new ResultT<Team>(ResponseCode.USER_NOT_IN_TEAM.getCode(), ResponseCode.USER_NOT_IN_TEAM.getMsg(), null);
+        }
+
+        // 成功返回
+        return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), userInTeam);
+    }
+
 
 }

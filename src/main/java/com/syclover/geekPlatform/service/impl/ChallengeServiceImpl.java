@@ -7,6 +7,7 @@ import com.syclover.geekPlatform.entity.Category;
 import com.syclover.geekPlatform.entity.Challenge;
 import com.syclover.geekPlatform.service.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ import java.util.List;
  * @Author: Playwi0
  * @Data: 2020/8/19
  */
+@Service
 public class ChallengeServiceImpl implements ChallengeService {
 
     @Autowired
@@ -166,4 +168,20 @@ public class ChallengeServiceImpl implements ChallengeService {
 
         return resultT;
     }
+
+    @Override
+    public ResultT signSolved(int challengeID) {
+
+        if (challengeID < 0){
+            return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),
+                    ResponseCode.PARAMETER_ERROR.getMsg(),
+                    null);
+        }
+
+        boolean b = challengeMapper.updatedFirstBlood(challengeID);
+
+        return new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), null);
+    }
+
+
 }

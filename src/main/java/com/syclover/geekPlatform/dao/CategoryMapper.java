@@ -17,4 +17,7 @@ public interface CategoryMapper {
 
     // 获取所有分类
     List<Category> getAll();
+
+    // 添加一个分类
+    boolean addCategory(String name);
 }

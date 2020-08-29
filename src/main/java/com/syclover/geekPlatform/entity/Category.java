@@ -13,6 +13,13 @@ public class Category {
     // 分类下的题目数量
     private int count;
 
+    public Category() {
+    }
+
+    public Category(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

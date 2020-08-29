@@ -30,4 +30,13 @@ public class TeamMapperTest {
             System.out.println(team.getName());
         }
     }
+
+    @Test
+    public void isUserInTeam(){
+
+        Team team = teamMapper.isUserInTeam("ASDASDAS", 1, 2);
+
+        System.out.println(team);
+
+    }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.syclover.geekPlatform.dao.ScoreboardMapper">
+
+    <select id="getTeamScoreboard" resultMap="com.syclover.geekPlatform.dao.TeamMapper.allColumnsMapper">
+        select
+            *
+        from
+            Teams
+        order by
+            -points,
+            last_points_time
+    </select>
+
+    <select id="getUserScoreboard" resultMap="com.syclover.geekPlatform.dao.UserMapper.allColumnsMapper">
+        select
+            *
+        from
+            Users
+        order by
+            -points,
+            last_points_time
+    </select>
+
+</mapper>

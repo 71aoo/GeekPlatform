@@ -26,4 +26,7 @@ public interface ChallengeService {
 
     // 根据 id 逻辑删除一个题目
     ResultT LogicallyDelChallenge(int id);
+
+    // 标记已有解
+    ResultT signSolved(int challengeID);
 }

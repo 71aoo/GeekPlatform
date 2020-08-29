@@ -15,6 +15,11 @@
         select * from Categories
     </select>
 
+    <!-- 插入一个category -->
+    <insert id="addCategory">
+        insert into Categories("name") values(#{name})
+    </insert>
+
     <!-- 所有字段映射 -->
     <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Category">
         <result column="id" property="id"/>

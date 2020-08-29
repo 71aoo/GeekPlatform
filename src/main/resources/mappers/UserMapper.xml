@@ -7,17 +7,19 @@
     
     <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.User">
         <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
         <result column="real_name" property="realName"/>
         <result column="student_id" property="studentId"/>
         <result column="is_cuit" property="isCuit"/>
         <result column="motto" property="motto"/>
         <result column="header_img" property="headerImg"/>
         <result column="is_del" property="isDel"/>
+        <result column="points" property="points"/>
         <result column="team_id" property="teamId"/>
         <result column="created_time" property="createdTime"/>
         <result column="updated_time" property="updatedTime"/>
-        <result column="username" property="username"/>
-        <result column="password" property="password"/>
+
     </resultMap>
     
     <resultMap id="loginMapper" type="com.syclover.geekPlatform.entity.User">

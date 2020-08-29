@@ -35,6 +35,13 @@ public class Challenge {
     // 修改时间
     private Timestamp updatedTime;
 
+    public Challenge() {
+    }
+
+    public Challenge(int id) {
+        this.id = id;
+    }
+
     public String getFlag() {
         return flag;
     }

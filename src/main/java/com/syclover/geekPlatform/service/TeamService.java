@@ -22,4 +22,7 @@ public interface TeamService {
     ResultT<Team> getTeamByToken(String token);
 
     ResultT<List<String>> getAllName();
+
+    // 检查用户是否在队伍里面
+    ResultT<Team> checkUserInTeam(String token, int teamID, int userID);
 }

@@ -52,7 +52,7 @@
             flag = #{flag},
             author = #{author.id},
             category = #{category.id},
-            first_blood = #{firstBlood},
+            hidden = #{hidden},
             updated_time = DATE_FORMAT(NOW(),'%Y-%m-%d %H:%m:%s')
         WHERE
             id = #{id}
@@ -93,6 +93,14 @@
             id = #{id}
     </update>
 
+    <update id="updatedFirstBlood">
+        UPDATE
+            Challenges
+        SET
+            first_blood = 1
+        WHERE
+            id = #{id}
+    </update>
 
     <!-- 所有字段 -->
     <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Challenge">

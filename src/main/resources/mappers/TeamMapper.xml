@@ -61,4 +61,17 @@
     <select id="getAllName" resultMap="nameMapper">
         select name from Teams where is_del = 0
     </select>
+
+
+    <select id="isUserInTeam" resultMap="allColumnsMapper">
+        select
+            *
+        from
+            Teams
+        where
+            Teams.token = #{token} and
+            Teams.id = #{teamID} and
+            member_one = #{userID} or
+            member_two = #{userID}
+    </select>
 </mapper>
