@@ -11,10 +11,10 @@ public interface TeamService {
     ResultT<Team> createTeam(Team team);
 
 //    加入队伍成员
-    ResultT<Team> addTeamate(long id,String token);
+    ResultT<Team> addTeamate(int id,String token);
 
 //    使用id查找队伍
-    ResultT<Team> getTeam(long id);
+    ResultT<Team> getTeam(int id);
 
 //    使用名称查找队伍
     ResultT<Team> getTeam(String name);

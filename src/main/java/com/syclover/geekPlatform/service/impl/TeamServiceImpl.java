@@ -21,7 +21,7 @@ public class TeamServiceImpl implements TeamService {
     @Autowired
     private TeamMapper teamMapper;
 
-
+//  创建团队
     @Override
     public ResultT<Team> createTeam(Team team) {
         int result = teamMapper.addTeam(team);
@@ -32,8 +32,9 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
+//    根据队伍token来加入用户id
     @Override
-    public ResultT<Team> addTeamate(long id, String token) {
+    public ResultT<Team> addTeamate(int id, String token) {
         int result = teamMapper.addTeamate(id, token);
         if (result == 0){
             return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
@@ -42,8 +43,9 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
+//    根据id得到队伍对象
     @Override
-    public ResultT<Team> getTeam(long id) {
+    public ResultT<Team> getTeam(int id) {
         Team team = teamMapper.getTeamById(id);
         if (team == null){
             return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
@@ -52,6 +54,7 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
+//    根据队名得到队伍对象
     @Override
     public ResultT<Team> getTeam(String name) {
         Team team = teamMapper.getTeamByName(name);
@@ -62,6 +65,7 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
+//    根据token得到队伍对象
     @Override
     public ResultT<Team> getTeamByToken(String token) {
         Team team = teamMapper.getTeamByToken(token);
@@ -72,6 +76,7 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
+//    得到所有队伍名字
     @Override
     public ResultT<List<String>> getAllName() {
         List<Team> teamList = teamMapper.getAllName();

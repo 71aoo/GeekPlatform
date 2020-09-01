@@ -13,7 +13,7 @@ import java.util.List;
 public interface AuthorMapper {
 
     // 根据id获取出题人
-    Author getById(long id);
+    Author getById(int id);
 
     // 获得所有出题人
     List<Author> getAll();

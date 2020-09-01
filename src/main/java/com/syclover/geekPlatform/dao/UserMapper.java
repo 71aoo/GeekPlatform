@@ -1,17 +1,20 @@
 package com.syclover.geekPlatform.dao;
 
 import com.syclover.geekPlatform.entity.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserMapper {
 
-    int addUser(User user);
+    int addUser(@Param("user") User user);
 
     User getUserByUsername(String username);
 
-    User getUserById(long id);
+    User getUserById(int id);
 
-    int updateTeam(long id,long teamid);
+    int updateTeam(int id,long teamid);
 
+    //拿取最新的id用于生成redis键
+    User getLastUserId();
 }

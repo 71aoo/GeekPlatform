@@ -18,8 +18,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
+//    根据id得到用户对象
     @Override
-    public ResultT<User> getUser(long id) {
+    public ResultT<User> getUser(int id) {
         User user = userMapper.getUserById(id);
         if (user != null) {
             ResultT<User> result = new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int getTeamId(long id) {
+    public int getTeamId(int id) {
         User user = userMapper.getUserById(id);
         return user.getTeamId();
     }
@@ -56,9 +57,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateTeam(long id, long teamid) {
+    public int updateTeam(int id, long teamid) {
         int result = userMapper.updateTeam(id, teamid);
         return result;
+    }
+
+    @Override
+    public int getLastId() {
+        User user = userMapper.getLastUserId();
+        return user.getId();
     }
 
 

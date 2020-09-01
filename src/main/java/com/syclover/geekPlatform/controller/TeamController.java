@@ -8,6 +8,7 @@ import com.syclover.geekPlatform.service.UserService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,7 +23,7 @@ import java.util.UUID;
  */
 
 @Controller
-@RequestMapping("/team")
+@RequestMapping("/api")
 public class TeamController {
 
     @Autowired
@@ -31,7 +32,7 @@ public class TeamController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/add")
+    @PostMapping("/team/add")
     @ResponseBody
     public String createTeam(@Param("teamname") String teamname, HttpSession session) {
         List<String> names = teamService.getAllName().getData();
@@ -54,18 +55,29 @@ public class TeamController {
         }
     }
 
-    @PostMapping("/join")
+    @PostMapping("/team/join")
     @ResponseBody
     public String joinTeam(@Param("token") String token,HttpSession session){
         User user = userService.getLoginUser((String) session.getAttribute("user")).getData();
         int teamId = user.getTeamId();
         if (teamId == 0){
             teamService.addTeamate(user.getId(),token);
-            long id = teamService.getTeamByToken(token).getData().getId();
+            int id = teamService.getTeamByToken(token).getData().getId();
             userService.updateTeam(user.getId(),id);
             return "加入队伍成功";
         }else{
             return "您已在一只队伍中，请先退出队伍";
+        }
+    }
+
+    @PostMapping("/team/check")
+    @ResponseBody
+    public int checkNameVariable(@Param("name") String name){
+        List<String> names = teamService.getAllName().getData();
+        if (names.contains(name)){
+            return 0; //名称已被注册
+        }else {
+            return 1;
         }
     }
 

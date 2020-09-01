@@ -40,4 +40,19 @@ public class UserMapperTest {
         int teamId = userMapper.getUserById(1).getTeamId();
         System.out.println(teamId);
     }
+
+    @Test
+    void getid(){
+        User user = userMapper.getLastUserId();
+        System.out.println(user.getId());
+    }
+
+    @Test
+    void addUser(){
+        User user = new User();
+        user.setUsername("tttt");
+        user.setPassword("aaaa");
+        int result = userMapper.addUser(user);
+        System.out.println(result);
+    }
 }

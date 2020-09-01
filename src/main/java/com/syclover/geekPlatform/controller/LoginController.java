@@ -3,7 +3,10 @@ package com.syclover.geekPlatform.controller;
 import com.fasterxml.jackson.databind.ext.NioPathDeserializer;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.User;
+import com.syclover.geekPlatform.service.BloomFilterService;
+import com.syclover.geekPlatform.service.RedisService;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,15 +21,20 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private BloomFilterService bloomFilterService;
+
+    @Autowired
+    private RedisService redisService;
+
     //  返回index模板
     @RequestMapping({"/","index"})
     public String index(){
         return "index";
     }
-
-    @Autowired
-    private UserService userService;
-
 
     //    用户注册控制器
     @PostMapping("/addUser")
@@ -50,15 +58,15 @@ public class LoginController {
         user.setUsername(username);
         user.setPassword(password);
         //检查用户名是否已经注册
-        if (userService.getLoginUser(username).getStatus() == 500) {
-            int result = userService.registerUser(user);
-            if (result == 1) {
-                return "注册成功";
-            } else {
-                return "发生错误";
-            }
+        if (bloomFilterService.contain(username)){
+            return "用户名已被注册！";
         }else{
-            return "用户名已被使用";
+            System.out.println("test");
+            userService.registerUser(user);
+            int id = userService.getLastId();
+            redisService.set(RedisUtil.generateUserKey(id),username);
+            bloomFilterService.add(username);
+            return "成功注册";
         }
     }
 
@@ -68,7 +76,7 @@ public class LoginController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
-            return "请输入用户名和密码";
+            return "index";
         }
 
         User user = userService.getLoginUser(username).getData();
@@ -89,5 +97,4 @@ public class LoginController {
             return "profile";
         }
     }
-
 }

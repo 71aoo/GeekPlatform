@@ -26,7 +26,11 @@
         <result column="is_cuit" property="isCuit"/>
         <result column="team_id" property="teamId"/>
     </resultMap>
-    
+
+    <resultMap id="idMapper" type="com.syclover.geekPlatform.entity.User">
+        <result column="id" property="id"/>
+    </resultMap>
+
     <!--根据id查找user-->
     <select id="getUserById" resultMap="allColumnsMapper">
         select * from Users where id = #{id}
@@ -51,4 +55,8 @@
     <insert id="updateTeam">
         update Users set team_id = #{teamid} where id = #{id}
     </insert>
+
+    <select id="getLastUserId" resultMap="idMapper">
+        select id from Users order by id desc limit 1
+    </select>
 </mapper>

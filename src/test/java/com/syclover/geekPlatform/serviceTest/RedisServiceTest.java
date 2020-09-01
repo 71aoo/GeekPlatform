@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Set;
+
 /**
  * @Author: Playwi0
  * @Data: 2020/8/21
@@ -45,5 +47,22 @@ public class RedisServiceTest {
         User o = (User)redisService.get(s);
 
         System.out.println(o);
+    }
+
+    @Test
+    public void getall(){
+        Set<String> allKeys = redisService.getAllKeys();
+        System.out.println(allKeys);
+    }
+
+    @Test
+    public void setString(){
+        redisService.set(RedisUtil.generateUserKey(1),"admin");
+    }
+
+    @Test
+    public void getAllUser(){
+        Set<String> userKeys = redisService.getUserKeys();
+        System.out.println(userKeys);
     }
 }

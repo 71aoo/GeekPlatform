@@ -10,9 +10,9 @@ public interface TeamMapper {
 
     int addTeam(Team team);
 
-    Team getTeamById(long id);
+    Team getTeamById(int id);
 
-    int addTeamate(long id,String token);
+    int addTeamate(int id,String token);
 
     Team getTeamByName(String name);
 
