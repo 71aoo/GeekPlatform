@@ -68,5 +68,10 @@ public class UserServiceImpl implements UserService {
         return user.getId();
     }
 
+    @Override
+    public void activeEmail() {
+
+    }
+
 
 }

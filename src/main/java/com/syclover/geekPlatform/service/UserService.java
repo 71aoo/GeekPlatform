@@ -24,4 +24,7 @@ public interface UserService {
 
     //获取最后的id
     int getLastId();
+
+    // 验证激活邮箱
+    void activeEmail();
 }
