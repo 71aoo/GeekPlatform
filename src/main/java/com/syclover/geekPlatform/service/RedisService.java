@@ -22,4 +22,7 @@ public interface RedisService {
 
     //拿取所有USER_INFO的keys
     Set<String> getUserKeys();
+
+    //拿取所有EMAIL_TOKEN的keys
+    Set<String> getEmailTokens();
 }

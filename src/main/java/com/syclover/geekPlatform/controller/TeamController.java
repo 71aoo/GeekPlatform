@@ -73,7 +73,7 @@ public class TeamController {
             teamService.addTeamate(user.getId(),token);
             int id = teamService.getTeamByToken(token).getData().getId();
             userService.updateTeam(user.getId(),id);
-            return new ResultT<>(ResponseCode.TEAM_JOIN_SUCCEESS.getCode(),ResponseCode.TEAM_JOIN_SUCCEESS.getMsg(),null);
+            return new ResultT<>(ResponseCode.TEAM_JOIN_SUCCESS.getCode(),ResponseCode.TEAM_JOIN_SUCCESS.getMsg(),null);
         }else{
             return new ResultT<>(ResponseCode.TEAM_JOIN_FAILED.getCode(),ResponseCode.TEAM_JOIN_FAILED.getMsg(),null);
         }

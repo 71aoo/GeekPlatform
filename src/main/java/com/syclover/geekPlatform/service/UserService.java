@@ -26,5 +26,5 @@ public interface UserService {
     int getLastId();
 
     // 验证激活邮箱
-    void activeEmail();
+    int activeEmail(String token);
 }

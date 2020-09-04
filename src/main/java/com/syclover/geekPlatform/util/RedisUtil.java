@@ -8,6 +8,7 @@ public class RedisUtil {
 
     private final static String TEAM_PREFIX = "TEAM_INFO_";
     private final static String USER_PREFIX = "USER_INFO_";
+    private final static String EMAIL_TOKEN_PREFIX = "EMAIL_TOKEN_";
 
 
     /*
@@ -24,6 +25,11 @@ public class RedisUtil {
     public static String generateUserKey(int id){
 
         return USER_PREFIX + id;
+    }
+
+    //生成 redis储存邮件token过期信息的key
+    public static String generateEmailToken(String token) {
+        return EMAIL_TOKEN_PREFIX + token;
     }
 
 }

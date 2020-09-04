@@ -39,6 +39,15 @@ public class RedisServiceTest {
 
     }
 
+
+    @Test
+    public void setEx(){
+
+        boolean setex = redisService.setex("testkey2", 30, "testvalue");
+        System.out.println(setex);
+
+    }
+
     @Test
     public void get(){
 

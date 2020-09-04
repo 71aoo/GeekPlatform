@@ -69,8 +69,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void activeEmail() {
-
+    public int activeEmail(String token) {
+        return userMapper.activeEmail(token);
     }
 
 

@@ -17,4 +17,7 @@ public interface UserMapper {
 
     //拿取最新的id用于生成redis键
     User getLastUserId();
+
+    //激活邮箱
+    int activeEmail(String token);
 }

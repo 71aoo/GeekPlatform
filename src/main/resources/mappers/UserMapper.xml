@@ -48,7 +48,7 @@
 
     <!-- 添加注册用户-->
     <insert id="addUser">
-        insert into Users (username,password,is_cuit) values (#{user.username},#{user.password},#{user.isCuit})
+        insert into Users (username,password,is_cuit,email,auth_token) values (#{user.username},#{user.password},#{user.isCuit},#{user.email},#{user.authToken})
     </insert>
 
 <!--    更新用户的队伍 之后更新全字段-->
@@ -58,5 +58,10 @@
 
     <select id="getLastUserId" resultMap="idMapper">
         select id from Users order by id desc limit 1
+    </select>
+
+<!--    激活邮箱-->
+    <select id="activeEmail">
+        update Users set is_auth_email = 1 where auth_token = #{token} and is_del = 0
     </select>
 </mapper>

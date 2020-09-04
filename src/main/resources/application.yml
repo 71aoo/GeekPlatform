@@ -26,6 +26,16 @@ spring:
         # 阻塞时间
         max-wait: -1
 
+#  邮件发送配置
+  mail:
+#    用户名
+    username: cueyucueyu@163.com
+#    授权码
+    password: CGZDVZSUDISSEMHL
+#    smtp服务器地址
+    host: smtp.163.com
+    default-encoding: UTF-8
+
 logging:
   file:
     name: my.log
@@ -38,3 +48,4 @@ logging:
 mybatis:
 #  type-aliases-package: com.syclover.geekPlatform.entity
   mapper-locations: classpath:mappers/*.xml
+
