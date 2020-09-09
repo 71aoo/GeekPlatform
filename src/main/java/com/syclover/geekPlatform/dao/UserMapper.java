@@ -20,4 +20,7 @@ public interface UserMapper {
 
     //激活邮箱
     int activeEmail(String token);
+
+    //更新对应id用户的token
+    int updateToken(int id,String token);
 }

@@ -3484,3 +3484,267 @@ org.apache.ibatis.binding.BindingException: Mapper method 'com.syclover.geekPlat
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.37.jar:9.0.37]
 	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_201]
 
+2020-09-06 16:23:51.327  INFO 9112 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 9112 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:23:51.482  INFO 9112 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:23:52.688  INFO 9112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:23:52.691  INFO 9112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:23:52.717  INFO 9112 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-06 16:23:55.686  INFO 9112 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'mailExecutor'
+2020-09-06 16:23:56.081  INFO 9112 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:23:56.407  INFO 9112 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 5.397 seconds (JVM running for 6.569)
+2020-09-06 16:23:56.603  INFO 9112 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'mailExecutor'
+2020-09-06 16:24:15.608 ERROR 9112 --- [mailExecutor-1] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:24:26.499  INFO 4240 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 4240 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:24:26.506  INFO 4240 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:24:26.955  INFO 4240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:24:26.958  INFO 4240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:24:26.983  INFO 4240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-06 16:24:29.772  INFO 4240 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'mailExecutor'
+2020-09-06 16:24:30.136  INFO 4240 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:24:30.494  INFO 4240 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.351 seconds (JVM running for 5.33)
+2020-09-06 16:24:30.655  INFO 4240 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'mailExecutor'
+2020-09-06 16:24:49.165 ERROR 4240 --- [mailExecutor-1] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:28:10.931  INFO 2924 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 2924 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:28:10.938  INFO 2924 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:28:11.381  INFO 2924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:28:11.384  INFO 2924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:28:11.409  INFO 2924 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-06 16:28:14.173  INFO 2924 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'mailExecutor'
+2020-09-06 16:28:14.561  INFO 2924 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:28:14.881  INFO 2924 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.309 seconds (JVM running for 5.224)
+2020-09-06 16:28:15.032  INFO 2924 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'mailExecutor'
+2020-09-06 16:28:33.528 ERROR 2924 --- [mailExecutor-1] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:35:38.918  INFO 152 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 152 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:35:38.926  INFO 152 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:35:39.377  INFO 152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:35:39.380  INFO 152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:35:39.404  INFO 152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-06 16:35:42.261  INFO 152 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'mailExecutor'
+2020-09-06 16:35:42.644  INFO 152 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:35:42.997  INFO 152 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.446 seconds (JVM running for 5.405)
+2020-09-06 16:35:43.147  INFO 152 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'mailExecutor'
+2020-09-06 16:36:01.655 ERROR 152 --- [mailExecutor-1] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:36:29.296  INFO 7456 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 7456 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:36:29.304  INFO 7456 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:36:29.745  INFO 7456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:36:29.748  INFO 7456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:36:29.772  INFO 7456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-06 16:36:32.779  INFO 7456 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:36:32.857  INFO 7456 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:36:33.177  INFO 7456 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.244 seconds (JVM running for 5.237)
+2020-09-06 16:36:51.845 ERROR 7456 --- [main] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:36:51.858  INFO 7456 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:38:59.444  INFO 7472 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 7472 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:38:59.453  INFO 7472 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:38:59.944  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:38:59.948  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:38:59.975  INFO 7472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-06 16:39:03.088  INFO 7472 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:39:03.171  INFO 7472 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:39:03.515  INFO 7472 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.442 seconds (JVM running for 5.447)
+2020-09-06 16:39:23.402 ERROR 7472 --- [main] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:39:23.415  INFO 7472 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:47:30.857  INFO 9768 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 9768 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:47:30.864  INFO 9768 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:47:31.315  INFO 9768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:47:31.318  INFO 9768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:47:31.341  INFO 9768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-06 16:47:34.339  INFO 9768 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:47:34.410  INFO 9768 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:47:34.724  INFO 9768 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.182 seconds (JVM running for 5.08)
+2020-09-06 16:47:53.431 ERROR 9768 --- [main] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:47:53.442  INFO 9768 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:52:07.714  INFO 17564 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 17564 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:52:07.720  INFO 17564 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:52:08.149  INFO 17564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:52:08.153  INFO 17564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:52:08.176  INFO 17564 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-06 16:52:11.194  INFO 17564 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:52:11.277  INFO 17564 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:52:11.588  INFO 17564 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.218 seconds (JVM running for 5.14)
+2020-09-06 16:52:30.335 ERROR 17564 --- [main] c.s.g.s.i.MailServiceImpl                : 发送邮件出错
+2020-09-06 16:52:30.347  INFO 17564 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:57:39.397  INFO 13128 --- [main] c.s.g.s.MailServiceTest                  : Starting MailServiceTest on cueyu with PID 13128 (started by x in E:\project\GeekPlatform)
+2020-09-06 16:57:39.403  INFO 13128 --- [main] c.s.g.s.MailServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-06 16:57:39.835  INFO 13128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 16:57:39.838  INFO 13128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 16:57:39.861  INFO 13128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-06 16:57:42.954  INFO 13128 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 16:57:43.024  INFO 13128 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 16:57:43.374  INFO 13128 --- [main] c.s.g.s.MailServiceTest                  : Started MailServiceTest in 4.25 seconds (JVM running for 5.427)
+2020-09-06 16:58:02.600  INFO 13128 --- [main] c.s.g.s.i.MailServiceImpl                : 邮件已发送
+2020-09-06 16:58:02.612  INFO 13128 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-06 20:20:17.603  INFO 7364 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 7364 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-06 20:20:17.612  INFO 7364 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-06 20:20:18.007  INFO 7364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 20:20:18.009  INFO 7364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 20:20:18.028  INFO 7364 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11ms. Found 0 Redis repository interfaces.
+2020-09-06 20:20:18.333  INFO 7364 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-06 20:20:18.340  INFO 7364 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-06 20:20:18.340  INFO 7364 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-06 20:20:18.399  INFO 7364 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-06 20:20:18.399  INFO 7364 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 731 ms
+2020-09-06 20:20:20.092  INFO 7364 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 20:20:20.129  INFO 7364 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 20:20:20.285  INFO 7364 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-06 20:20:20.291  INFO 7364 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 3.002 seconds (JVM running for 4.027)
+2020-09-06 20:20:47.976  INFO 7364 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-06 20:20:47.980  INFO 7364 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 20:20:47.981  INFO 7364 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-06 20:20:47.984  INFO 7364 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2020-09-06 20:22:19.571  INFO 7364 --- [http-nio-8080-exec-5] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-06 20:22:20.728  INFO 7364 --- [http-nio-8080-exec-5] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-06 20:25:48.172 ERROR 7364 --- [http-nio-8080-exec-5] o.a.c.c.C.[.[.[.[dispatcherServlet]      : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.apache.ibatis.binding.BindingException: Mapper method 'com.syclover.geekPlatform.dao.UserMapper.activeEmail attempted to return null from a method with a primitive return type (int).] with root cause
+
+org.apache.ibatis.binding.BindingException: Mapper method 'com.syclover.geekPlatform.dao.UserMapper.activeEmail attempted to return null from a method with a primitive return type (int).
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:102) ~[mybatis-3.5.5.jar:3.5.5]
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152) ~[mybatis-3.5.5.jar:3.5.5]
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85) ~[mybatis-3.5.5.jar:3.5.5]
+	at com.sun.proxy.$Proxy72.activeEmail(Unknown Source) ~[?:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139) ~[spring-tx-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at com.sun.proxy.$Proxy73.activeEmail(Unknown Source) ~[?:?]
+	at com.syclover.geekPlatform.service.impl.UserServiceImpl.activeEmail(UserServiceImpl.java:73) ~[classes/:?]
+	at com.syclover.geekPlatform.controller.LoginController.activeEmail(LoginController.java:173) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733) ~[tomcat-embed-core-9.0.37.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119) ~[spring-web-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166) ~[tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149) [?:1.8.0_201]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624) [?:1.8.0_201]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) [tomcat-embed-core-9.0.37.jar:9.0.37]
+	at java.lang.Thread.run(Thread.java:748) [?:1.8.0_201]
+
+2020-09-06 20:33:05.876  INFO 5180 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 5180 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-06 20:33:05.882  INFO 5180 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-06 20:33:06.291  INFO 5180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 20:33:06.293  INFO 5180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 20:33:06.311  INFO 5180 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-09-06 20:33:06.616  INFO 5180 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-06 20:33:06.622  INFO 5180 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-06 20:33:06.622  INFO 5180 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-06 20:33:06.679  INFO 5180 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-06 20:33:06.679  INFO 5180 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 732 ms
+2020-09-06 20:33:08.405  INFO 5180 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 20:33:08.444  INFO 5180 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 20:33:08.602  INFO 5180 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-06 20:33:08.610  INFO 5180 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 3.028 seconds (JVM running for 3.964)
+2020-09-06 20:33:50.688  INFO 5180 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=E54EBF9780BC15109D3A7167AB40F18C] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-06 20:33:50.692  INFO 5180 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 20:33:50.692  INFO 5180 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-06 20:33:50.696  INFO 5180 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-09-06 20:33:55.118  INFO 5180 --- [http-nio-8080-exec-2] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-06 20:33:56.147  INFO 5180 --- [http-nio-8080-exec-2] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-06 20:34:29.910  INFO 5180 --- [http-nio-8080-exec-9] c.s.g.s.i.MailServiceImpl                : 邮件已发送
+2020-09-06 20:45:22.781  INFO 5332 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 5332 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-06 20:45:22.786  INFO 5332 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-06 20:45:23.175  INFO 5332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-06 20:45:23.177  INFO 5332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-06 20:45:23.194  INFO 5332 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-09-06 20:45:23.484  INFO 5332 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-06 20:45:23.490  INFO 5332 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-06 20:45:23.490  INFO 5332 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-06 20:45:23.546  INFO 5332 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-06 20:45:23.546  INFO 5332 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 703 ms
+2020-09-06 20:45:25.262  INFO 5332 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-06 20:45:25.307  INFO 5332 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-06 20:45:25.460  INFO 5332 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-06 20:45:25.467  INFO 5332 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 2.968 seconds (JVM running for 3.95)
+2020-09-06 20:45:57.725  INFO 5332 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=E1123EFA45A4CC3029F6EEC1519A2EE0] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-06 20:45:57.730  INFO 5332 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-06 20:45:57.730  INFO 5332 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-06 20:45:57.733  INFO 5332 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2020-09-06 20:46:01.216  INFO 5332 --- [http-nio-8080-exec-3] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-06 20:46:02.273  INFO 5332 --- [http-nio-8080-exec-3] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-06 20:46:26.385  INFO 5332 --- [http-nio-8080-exec-4] c.s.g.s.i.MailServiceImpl                : 邮件已发送
+2020-09-07 21:23:14.841  INFO 21500 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 21500 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-07 21:23:14.846  INFO 21500 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-07 21:23:16.257  INFO 21500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 21:23:16.260  INFO 21500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-07 21:23:16.482  INFO 21500 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-07 21:23:16.850  INFO 21500 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-07 21:23:16.857  INFO 21500 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-07 21:23:16.858  INFO 21500 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-07 21:23:16.919  INFO 21500 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-07 21:23:16.919  INFO 21500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2024 ms
+2020-09-07 21:23:21.541  INFO 21500 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 21:23:21.590  INFO 21500 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-07 21:23:21.780  INFO 21500 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-07 21:23:21.787  INFO 21500 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 7.27 seconds (JVM running for 8.774)
+2020-09-07 21:23:29.515  INFO 21500 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-07 21:23:29.519  INFO 21500 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 21:23:29.519  INFO 21500 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-07 21:23:29.522  INFO 21500 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 3 ms
+2020-09-07 21:28:17.479  INFO 20208 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 20208 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-07 21:28:17.484  INFO 20208 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-07 21:28:17.901  INFO 20208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-07 21:28:17.903  INFO 20208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-07 21:28:17.920  INFO 20208 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10ms. Found 0 Redis repository interfaces.
+2020-09-07 21:28:18.224  INFO 20208 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-07 21:28:18.230  INFO 20208 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-07 21:28:18.230  INFO 20208 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-07 21:28:18.285  INFO 20208 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-07 21:28:18.285  INFO 20208 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 734 ms
+2020-09-07 21:28:19.862  INFO 20208 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-07 21:28:19.902  INFO 20208 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-07 21:28:20.061  INFO 20208 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-07 21:28:20.067  INFO 20208 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 2.937 seconds (JVM running for 3.862)
+2020-09-07 21:28:44.071  INFO 20208 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-07 21:28:44.075  INFO 20208 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-07 21:28:44.075  INFO 20208 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-07 21:28:44.079  INFO 20208 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms

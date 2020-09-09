@@ -100,6 +100,7 @@ public class LoginController {
     }
 
     //    登陆控制器    模板引擎不需要了这些得改 但还不知道怎么改
+    //    改为直接使用邮箱登陆
     @PostMapping("/login")
     public String login(HttpServletRequest request, HttpSession session){
         String username = request.getParameter("username");
@@ -146,6 +147,35 @@ public class LoginController {
         }else {
             //token错误或数据库失败
             return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),ResponseCode.PARAMETER_ERROR.getMsg(),null);
+        }
+    }
+
+
+    /*
+    * 接口用于重发邮箱验证邮件
+    * 用户登陆以后才可以使用接口
+    * 接口根据传入的session找到
+    * 用户对象，再找到数据库中的email地址*/
+    @RequestMapping("/api/resetToken")
+    @ResponseBody
+    public ResultT activeEmail(HttpSession session){
+        String username = (String) session.getAttribute("user");
+        if (username == null){
+            // session中没有user 用户没有登陆
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }else {
+            // 得到user对象 到数据库中查邮箱
+            User user = userService.getLoginUser(username).getData();
+            String email = user.getEmail();
+            // 再次生成token 更新用户数据库和缓存
+            String token = UUID.randomUUID().toString().replace("-", "");
+            redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
+            int id = user.getId();
+            // 更新对应用户token
+            userService.updateToken(id,token);
+            String content = PlatformUrl + "?token=" + token;
+            mailService.sendSimpleMail(email,"Reset token test",content);
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
 }

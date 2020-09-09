@@ -73,5 +73,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.activeEmail(token);
     }
 
+    @Override
+    public int updateToken(int id, String token) {
+        return userMapper.updateToken(id,token);
+    }
+
 
 }

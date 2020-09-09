@@ -27,4 +27,7 @@ public interface UserService {
 
     // 验证激活邮箱
     int activeEmail(String token);
+
+    //更新token
+    int updateToken(int id,String token);
 }
