@@ -1,7 +1,10 @@
 package com.syclover.geekPlatform.util;
 
+import com.syclover.geekPlatform.dao.UserMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Repository;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,16 +21,14 @@ import java.util.NoSuchElementException;
 * 直接返回需要的username来认证用户*/
 
 public class SessionGetterUtil {
-    public static String getUsername(HttpSession session) throws Exception{
-        try{
+
+    public static String getUsername(HttpSession session){
             Enumeration<String> attrs = session.getAttributeNames();
             String name = attrs.nextElement().toString();
             SecurityContextImpl value =(SecurityContextImpl) session.getAttribute(name);
             UserDetails principal = (UserDetails) value.getAuthentication().getPrincipal();
             String username = principal.getUsername();
             return username;
-        }catch (NoSuchElementException e){
-            return null;
         }
     }
-}
+
