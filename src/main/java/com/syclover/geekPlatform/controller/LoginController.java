@@ -1,6 +1,7 @@
 package com.syclover.geekPlatform.controller;
 
 import com.fasterxml.jackson.databind.ext.NioPathDeserializer;
+import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.User;
@@ -9,9 +10,14 @@ import com.syclover.geekPlatform.service.MailService;
 import com.syclover.geekPlatform.service.RedisService;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.RedisUtil;
+import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.expression.EvaluationException;
+import org.springframework.security.core.context.SecurityContextImpl;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +27,8 @@ import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.Enumeration;
+import java.util.NoSuchElementException;
 import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
@@ -101,27 +109,32 @@ public class LoginController {
 
     //    登陆控制器    模板引擎不需要了这些得改 但还不知道怎么改
     //    改为直接使用邮箱登陆
-    @PostMapping("/login")
-    public String login(HttpServletRequest request, HttpSession session){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
-            return "index";
-        }
-
-        User user = userService.getLoginUser(username).getData();
-        if (password.equals(user.getPassword())){
-            session.setAttribute("user",username);
-            return "redirect:/profile";
-        }else{
-            return "index";
-        }
+//    @PostMapping("/login")
+//    public String login(HttpServletRequest request, HttpSession session){
+//        String username = request.getParameter("username");
+//        String password = request.getParameter("password");
+//        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
+//            return "index";
+//        }
+//
+//        User user = userService.getLoginUser(username).getData();
+//        if (password.equals(user.getPassword())){
+//            session.setAttribute("user",username);
+//            return "redirect:/profile";
+//        }else{
+//            return "index";
+//        }
+//    }
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
 
 //    登录后跳转至profile路由
     @GetMapping("/profile")
-    public String profile(HttpServletRequest request,HttpSession session){
-        if (session.getAttribute("user") == null){
+    public String profile(HttpSession session) throws Exception {
+        // 判断session中有无username
+        if (SessionGetterUtil.getUsername(session) == null){
             return "index";
         }else {
             return "profile";
@@ -158,8 +171,8 @@ public class LoginController {
     * 用户对象，再找到数据库中的email地址*/
     @RequestMapping("/api/resetToken")
     @ResponseBody
-    public ResultT activeEmail(HttpSession session){
-        String username = (String) session.getAttribute("user");
+    public ResultT activeEmail(HttpSession session) throws Exception{
+        String username = SessionGetterUtil.getUsername(session);
         if (username == null){
             // session中没有user 用户没有登陆
             return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
@@ -178,4 +191,30 @@ public class LoginController {
             return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public ResultT test(){
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+    }
+
+    @RequestMapping("/sessionTest")
+    @ResponseBody
+    public String session(HttpServletRequest request) throws NoSuchElementException {
+        try{
+        HttpSession session = request.getSession();
+        Enumeration<String> attrs = session.getAttributeNames();
+        String name = attrs.nextElement().toString();
+        SecurityContextImpl value =(SecurityContextImpl) session.getAttribute(name);
+        UserDetails principal = (UserDetails) value.getAuthentication().getPrincipal();
+        String username = principal.getUsername();
+        System.out.println("username: "+ username);
+
+        return "test";
+        }catch (NoSuchElementException e){
+            System.out.println("fucked up");
+            return "test";
+        }
+    }
+
 }

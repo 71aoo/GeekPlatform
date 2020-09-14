@@ -31,6 +31,14 @@
         <result column="id" property="id"/>
     </resultMap>
 
+<!--    UserBean信息类-->
+    <resultMap id="userBeanMapper" type="com.syclover.geekPlatform.bean.MyUserBean">
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="is_cuit" property="isCuit"/>
+        <result column="team_id" property="teamId"/>
+    </resultMap>
+
     <!--根据id查找user-->
     <select id="getUserById" resultMap="allColumnsMapper">
         select * from Users where id = #{id}
@@ -69,4 +77,10 @@
     <update id="updateToken">
         update Users set auth_token = #{token} where id = #{id} and is_del = 0
     </update>
+
+
+<!--    拿去用户验证信息类Userbean-->
+    <select id="getUserBeanByUsername" resultMap="userBeanMapper">
+        select username,password,is_cuit,team_id from Users where username = #{username} and is_del = 0
+    </select>
 </mapper>

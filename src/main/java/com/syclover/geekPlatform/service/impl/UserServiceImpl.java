@@ -5,6 +5,7 @@ import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.UserMapper;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.BCPEUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,6 +33,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int registerUser(User user) {
+        String rawPwd = user.getPassword();
+        user.setPassword(BCPEUtils.encode(rawPwd));
         return userMapper.addUser(user);
     }
 

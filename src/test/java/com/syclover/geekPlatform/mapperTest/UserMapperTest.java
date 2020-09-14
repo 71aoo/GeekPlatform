@@ -1,10 +1,12 @@
 package com.syclover.geekPlatform.mapperTest;
 
+import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.dao.UserMapper;
 import com.syclover.geekPlatform.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.messaging.handler.annotation.SendTo;
 
 import java.util.List;
 
@@ -54,5 +56,11 @@ public class UserMapperTest {
         user.setPassword("aaaa");
         int result = userMapper.addUser(user);
         System.out.println(result);
+    }
+
+    @Test
+    void beanTest(){
+        MyUserBean userBean = userMapper.getUserBeanByUsername("admin");
+        System.out.println(userBean);
     }
 }

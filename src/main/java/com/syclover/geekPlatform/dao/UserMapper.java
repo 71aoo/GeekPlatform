@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.dao;
 
+import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -23,4 +24,6 @@ public interface UserMapper {
 
     //更新对应id用户的token
     int updateToken(int id,String token);
+
+    MyUserBean getUserBeanByUsername(String username);
 }

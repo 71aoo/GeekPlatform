@@ -7,6 +7,7 @@ import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.BloomFilterService;
 import com.syclover.geekPlatform.service.TeamService;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -42,13 +43,13 @@ public class TeamController {
 
     @PostMapping("/team/add")
     @ResponseBody
-    public ResultT createTeam(@Param("teamname") String teamname, HttpSession session) {
+    public ResultT createTeam(@Param("teamname") String teamname, HttpSession session) throws Exception{
         List<String> names = teamService.getAllName().getData();
         if (names.contains(teamname)){
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }
         Team team = new Team();
-        User user = userService.getLoginUser((String) session.getAttribute("user")).getData();
+        User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
         if (userService.getTeamId(user) == 0) {
             String token = UUID.randomUUID().toString().replace("-", "");
             team.setName(teamname);
@@ -66,8 +67,8 @@ public class TeamController {
 
     @PostMapping("/team/join")
     @ResponseBody
-    public ResultT joinTeam(@Param("token") String token,HttpSession session){
-        User user = userService.getLoginUser((String) session.getAttribute("user")).getData();
+    public ResultT joinTeam(@Param("token") String token,HttpSession session) throws Exception{
+        User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
         int teamId = user.getTeamId();
         if (teamId == 0){
             teamService.addTeamate(user.getId(),token);
