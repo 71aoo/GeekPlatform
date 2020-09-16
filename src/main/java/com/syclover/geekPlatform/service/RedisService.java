@@ -25,4 +25,6 @@ public interface RedisService {
 
     //拿取所有EMAIL_TOKEN的keys
     Set<String> getEmailTokens();
+
+    Set<String> getAnnouncementsKeys();
 }

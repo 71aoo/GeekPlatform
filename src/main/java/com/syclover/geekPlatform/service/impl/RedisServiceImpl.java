@@ -71,8 +71,17 @@ public class RedisServiceImpl implements RedisService {
     }
 
     @Override
+    public Set<String> getAnnouncementsKeys() {
+        Set<String> keys = redisTemplate.keys("ANNOUNCEMENT_*");
+        return keys;
+    }
+
+    @Override
     public Set<String> getTeamKeys() {
         Set<String> keys = redisTemplate.keys("TEAM_INFO_*");
         return keys;
     }
+
+
+
 }
