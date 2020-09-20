@@ -44,6 +44,13 @@ public class Team {
     // 创建时间
     private Timestamp createdTime;
 
+    public Team(){
+
+    }
+
+    public Team(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;

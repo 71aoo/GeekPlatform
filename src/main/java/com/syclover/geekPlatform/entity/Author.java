@@ -20,6 +20,12 @@ public class Author {
 
     private Timestamp createdTime;
 
+    public Author() {
+    }
+
+    public Author(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;

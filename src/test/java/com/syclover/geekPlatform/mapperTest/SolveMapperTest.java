@@ -42,7 +42,7 @@ public class SolveMapperTest {
         solve.setChallenge(challenge);
 
 
-        int i = solveMapper.addSolve(solve);
+        boolean i = solveMapper.addSolve(solve);
         System.out.println(i);
 
     }
@@ -90,5 +90,20 @@ public class SolveMapperTest {
 
         int points = solveMapper.getPointsByTeam(team);
         System.out.println(points);
+    }
+
+    @Test
+    public void isSolve(){
+
+        Solve solve = solveMapper.isSolve(1, "ASDASDAS", 51);
+
+        System.out.println(solve);
+    }
+
+    @Test
+    public void updatedScore(){
+
+        boolean b = solveMapper.updatedScore(1, 1, 58);
+        System.out.println(b);
     }
 }

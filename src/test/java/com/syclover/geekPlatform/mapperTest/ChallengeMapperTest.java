@@ -77,4 +77,11 @@ public class ChallengeMapperTest {
         boolean b = challengeMapper.logicallyDelByID(102);
         System.out.println(b);
     }
+
+    @Test
+    public void updatedFirstBlood(){
+
+        boolean b = challengeMapper.updatedFirstBlood(2);
+        System.out.println(b);
+    }
 }

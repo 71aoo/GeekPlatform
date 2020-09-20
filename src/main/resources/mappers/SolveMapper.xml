@@ -5,6 +5,26 @@
 
 <mapper namespace="com.syclover.geekPlatform.dao.SolveMapper">
 
+    <!-- 所有字段映射 -->
+    <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Solve">
+        <result column="id" property="id"/>
+        <result column="token" property="token"/>
+        <result column="flag" property="flag"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+        <association column="team_id" property="team"
+                     javaType="com.syclover.geekPlatform.entity.Team"
+                     select="com.syclover.geekPlatform.dao.TeamMapper.getTeamById"/>
+        <association column="user_id" property="user"
+                     javaType="com.syclover.geekPlatform.entity.User"
+                     select="com.syclover.geekPlatform.dao.UserMapper.getUserById"/>
+        <association column="challenge_id" property="challenge"
+                     javaType="com.syclover.geekPlatform.entity.Challenge"
+                     select="com.syclover.geekPlatform.dao.ChallengeMapper.getByID"/>
+
+    </resultMap>
+
+    <!-- 解决添加 -->
     <insert id="addSolve" parameterType="com.syclover.geekPlatform.entity.Solve">
         INSERT INTO
             Solves(
@@ -16,7 +36,7 @@
             )
         VALUES (
             #{team.id},
-            #{team.token},
+            #{token},
             #{challenge.id},
             #{user.id},
             #{flag}
@@ -83,5 +103,31 @@
             Solves.challenge_id = Challenges.id and
             Teams.id = #{id}
     </select>
+
+    <!-- 是否已提交 -->
+    <select id="isSolve" resultMap="allColumnsMapper">
+        select
+            *
+        from
+            Solves
+        where
+            team_id = #{teamID} and
+            token = #{token} and
+            challenge_id = #{challengeID}
+    </select>
+
+    <update id="updatedScore">
+        update
+            Users,
+            Teams
+        set
+            Users.points = Users.points + (select score from Challenges where id = #{challengeID}),
+            Teams.points = Teams.points + (select score from Challenges where id = #{challengeID}),
+            Teams.last_points_time = DATE_FORMAT(NOW(),'%Y-%m-%d %H:%m:%s'),
+            Users.last_points_time = DATE_FORMAT(NOW(),'%Y-%m-%d %H:%m:%s')
+        where
+            Teams.id = #{teamID} and
+            Users.id = #{teamID}
+    </update>
 
 </mapper>

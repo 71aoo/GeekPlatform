@@ -6,6 +6,7 @@ import com.syclover.geekPlatform.dao.CategoryMapper;
 import com.syclover.geekPlatform.entity.Category;
 import com.syclover.geekPlatform.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @Author: Playwi0
  * @Data: 2020/8/19
  */
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired
@@ -55,6 +57,29 @@ public class CategoryServiceImpl implements CategoryService {
                 category);
 
         return resultT;
+    }
+
+    /**
+     * 添加一个category
+     * @param name
+     * @return
+     */
+    @Override
+    public ResultT addCategory(String name) {
+
+        if (name == null || name.equals("")){
+
+            return new ResultT<Category>(ResponseCode.PARAMETER_ERROR.getCode(),
+                    ResponseCode.PARAMETER_ERROR.getMsg(), null);
+        }
+
+        boolean b = categoryMapper.addCategory(name);
+
+        if (!b){
+            return new ResultT(ResponseCode.FAIL.getCode(), ResponseCode.FAIL.getMsg(), null);
+        }
+
+        return new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), null);
     }
 
 

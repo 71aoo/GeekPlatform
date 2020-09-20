@@ -16,4 +16,7 @@ public interface CategoryService {
 
     // 根据id查询分类
     ResultT<Category> getCategoryByID(int id);
+
+    // 添加一个 category
+    ResultT addCategory(String name);
 }
