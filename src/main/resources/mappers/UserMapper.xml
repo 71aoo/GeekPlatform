@@ -19,6 +19,7 @@
         <result column="team_id" property="teamId"/>
         <result column="created_time" property="createdTime"/>
         <result column="updated_time" property="updatedTime"/>
+        <result column="last_points_time" property="lastPointsTime"/>
 
     </resultMap>
     
@@ -85,4 +86,8 @@
     <select id="getUserBeanByUsername" resultMap="userBeanMapper">
         select username,password,is_cuit,team_id from Users where username = #{username} and is_del = 0
     </select>
+
+    <update id="updateAll">
+        update Users set motto = #{user.motto},header_img = #{user.header_img},is_cuit = #{user.isCuit} where id = #{user.id} and is_del = 0;
+    </update>
 </mapper>

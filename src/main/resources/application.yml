@@ -11,9 +11,9 @@ spring:
 
   redis:
     port: 6379
-#    host: 121.89.174.31
-    host: 192.168.80.132
-#    password: 123456
+    host: 121.89.174.31
+#    host: 192.168.80.132
+    password: 123456
     timeout: 3000
     # 连接池
     lettuce:

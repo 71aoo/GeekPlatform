@@ -81,5 +81,10 @@ public class UserServiceImpl implements UserService {
         return userMapper.updateToken(id,token);
     }
 
+    @Override
+    public int updateProfile(User user) {
+        return userMapper.updateAll(user);
+    }
+
 
 }

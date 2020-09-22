@@ -9962,3 +9962,941 @@ Caused by: com.mysql.cj.exceptions.ConnectionIsClosedException: No operations al
 2020-09-16 20:52:56.570  INFO 20196 --- [http-nio-8080-exec-4] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-09-16 20:52:56.570  INFO 20196 --- [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
 2020-09-16 20:52:56.575  INFO 20196 --- [http-nio-8080-exec-4] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-16 20:55:44.244  INFO 20196 --- [http-nio-8080-exec-5] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; _gid=GA1.1.809998818.1600236626] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-20 14:03:48.289  INFO 1240 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 1240 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 14:03:48.320  INFO 1240 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 14:03:49.201  INFO 1240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 14:03:49.204  INFO 1240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 14:03:49.231  INFO 1240 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-20 14:03:49.614  INFO 1240 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 14:03:49.620  INFO 1240 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 14:03:49.620  INFO 1240 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 14:03:49.679  INFO 1240 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 14:03:49.680  INFO 1240 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1281 ms
+2020-09-20 14:03:50.984  INFO 1240 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 14:03:52.264  INFO 1240 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 14:04:53.490  WARN 1240 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'loginController': Unsatisfied dependency expressed through field 'bloomFilterService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bloomFilterServiceImpl': Invocation of init method failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.132:6379
+2020-09-20 14:04:53.704  INFO 1240 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-20 14:04:53.710  INFO 1240 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-20 14:04:53.712  INFO 1240 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2020-09-20 14:04:53.719  INFO 1240 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-20 14:04:53.726 ERROR 1240 --- [main] o.s.b.SpringApplication                  : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'loginController': Unsatisfied dependency expressed through field 'bloomFilterService'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bloomFilterServiceImpl': Invocation of init method failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.132:6379
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:643) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:130) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:399) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1420) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:897) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:879) ~[spring-context-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:551) ~[spring-context-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143) ~[spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:758) ~[spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:750) [spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397) [spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315) [spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1237) [spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at com.syclover.geekPlatform.GeekApplication.main(GeekApplication.java:14) [classes/:?]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'bloomFilterServiceImpl': Invocation of init method failed; nested exception is org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.132:6379
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:160) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	... 20 more
+Caused by: org.springframework.data.redis.connection.PoolException: Could not get a resource from the pool; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.132:6379
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:109) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1225) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1206) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:970) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:355) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:134) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:97) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:84) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:215) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisTemplate.keys(RedisTemplate.java:887) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at com.syclover.geekPlatform.service.impl.RedisServiceImpl.getUserKeys(RedisServiceImpl.java:63) ~[classes/:?]
+	at com.syclover.geekPlatform.service.impl.BloomFilterServiceImpl.initBloomFilter(BloomFilterServiceImpl.java:37) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	... 20 more
+Caused by: io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.80.132:6379
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:78) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at io.lettuce.core.RedisConnectionException.create(RedisConnectionException.java:56) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at io.lettuce.core.AbstractRedisClient.getConnection(AbstractRedisClient.java:242) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at io.lettuce.core.RedisClient.connect(RedisClient.java:206) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.lambda$getConnection$1(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at java.util.Optional.orElseGet(Optional.java:267) ~[?:1.8.0_201]
+	at org.springframework.data.redis.connection.lettuce.StandaloneConnectionProvider.getConnection(StandaloneConnectionProvider.java:115) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.lambda$null$0(LettucePoolingConnectionProvider.java:97) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:211) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$RedisPooledObjectFactory.create(ConnectionPoolSupport.java:201) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at org.apache.commons.pool2.BasePooledObjectFactory.makeObject(BasePooledObjectFactory.java:58) ~[commons-pool2-2.8.0.jar:2.8.0]
+	at org.apache.commons.pool2.impl.GenericObjectPool.create(GenericObjectPool.java:899) ~[commons-pool2-2.8.0.jar:2.8.0]
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:429) ~[commons-pool2-2.8.0.jar:2.8.0]
+	at org.apache.commons.pool2.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:354) ~[commons-pool2-2.8.0.jar:2.8.0]
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:122) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at io.lettuce.core.support.ConnectionPoolSupport$1.borrowObject(ConnectionPoolSupport.java:117) ~[lettuce-core-5.3.2.RELEASE.jar:5.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingConnectionProvider.getConnection(LettucePoolingConnectionProvider.java:103) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getNativeConnection(LettuceConnectionFactory.java:1225) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory$SharedConnection.getConnection(LettuceConnectionFactory.java:1206) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getSharedConnection(LettuceConnectionFactory.java:970) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory.getConnection(LettuceConnectionFactory.java:355) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:134) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:97) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:84) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:215) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:188) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at org.springframework.data.redis.core.RedisTemplate.keys(RedisTemplate.java:887) ~[spring-data-redis-2.3.2.RELEASE.jar:2.3.2.RELEASE]
+	at com.syclover.geekPlatform.service.impl.RedisServiceImpl.getUserKeys(RedisServiceImpl.java:63) ~[classes/:?]
+	at com.syclover.geekPlatform.service.impl.BloomFilterServiceImpl.initBloomFilter(BloomFilterServiceImpl.java:37) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_201]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_201]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_201]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_201]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:415) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1786) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:594) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:516) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:324) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:226) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1307) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1227) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:640) ~[spring-beans-5.2.8.RELEASE.jar:5.2.8.RELEASE]
+	... 20 more
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.80.132:6379
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:261) ~[netty-transport-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500) ~[netty-transport-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.51.Final.jar:4.1.51.Final]
+	at java.lang.Thread.run(Thread.java:748) ~[?:1.8.0_201]
+
+2020-09-20 14:05:07.489  INFO 19768 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 19768 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 14:05:07.496  INFO 19768 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 14:05:07.968  INFO 19768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 14:05:07.970  INFO 19768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 14:05:07.991  INFO 19768 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-09-20 14:05:08.332  INFO 19768 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 14:05:08.338  INFO 19768 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 14:05:08.338  INFO 19768 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 14:05:08.393  INFO 19768 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 14:05:08.394  INFO 19768 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 837 ms
+2020-09-20 14:05:08.825  INFO 19768 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 14:05:10.043  INFO 19768 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 14:05:12.072  INFO 19768 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-20 14:05:12.101  INFO 19768 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6a98f353, org.springframework.security.web.context.SecurityContextPersistenceFilter@61b65d54, org.springframework.security.web.header.HeaderWriterFilter@6839203b, org.springframework.security.web.authentication.logout.LogoutFilter@4b87760e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2dd63e3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@559af296, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@3b35798, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7c1503a3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7f2c57fe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@70b6db83, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e00bfe2, org.springframework.security.web.session.SessionManagementFilter@6db328f8, org.springframework.security.web.access.ExceptionTranslationFilter@4c319d52, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@357c9bd9]
+2020-09-20 14:05:12.107  INFO 19768 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 14:05:12.250  INFO 19768 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 14:05:12.433  WARN 19768 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-09-20 14:05:12.434  INFO 19768 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-20 14:05:12.547  INFO 19768 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-20 14:05:12.687  INFO 19768 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-20 14:05:12.689  INFO 19768 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2020-09-20 14:05:12.696  INFO 19768 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-20 14:05:12.701 ERROR 19768 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-09-20 14:35:58.867  INFO 19740 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 19740 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 14:35:58.875  INFO 19740 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 14:35:59.444  INFO 19740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 14:35:59.447  INFO 19740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 14:35:59.473  INFO 19740 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-20 14:35:59.854  INFO 19740 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 14:35:59.860  INFO 19740 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 14:35:59.860  INFO 19740 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 14:35:59.920  INFO 19740 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 14:35:59.920  INFO 19740 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1007 ms
+2020-09-20 14:36:00.463  INFO 19740 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 14:36:01.669  INFO 19740 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 14:36:03.668  INFO 19740 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-20 14:36:03.698  INFO 19740 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@691541bc, org.springframework.security.web.context.SecurityContextPersistenceFilter@2d313c8c, org.springframework.security.web.header.HeaderWriterFilter@4b87760e, org.springframework.security.web.authentication.logout.LogoutFilter@2afdf6b7, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@20a24edf, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@36ad229b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5b733ef7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@45d56062, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@113f9078, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@b5ac0c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@43a4a9e5, org.springframework.security.web.session.SessionManagementFilter@1b24ea2a, org.springframework.security.web.access.ExceptionTranslationFilter@2b877a54, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13cc0b90]
+2020-09-20 14:36:03.705  INFO 19740 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 14:36:03.847  INFO 19740 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 14:36:04.016  WARN 19740 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2020-09-20 14:36:04.017  INFO 19740 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-20 14:36:04.130  INFO 19740 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-20 14:36:04.360  INFO 19740 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-20 14:36:04.362  INFO 19740 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2020-09-20 14:36:04.369  INFO 19740 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2020-09-20 14:36:04.375 ERROR 19740 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2020-09-20 14:38:47.590  INFO 20992 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 20992 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 14:38:47.595  INFO 20992 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 14:38:48.056  INFO 20992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 14:38:48.058  INFO 20992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 14:38:48.080  INFO 20992 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-20 14:38:48.418  INFO 20992 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 14:38:48.424  INFO 20992 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 14:38:48.424  INFO 20992 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 14:38:48.481  INFO 20992 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 14:38:48.481  INFO 20992 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 816 ms
+2020-09-20 14:38:48.918  INFO 20992 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 14:38:50.094  INFO 20992 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 14:38:52.068  INFO 20992 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-20 14:38:52.096  INFO 20992 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@525647f3, org.springframework.security.web.context.SecurityContextPersistenceFilter@268c030f, org.springframework.security.web.header.HeaderWriterFilter@a90e2c1, org.springframework.security.web.authentication.logout.LogoutFilter@49671897, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3554bdc0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2e56b4d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@42fc4ac4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@50211483, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@be164d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a0ea492, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20a24edf, org.springframework.security.web.session.SessionManagementFilter@370ef50b, org.springframework.security.web.access.ExceptionTranslationFilter@5edc3e29, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@784d9bc]
+2020-09-20 14:38:52.103  INFO 20992 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 14:38:52.232  INFO 20992 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 14:38:52.400  INFO 20992 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-20 14:38:52.407  INFO 20992 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.174 seconds (JVM running for 6.335)
+2020-09-20 14:38:55.105  INFO 20992 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; _gid=GA1.1.806014795.1600514620] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-20 14:38:55.109  INFO 20992 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-20 14:38:55.109  INFO 20992 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-20 14:38:55.114  INFO 20992 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-20 15:49:09.955  INFO 20388 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 20388 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 15:49:09.962  INFO 20388 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 15:49:10.428  INFO 20388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 15:49:10.430  INFO 20388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 15:49:10.452  INFO 20388 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-20 15:49:10.806  INFO 20388 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 15:49:10.811  INFO 20388 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 15:49:10.811  INFO 20388 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 15:49:10.868  INFO 20388 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 15:49:10.868  INFO 20388 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 843 ms
+2020-09-20 15:49:11.556  INFO 20388 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 15:49:12.810  INFO 20388 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 15:49:14.938  INFO 20388 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-20 15:49:14.966  INFO 20388 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1653b84e, org.springframework.security.web.context.SecurityContextPersistenceFilter@4026461d, org.springframework.security.web.header.HeaderWriterFilter@1472208d, org.springframework.security.web.authentication.logout.LogoutFilter@474749b8, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5ec6fede, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@31a136a6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7f8a9454, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@19f02280, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7436364d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@28a6e171, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f85ee02, org.springframework.security.web.session.SessionManagementFilter@6de004f1, org.springframework.security.web.access.ExceptionTranslationFilter@50211483, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d71b500]
+2020-09-20 15:49:14.972  INFO 20388 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 15:49:15.103  INFO 20388 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 15:49:15.312  INFO 20388 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-20 15:49:15.321  INFO 20388 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.722 seconds (JVM running for 6.845)
+2020-09-20 15:49:19.037  INFO 20388 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; _gid=GA1.1.806014795.1600514620] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-20 15:49:19.041  INFO 20388 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-20 15:49:19.041  INFO 20388 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-20 15:49:19.047  INFO 20388 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms
+2020-09-20 15:51:54.414  INFO 21296 --- [main] c.s.g.s.UserServiceTest                  : Starting UserServiceTest on cueyu with PID 21296 (started by x in E:\project\GeekPlatform)
+2020-09-20 15:51:54.421  INFO 21296 --- [main] c.s.g.s.UserServiceTest                  : No active profile set, falling back to default profiles: default
+2020-09-20 15:51:54.965  INFO 21296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 15:51:54.968  INFO 21296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 15:51:55.000  INFO 21296 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22ms. Found 0 Redis repository interfaces.
+2020-09-20 15:51:56.257  INFO 21296 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 15:51:58.090  INFO 21296 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 15:52:00.365  INFO 21296 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-20 15:52:00.456  INFO 21296 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7757025d, org.springframework.security.web.context.SecurityContextPersistenceFilter@afee63, org.springframework.security.web.header.HeaderWriterFilter@4eeb14e0, org.springframework.security.web.authentication.logout.LogoutFilter@63db743d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@643f6179, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@63de4fa, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@68fc9167, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4cb24e2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c5da4f9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ad889be, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@52c46334, org.springframework.security.web.session.SessionManagementFilter@60dcf9ec, org.springframework.security.web.access.ExceptionTranslationFilter@77ea806f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@589dfa6f]
+2020-09-20 15:52:00.476  INFO 21296 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 15:52:00.999  INFO 21296 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 15:52:01.371  INFO 21296 --- [main] c.s.g.s.UserServiceTest                  : Started UserServiceTest in 7.287 seconds (JVM running for 8.376)
+2020-09-20 15:52:01.706  INFO 21296 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-20 15:52:01.922  INFO 21296 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-20 15:52:01.948  INFO 21296 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-20 15:53:11.390  INFO 18972 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 18972 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 15:53:11.400  INFO 18972 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 15:53:11.941  INFO 18972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 15:53:11.944  INFO 18972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 15:53:11.967  INFO 18972 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-20 15:53:12.306  INFO 18972 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 15:53:12.312  INFO 18972 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 15:53:12.312  INFO 18972 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 15:53:12.368  INFO 18972 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 15:53:12.368  INFO 18972 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 891 ms
+2020-09-20 15:53:12.808  INFO 18972 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 15:53:13.958  INFO 18972 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 15:53:15.936  INFO 18972 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-20 15:53:15.965  INFO 18972 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@273fa9e, org.springframework.security.web.context.SecurityContextPersistenceFilter@30922f8d, org.springframework.security.web.header.HeaderWriterFilter@60bf494c, org.springframework.security.web.authentication.logout.LogoutFilter@30a9e3db, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d71b500, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@57bd6a8f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@527a8665, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@474749b8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@51ff3c4b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@68ea253b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7ab2a07e, org.springframework.security.web.session.SessionManagementFilter@36f6e521, org.springframework.security.web.access.ExceptionTranslationFilter@49671897, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@14b275bd]
+2020-09-20 15:53:15.971  INFO 18972 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 15:53:16.097  INFO 18972 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 15:53:16.261  INFO 18972 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-20 15:53:16.268  INFO 18972 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.241 seconds (JVM running for 6.359)
+2020-09-20 15:53:23.140  INFO 18972 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; _gid=GA1.1.806014795.1600514620; JSESSIONID=73CDBED084B3CC2273CCC800804DCBC6] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-20 15:53:23.144  INFO 18972 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-20 15:53:23.144  INFO 18972 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-20 15:53:23.150  INFO 18972 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-20 16:12:09.342  INFO 21868 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 21868 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-20 16:12:09.351  INFO 21868 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-20 16:12:10.188  INFO 21868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-20 16:12:10.190  INFO 21868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-20 16:12:10.213  INFO 21868 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-20 16:12:10.569  INFO 21868 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-20 16:12:10.576  INFO 21868 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-20 16:12:10.576  INFO 21868 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-20 16:12:10.637  INFO 21868 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-20 16:12:10.637  INFO 21868 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1219 ms
+2020-09-20 16:12:11.194  INFO 21868 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-20 16:12:12.444  INFO 21868 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-20 16:12:14.412  INFO 21868 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='api/user/addUser'], []
+2020-09-20 16:12:14.441  INFO 21868 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11df2829, org.springframework.security.web.context.SecurityContextPersistenceFilter@2a0ea492, org.springframework.security.web.header.HeaderWriterFilter@113f9078, org.springframework.security.web.authentication.logout.LogoutFilter@6de004f1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@764fffa0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@47a4eee2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@18e4674d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@12fcb2c3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2e56b4d, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@168142da, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@f245bdd, org.springframework.security.web.session.SessionManagementFilter@586495f1, org.springframework.security.web.access.ExceptionTranslationFilter@2d313c8c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@42fc4ac4]
+2020-09-20 16:12:14.448  INFO 21868 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-20 16:12:14.578  INFO 21868 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-20 16:12:14.772  INFO 21868 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-20 16:12:14.780  INFO 21868 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.797 seconds (JVM running for 6.97)
+2020-09-20 16:12:46.191  INFO 21868 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; _gid=GA1.1.806014795.1600514620; JSESSIONID=7DAE87DEAAAA6B7C77D8C9232DC414F2] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-20 16:12:46.195  INFO 21868 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-20 16:12:46.195  INFO 21868 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-20 16:12:46.200  INFO 21868 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 12:13:18.573  INFO 16996 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 16996 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 12:13:18.603  INFO 16996 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 12:13:19.670  INFO 16996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 12:13:19.673  INFO 16996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 12:13:19.699  INFO 16996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 12:13:20.073  INFO 16996 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 12:13:20.079  INFO 16996 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 12:13:20.080  INFO 16996 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 12:13:20.137  INFO 16996 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 12:13:20.138  INFO 16996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1482 ms
+2020-09-21 12:13:20.777  INFO 16996 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 12:13:22.023  INFO 16996 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 12:13:24.032  INFO 16996 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 12:13:24.062  INFO 16996 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e28d779, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a6c0f38, org.springframework.security.web.header.HeaderWriterFilter@101cf747, org.springframework.security.web.authentication.logout.LogoutFilter@586495f1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@73bb1337, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4b87760e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@15214920, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@b5ac0c1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@26d5a317, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2b877a54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@784d9bc, org.springframework.security.web.session.SessionManagementFilter@6403a4a5, org.springframework.security.web.access.ExceptionTranslationFilter@7f2c57fe, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7d1c164a]
+2020-09-21 12:13:24.069  INFO 16996 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 12:13:24.294  INFO 16996 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 12:13:24.479  INFO 16996 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 12:13:24.486  INFO 16996 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 6.532 seconds (JVM running for 7.769)
+2020-09-21 12:13:43.499  INFO 16996 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 12:13:43.503  INFO 16996 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 12:13:43.503  INFO 16996 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 12:13:43.508  INFO 16996 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 12:14:13.474  INFO 16996 --- [taskExecutor-1] c.s.g.s.i.MailServiceImpl                : 邮件已发送
+2020-09-21 13:52:59.438  INFO 16284 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 16284 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 13:52:59.446  INFO 16284 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 13:52:59.937  INFO 16284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 13:52:59.940  INFO 16284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 13:52:59.963  INFO 16284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 13:53:00.298  INFO 16284 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 13:53:00.304  INFO 16284 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 13:53:00.304  INFO 16284 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 13:53:00.361  INFO 16284 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 13:53:00.361  INFO 16284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 830 ms
+2020-09-21 13:53:00.798  INFO 16284 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 13:53:01.985  INFO 16284 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 13:53:03.958  INFO 16284 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 13:53:03.986  INFO 16284 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@f245bdd, org.springframework.security.web.context.SecurityContextPersistenceFilter@2e56b4d, org.springframework.security.web.header.HeaderWriterFilter@586495f1, org.springframework.security.web.authentication.logout.LogoutFilter@4026461d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@77524ca7, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2afdf6b7, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6af609ea, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@39ab5ef7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6070775e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@47a4eee2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@280fafd, org.springframework.security.web.session.SessionManagementFilter@2a0ea492, org.springframework.security.web.access.ExceptionTranslationFilter@113f9078, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@29962b2f]
+2020-09-21 13:53:03.993  INFO 16284 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 13:53:04.115  INFO 16284 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 13:53:04.281  INFO 16284 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 13:53:04.288  INFO 16284 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.26 seconds (JVM running for 6.446)
+2020-09-21 13:56:18.007  INFO 16284 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=7A18EFA3DE83CFE84B31AC321F854E21] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 13:56:18.010  INFO 16284 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 13:56:18.011  INFO 16284 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 13:56:18.016  INFO 16284 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:00:10.391  INFO 10980 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 10980 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:00:10.420  INFO 10980 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:00:10.860  INFO 10980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:00:10.863  INFO 10980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:00:10.885  INFO 10980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:00:11.302  INFO 10980 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:00:11.308  INFO 10980 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:00:11.309  INFO 10980 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:00:11.370  INFO 10980 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:00:11.370  INFO 10980 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 918 ms
+2020-09-21 14:00:11.873  INFO 10980 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:00:13.167  INFO 10980 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:01:25.346  INFO 10980 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:01:48.507  INFO 11284 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 11284 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:01:48.535  INFO 11284 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:01:48.974  INFO 11284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:01:48.976  INFO 11284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:01:48.998  INFO 11284 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:01:49.407  INFO 11284 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:01:49.414  INFO 11284 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:01:49.414  INFO 11284 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:01:49.475  INFO 11284 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:01:49.475  INFO 11284 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 910 ms
+2020-09-21 14:01:49.984  INFO 11284 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:01:51.263  INFO 11284 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:01:53.415  INFO 11284 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:01:53.444  INFO 11284 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@63c4d16, org.springframework.security.web.context.SecurityContextPersistenceFilter@33891646, org.springframework.security.web.header.HeaderWriterFilter@5cfa2ac5, org.springframework.security.web.authentication.logout.LogoutFilter@2864d34d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1c135f63, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@26d24d7a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@29bd2796, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2ec92631, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f2becb2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@43294e9b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@174b8d0e, org.springframework.security.web.session.SessionManagementFilter@413eaf5d, org.springframework.security.web.access.ExceptionTranslationFilter@c1a74d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@391dfe7c]
+2020-09-21 14:01:53.451  INFO 11284 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:01:53.578  INFO 11284 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:01:53.761  INFO 11284 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:01:53.769  INFO 11284 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.653 seconds (JVM running for 6.935)
+2020-09-21 14:03:00.325  INFO 11284 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=0AC1314674A044894CA3DBE81A7ACAA5] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:03:00.330  INFO 11284 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:03:00.330  INFO 11284 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:03:00.337  INFO 11284 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 7 ms
+2020-09-21 14:03:36.320  INFO 11284 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:03:36.543  INFO 11284 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:03:36.561  INFO 11284 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:03:39.831  INFO 10048 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 10048 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:03:39.837  INFO 10048 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:03:40.293  INFO 10048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:03:40.295  INFO 10048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:03:40.318  INFO 10048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:03:40.720  INFO 10048 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:03:40.726  INFO 10048 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:03:40.726  INFO 10048 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:03:40.787  INFO 10048 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:03:40.787  INFO 10048 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 920 ms
+2020-09-21 14:03:41.295  INFO 10048 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:03:42.570  INFO 10048 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:03:44.742  INFO 10048 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:03:44.774  INFO 10048 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@256a5df0, org.springframework.security.web.context.SecurityContextPersistenceFilter@49f2646, org.springframework.security.web.header.HeaderWriterFilter@a7ae340, org.springframework.security.web.authentication.logout.LogoutFilter@8ce3f27, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1280bae3, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@74619273, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1868ed54, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6b4fd7d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7c048b30, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6b289535, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@131777e8, org.springframework.security.web.session.SessionManagementFilter@335972a5, org.springframework.security.web.access.ExceptionTranslationFilter@e2c627e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1b6cad77]
+2020-09-21 14:03:44.782  INFO 10048 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:03:44.914  INFO 10048 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:03:45.103  INFO 10048 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:03:45.110  INFO 10048 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.681 seconds (JVM running for 7.099)
+2020-09-21 14:05:02.156  INFO 10048 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=31B289E286FF94DF4B4626C045CDAD1A] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:05:02.161  INFO 10048 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:05:02.161  INFO 10048 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:05:02.166  INFO 10048 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:05:48.885  INFO 10048 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:05:49.000  INFO 10048 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:05:49.005  INFO 10048 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:05:52.117  INFO 11232 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 11232 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:05:52.145  INFO 11232 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:05:52.594  INFO 11232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:05:52.596  INFO 11232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:05:52.619  INFO 11232 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:05:53.016  INFO 11232 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:05:53.022  INFO 11232 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:05:53.023  INFO 11232 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:05:53.083  INFO 11232 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:05:53.083  INFO 11232 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 908 ms
+2020-09-21 14:05:53.590  INFO 11232 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:05:54.880  INFO 11232 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:05:57.065  INFO 11232 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:05:57.095  INFO 11232 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@12e3f4ae, org.springframework.security.web.context.SecurityContextPersistenceFilter@3d7b3b18, org.springframework.security.web.header.HeaderWriterFilter@2bc2e022, org.springframework.security.web.authentication.logout.LogoutFilter@586486c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e50eb3f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@7296fe0b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@537451d5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@57bac3f0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1d0dad12, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@66b40dd3, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@785d6a98, org.springframework.security.web.session.SessionManagementFilter@be1c08a, org.springframework.security.web.access.ExceptionTranslationFilter@7f1ad846, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@57515944]
+2020-09-21 14:05:57.101  INFO 11232 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:05:57.227  INFO 11232 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:05:57.413  INFO 11232 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:05:57.420  INFO 11232 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.714 seconds (JVM running for 7.017)
+2020-09-21 14:08:30.462  INFO 11232 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=D6ED08471B2B692EC20CD4DD83247D66] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:08:30.467  INFO 11232 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:08:30.468  INFO 11232 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:08:30.473  INFO 11232 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:09:52.970  WARN 11232 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s866ms904µs400ns).
+2020-09-21 14:10:27.186  WARN 11232 --- [http-nio-8080-exec-4] o.a.c.u.SessionIdGeneratorBase           : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [399] milliseconds.
+2020-09-21 14:10:59.339  INFO 11232 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:10:59.552  INFO 11232 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:10:59.557  INFO 11232 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:11:02.793  INFO 10624 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 10624 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:11:02.825  INFO 10624 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:11:03.280  INFO 10624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:11:03.282  INFO 10624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:11:03.306  INFO 10624 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:11:03.706  INFO 10624 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:11:03.712  INFO 10624 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:11:03.713  INFO 10624 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:11:03.774  INFO 10624 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:11:03.774  INFO 10624 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 917 ms
+2020-09-21 14:11:04.290  INFO 10624 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:11:05.518  INFO 10624 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:11:07.805  INFO 10624 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:11:07.836  INFO 10624 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@774013dc, org.springframework.security.web.context.SecurityContextPersistenceFilter@69c1ea07, org.springframework.security.web.header.HeaderWriterFilter@4e61a863, org.springframework.security.web.authentication.logout.LogoutFilter@6143b2b1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5dd3727c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3bdbf8d3, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@229cb4d8, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@69bca406, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27fc0217, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@33891646, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@76e9eed8, org.springframework.security.web.session.SessionManagementFilter@2fea9a7b, org.springframework.security.web.access.ExceptionTranslationFilter@7b9c2387, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@77998ea7]
+2020-09-21 14:11:07.846  INFO 10624 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:11:07.982  INFO 10624 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:11:08.178  INFO 10624 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:11:08.186  INFO 10624 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.801 seconds (JVM running for 7.051)
+2020-09-21 14:11:59.729  INFO 10624 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=09E27DAA8DBE817C257248C71E0A2724] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:11:59.734  INFO 10624 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:11:59.734  INFO 10624 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:11:59.739  INFO 10624 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:12:44.681  INFO 10624 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:12:44.893  INFO 10624 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:12:44.899  INFO 10624 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:12:54.257  INFO 9520 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 9520 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:12:54.284  INFO 9520 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:12:54.726  INFO 9520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:12:54.729  INFO 9520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:12:54.752  INFO 9520 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:12:55.153  INFO 9520 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:12:55.159  INFO 9520 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:12:55.159  INFO 9520 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:12:55.220  INFO 9520 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:12:55.220  INFO 9520 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 906 ms
+2020-09-21 14:12:55.731  INFO 9520 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:12:57.033  INFO 9520 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:12:59.270  INFO 9520 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:12:59.309  INFO 9520 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2b80497f, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b9fa2f, org.springframework.security.web.header.HeaderWriterFilter@f36f34d, org.springframework.security.web.authentication.logout.LogoutFilter@1a3c4b3e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27a0e6ce, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@41404aa2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6ef4297d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@470135da, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@32caae19, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@452ec287, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4c000cc4, org.springframework.security.web.session.SessionManagementFilter@6b86826a, org.springframework.security.web.access.ExceptionTranslationFilter@4c8abec7, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@236a4d30]
+2020-09-21 14:12:59.317  INFO 9520 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:12:59.492  INFO 9520 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:12:59.732  INFO 9520 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:12:59.741  INFO 9520 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.854 seconds (JVM running for 7.046)
+2020-09-21 14:13:12.547  INFO 9520 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=610EDAD5E319D9B75061DC9E5BF2F9E2] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:13:12.552  INFO 9520 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:13:12.552  INFO 9520 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:13:12.557  INFO 9520 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:13:27.300  INFO 9520 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:13:27.515  INFO 9520 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:13:27.520  INFO 9520 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:13:30.573  INFO 456 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 456 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:13:30.602  INFO 456 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:13:31.072  INFO 456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:13:31.075  INFO 456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:13:31.098  INFO 456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:13:31.501  INFO 456 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:13:31.507  INFO 456 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:13:31.507  INFO 456 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:13:31.570  INFO 456 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:13:31.570  INFO 456 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 934 ms
+2020-09-21 14:13:32.082  INFO 456 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:13:33.296  INFO 456 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:13:35.461  INFO 456 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:13:35.492  INFO 456 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c9e3d01, org.springframework.security.web.context.SecurityContextPersistenceFilter@4f7ae05, org.springframework.security.web.header.HeaderWriterFilter@42066f0d, org.springframework.security.web.authentication.logout.LogoutFilter@3e0855b0, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7f1fec57, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@17ec5e2a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@1dc9f5ad, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@5d5ae6aa, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b144175, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@67784537, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a2d66e, org.springframework.security.web.session.SessionManagementFilter@299786b1, org.springframework.security.web.access.ExceptionTranslationFilter@5602e540, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13137835]
+2020-09-21 14:13:35.499  INFO 456 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:13:35.628  INFO 456 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:13:35.812  INFO 456 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:13:35.820  INFO 456 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.631 seconds (JVM running for 6.824)
+2020-09-21 14:13:35.892  INFO 456 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=6F29F499838F973B05EAF950649C4628] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:13:35.897  INFO 456 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:13:35.897  INFO 456 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:13:35.902  INFO 456 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:13:53.489  INFO 456 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:13:53.618  INFO 456 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:13:53.623  INFO 456 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:14:11.072  INFO 444 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 444 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:14:11.100  INFO 444 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:14:11.543  INFO 444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:14:11.545  INFO 444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:14:11.568  INFO 444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:14:11.958  INFO 444 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:14:11.965  INFO 444 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:14:11.965  INFO 444 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:14:12.025  INFO 444 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:14:12.025  INFO 444 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 894 ms
+2020-09-21 14:14:12.531  INFO 444 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:14:13.760  INFO 444 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:14:15.856  INFO 444 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:14:15.885  INFO 444 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@31b650e9, org.springframework.security.web.context.SecurityContextPersistenceFilter@73b8ab2c, org.springframework.security.web.header.HeaderWriterFilter@23e9dd78, org.springframework.security.web.authentication.logout.LogoutFilter@a0e33db, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7ef4aceb, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@74e4be21, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@683fe7b5, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2fafa7b5, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@549d14fe, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6eb00cbe, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b5b8730, org.springframework.security.web.session.SessionManagementFilter@6408be5, org.springframework.security.web.access.ExceptionTranslationFilter@13aa54f1, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@33356666]
+2020-09-21 14:14:15.892  INFO 444 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:14:16.018  INFO 444 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:14:16.201  INFO 444 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:14:16.208  INFO 444 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.503 seconds (JVM running for 6.686)
+2020-09-21 14:15:08.660  INFO 444 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=608E78C0ED6CA85DF29E87A320FDB46D] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:15:08.665  INFO 444 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:15:08.665  INFO 444 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:15:08.670  INFO 444 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:15:45.420  INFO 444 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:15:45.548  INFO 444 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:15:45.553  INFO 444 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:15:48.615  INFO 11408 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 11408 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:15:48.642  INFO 11408 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:15:49.109  INFO 11408 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:15:49.112  INFO 11408 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:15:49.135  INFO 11408 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:15:49.538  INFO 11408 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:15:49.544  INFO 11408 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:15:49.544  INFO 11408 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:15:49.605  INFO 11408 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:15:49.606  INFO 11408 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 931 ms
+2020-09-21 14:15:50.114  INFO 11408 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:15:51.315  INFO 11408 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:15:53.476  INFO 11408 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:15:53.506  INFO 11408 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@37e491e2, org.springframework.security.web.context.SecurityContextPersistenceFilter@632b5c79, org.springframework.security.web.header.HeaderWriterFilter@fbe8fd3, org.springframework.security.web.authentication.logout.LogoutFilter@6b86826a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@63f3366a, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2b62475a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@56f84c9b, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@265287ec, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3815a7d1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6487f7f8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26679788, org.springframework.security.web.session.SessionManagementFilter@2fafa7b5, org.springframework.security.web.access.ExceptionTranslationFilter@7809b43a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@454e9d65]
+2020-09-21 14:15:53.514  INFO 11408 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:15:53.648  INFO 11408 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:15:53.836  INFO 11408 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:15:53.844  INFO 11408 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.626 seconds (JVM running for 6.877)
+2020-09-21 14:15:53.878  INFO 11408 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=645592447CE6111F248784B2E957C5A7] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:15:53.883  INFO 11408 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:15:53.883  INFO 11408 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:15:53.887  INFO 11408 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2020-09-21 14:16:43.987  INFO 11408 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:16:44.209  INFO 11408 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:16:44.220  INFO 11408 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:16:47.250  INFO 14980 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 14980 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:16:47.280  INFO 14980 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:16:47.739  INFO 14980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:16:47.742  INFO 14980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:16:47.768  INFO 14980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16ms. Found 0 Redis repository interfaces.
+2020-09-21 14:16:48.173  INFO 14980 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:16:48.180  INFO 14980 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:16:48.180  INFO 14980 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:16:48.241  INFO 14980 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:16:48.241  INFO 14980 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 929 ms
+2020-09-21 14:16:48.749  INFO 14980 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:16:49.956  INFO 14980 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:16:52.122  INFO 14980 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:16:52.154  INFO 14980 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@16d4024e, org.springframework.security.web.context.SecurityContextPersistenceFilter@5d74507c, org.springframework.security.web.header.HeaderWriterFilter@74e4be21, org.springframework.security.web.authentication.logout.LogoutFilter@f0c1ae1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@28e91f6d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2fafa7b5, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@11e24688, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@624d778e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@16944b58, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ab268bd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@63d3c9dc, org.springframework.security.web.session.SessionManagementFilter@628bd77e, org.springframework.security.web.access.ExceptionTranslationFilter@2890e479, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1ab9c735]
+2020-09-21 14:16:52.264  INFO 14980 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:16:52.402  INFO 14980 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:16:52.611  INFO 14980 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:16:52.622  INFO 14980 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.74 seconds (JVM running for 6.935)
+2020-09-21 14:17:22.091  INFO 14980 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=6DF069AEE15484A65148EDCFA954B7D7] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:17:22.096  INFO 14980 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:17:22.097  INFO 14980 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:17:22.102  INFO 14980 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:20:46.883  INFO 14980 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:20:47.097  INFO 14980 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:20:47.102  INFO 14980 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:20:50.331  INFO 1476 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 1476 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:20:50.360  INFO 1476 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:20:50.810  INFO 1476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:20:50.812  INFO 1476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:20:50.835  INFO 1476 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:20:51.255  INFO 1476 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:20:51.264  INFO 1476 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:20:51.265  INFO 1476 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:20:51.336  INFO 1476 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:20:51.336  INFO 1476 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 945 ms
+2020-09-21 14:20:51.865  INFO 1476 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:20:53.182  INFO 1476 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:20:55.290  INFO 1476 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:20:55.319  INFO 1476 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7e691624, org.springframework.security.web.context.SecurityContextPersistenceFilter@30a62a5b, org.springframework.security.web.header.HeaderWriterFilter@ca10069, org.springframework.security.web.authentication.logout.LogoutFilter@1d0b447b, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@29532e91, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3c3cd13a, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@7ef60c02, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@68f2363, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@30133a11, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@405603b6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5d9d8e46, org.springframework.security.web.session.SessionManagementFilter@3c89b864, org.springframework.security.web.access.ExceptionTranslationFilter@1e7cfd49, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69a76b74]
+2020-09-21 14:20:55.326  INFO 1476 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:20:55.456  INFO 1476 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:20:55.644  INFO 1476 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:20:55.652  INFO 1476 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.714 seconds (JVM running for 6.946)
+2020-09-21 14:21:06.396  INFO 1476 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=2EB41B3C8A4317F4BB0141B814389775] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:21:06.400  INFO 1476 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:21:06.400  INFO 1476 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:21:06.406  INFO 1476 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:25:54.062  WARN 1476 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4m26s123ms557µs700ns).
+2020-09-21 14:26:01.941  INFO 1476 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:26:02.168  INFO 1476 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:26:02.174  INFO 1476 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:45:37.046  INFO 14092 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 14092 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:45:37.075  INFO 14092 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:45:37.536  INFO 14092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:45:37.539  INFO 14092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:45:37.562  INFO 14092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:45:37.982  INFO 14092 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:45:37.989  INFO 14092 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:45:37.989  INFO 14092 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:45:38.052  INFO 14092 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:45:38.053  INFO 14092 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 948 ms
+2020-09-21 14:45:38.593  INFO 14092 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:45:39.830  INFO 14092 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:45:42.010  INFO 14092 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:45:42.040  INFO 14092 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@799971ac, org.springframework.security.web.context.SecurityContextPersistenceFilter@1feb586d, org.springframework.security.web.header.HeaderWriterFilter@fa11fda, org.springframework.security.web.authentication.logout.LogoutFilter@52eca410, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@41bdaa81, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5f67181f, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@59c08cf1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7e691624, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@611a2d82, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dad535f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45f0038, org.springframework.security.web.session.SessionManagementFilter@7d95166a, org.springframework.security.web.access.ExceptionTranslationFilter@199806aa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@452ec287]
+2020-09-21 14:45:42.046  INFO 14092 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:45:42.176  INFO 14092 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:45:42.361  INFO 14092 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:45:42.368  INFO 14092 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.716 seconds (JVM running for 6.998)
+2020-09-21 14:45:42.483  INFO 14092 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=664414F429331F9E0455C8CD4DF3FCAE] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:45:42.488  INFO 14092 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:45:42.488  INFO 14092 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:45:42.495  INFO 14092 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 7 ms
+2020-09-21 14:47:05.999  WARN 14092 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m26s67ms863µs899ns).
+2020-09-21 14:47:06.598  INFO 14092 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:47:06.812  INFO 14092 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:47:06.818  INFO 14092 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:48:39.319  INFO 8560 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 8560 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:48:39.353  INFO 8560 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:48:39.816  INFO 8560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:48:39.818  INFO 8560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:48:39.842  INFO 8560 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 14:48:40.249  INFO 8560 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:48:40.255  INFO 8560 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:48:40.256  INFO 8560 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:48:40.316  INFO 8560 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:48:40.316  INFO 8560 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 931 ms
+2020-09-21 14:48:40.832  INFO 8560 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:48:42.123  INFO 8560 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:48:44.231  INFO 8560 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:48:44.262  INFO 8560 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@26d7cb0d, org.springframework.security.web.context.SecurityContextPersistenceFilter@7fd2a67a, org.springframework.security.web.header.HeaderWriterFilter@2ca1e49a, org.springframework.security.web.authentication.logout.LogoutFilter@86377d5, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@13aa54f1, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4de158ca, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@23e9dd78, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@774013dc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@405603b6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1d0b447b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@470c4229, org.springframework.security.web.session.SessionManagementFilter@54a6ef6, org.springframework.security.web.access.ExceptionTranslationFilter@3639b04, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5b64f771]
+2020-09-21 14:48:44.270  INFO 8560 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:48:44.403  INFO 8560 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:48:44.592  INFO 8560 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:48:44.599  INFO 8560 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.703 seconds (JVM running for 6.981)
+2020-09-21 14:49:04.411  INFO 8560 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=A08A35F0CB0105901AD74448EAF58411] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:49:04.416  INFO 8560 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:49:04.416  INFO 8560 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:49:04.421  INFO 8560 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:49:31.226  INFO 8560 --- [SpringContextShutdownHook] o.s.s.c.ThreadPoolTaskExecutor           : Shutting down ExecutorService 'taskExecutor'
+2020-09-21 14:49:31.441  INFO 8560 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2020-09-21 14:49:31.446  INFO 8560 --- [SpringContextShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2020-09-21 14:49:45.523  INFO 8040 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 8040 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:49:45.529  INFO 8040 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:49:45.954  INFO 8040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:49:45.956  INFO 8040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:49:45.978  INFO 8040 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:49:46.331  INFO 8040 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:49:46.337  INFO 8040 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:49:46.337  INFO 8040 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:49:46.392  INFO 8040 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:49:46.392  INFO 8040 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 803 ms
+2020-09-21 14:49:46.848  INFO 8040 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:49:48.128  INFO 8040 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:49:50.250  INFO 8040 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:49:50.278  INFO 8040 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7ab2a07e, org.springframework.security.web.context.SecurityContextPersistenceFilter@51ff3c4b, org.springframework.security.web.header.HeaderWriterFilter@36f6e521, org.springframework.security.web.authentication.logout.LogoutFilter@2e0fdbe9, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@626b639e, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@517704, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@437c4b25, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@29013ef2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@35bd8bc9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57bd6a8f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5ec6fede, org.springframework.security.web.session.SessionManagementFilter@30922f8d, org.springframework.security.web.access.ExceptionTranslationFilter@60bf494c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4b03cbad]
+2020-09-21 14:49:50.284  INFO 8040 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:49:50.415  INFO 8040 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:49:50.581  INFO 8040 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:49:50.587  INFO 8040 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.418 seconds (JVM running for 6.542)
+2020-09-21 14:49:50.676  INFO 8040 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=4647AB81B689CDDC13E38F15DCD9BC90] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:49:50.679  INFO 8040 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:49:50.679  INFO 8040 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:49:50.684  INFO 8040 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 14:50:36.159  INFO 13996 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 13996 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:50:36.167  INFO 13996 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:50:36.620  INFO 13996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:50:36.622  INFO 13996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:50:36.645  INFO 13996 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:50:36.984  INFO 13996 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:50:36.990  INFO 13996 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:50:36.990  INFO 13996 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:50:37.045  INFO 13996 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:50:37.045  INFO 13996 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 817 ms
+2020-09-21 14:50:37.490  INFO 13996 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:50:38.817  INFO 13996 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:50:40.963  INFO 13996 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:50:40.991  INFO 13996 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@632383b9, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c319d52, org.springframework.security.web.header.HeaderWriterFilter@1a531422, org.springframework.security.web.authentication.logout.LogoutFilter@18709cb2, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7aea704c, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@3dbd7107, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@4ae2e781, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@be164d8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6839203b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@790d8fdd, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@339f3a55, org.springframework.security.web.session.SessionManagementFilter@13213f26, org.springframework.security.web.access.ExceptionTranslationFilter@21390938, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@fbe70d8]
+2020-09-21 14:50:41.000  INFO 13996 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:50:41.129  INFO 13996 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:50:41.297  INFO 13996 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:50:41.305  INFO 13996 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.47 seconds (JVM running for 6.539)
+2020-09-21 14:50:43.062  INFO 13996 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=838DA2A9CE14849FA8D67FF02508B86F] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:50:43.066  INFO 13996 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:50:43.067  INFO 13996 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:50:43.073  INFO 13996 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms
+2020-09-21 14:52:29.219  INFO 7292 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 7292 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 14:52:29.224  INFO 7292 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 14:52:29.693  INFO 7292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 14:52:29.695  INFO 7292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 14:52:29.716  INFO 7292 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 14:52:30.059  INFO 7292 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:52:30.064  INFO 7292 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 14:52:30.064  INFO 7292 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:52:30.121  INFO 7292 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:52:30.121  INFO 7292 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 831 ms
+2020-09-21 14:52:30.576  INFO 7292 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 14:52:31.778  INFO 7292 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 14:52:33.805  INFO 7292 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 14:52:33.835  INFO 7292 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7b14c61, org.springframework.security.web.context.SecurityContextPersistenceFilter@57bd6a8f, org.springframework.security.web.header.HeaderWriterFilter@7436364d, org.springframework.security.web.authentication.logout.LogoutFilter@5f395ce1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@679d0be8, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@1f884bd6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@8fcc534, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6f930e0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@517704, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@16a3cc88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e599100, org.springframework.security.web.session.SessionManagementFilter@68ea253b, org.springframework.security.web.access.ExceptionTranslationFilter@4026461d, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@437c4b25]
+2020-09-21 14:52:33.843  INFO 7292 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 14:52:33.970  INFO 7292 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:52:34.139  INFO 7292 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:52:34.145  INFO 7292 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.287 seconds (JVM running for 6.382)
+2020-09-21 14:53:19.467  INFO 7292 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=0FCC30663031A453BB7AFDC30B0F7F4B] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 14:53:19.471  INFO 7292 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:53:19.471  INFO 7292 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:53:19.477  INFO 7292 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms
+2020-09-21 15:01:10.060  INFO 10660 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 10660 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 15:01:10.066  INFO 10660 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 15:01:10.494  INFO 10660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 15:01:10.496  INFO 10660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 15:01:10.518  INFO 10660 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 15:01:10.853  INFO 10660 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 15:01:10.858  INFO 10660 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 15:01:10.858  INFO 10660 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 15:01:10.913  INFO 10660 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 15:01:10.914  INFO 10660 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 792 ms
+2020-09-21 15:01:11.355  INFO 10660 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 15:01:12.589  INFO 10660 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 15:01:14.580  INFO 10660 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 15:01:14.607  INFO 10660 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@491f8831, org.springframework.security.web.context.SecurityContextPersistenceFilter@5df6163a, org.springframework.security.web.header.HeaderWriterFilter@2b877a54, org.springframework.security.web.authentication.logout.LogoutFilter@36f6e521, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@42fc4ac4, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@224c7de4, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@691541bc, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6de004f1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2df65a56, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6070775e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b733ef7, org.springframework.security.web.session.SessionManagementFilter@4b87760e, org.springframework.security.web.access.ExceptionTranslationFilter@89caf47, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7c7e73c5]
+2020-09-21 15:01:14.613  INFO 10660 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 15:01:14.741  INFO 10660 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 15:01:14.904  INFO 10660 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 15:01:14.911  INFO 10660 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.166 seconds (JVM running for 6.226)
+2020-09-21 15:01:41.626  INFO 10660 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=12BF8D2AF89AD4E2AEC9BE03DCBDE992] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 15:01:41.630  INFO 10660 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 15:01:41.820  INFO 10660 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 15:01:41.826  INFO 10660 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms
+2020-09-21 15:18:27.482  INFO 7796 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 7796 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 15:18:27.488  INFO 7796 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 15:18:27.934  INFO 7796 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 15:18:27.936  INFO 7796 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 15:18:27.957  INFO 7796 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12ms. Found 0 Redis repository interfaces.
+2020-09-21 15:18:28.293  INFO 7796 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 15:18:28.298  INFO 7796 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 15:18:28.299  INFO 7796 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 15:18:28.353  INFO 7796 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 15:18:28.353  INFO 7796 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 812 ms
+2020-09-21 15:18:28.800  INFO 7796 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 15:18:29.980  INFO 7796 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 15:18:32.107  INFO 7796 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 15:18:32.136  INFO 7796 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c742b84, org.springframework.security.web.context.SecurityContextPersistenceFilter@217dc48e, org.springframework.security.web.header.HeaderWriterFilter@329dc214, org.springframework.security.web.authentication.logout.LogoutFilter@3e28d779, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5d1d9d73, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6a98f353, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5db3d57c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@13cc0b90, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@296edc75, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7d1c164a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@53a50b0a, org.springframework.security.web.session.SessionManagementFilter@64021427, org.springframework.security.web.access.ExceptionTranslationFilter@78c262ba, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1f129467]
+2020-09-21 15:18:32.142  INFO 7796 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 15:18:32.277  INFO 7796 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 15:18:32.443  INFO 7796 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 15:18:32.450  INFO 7796 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.284 seconds (JVM running for 6.358)
+2020-09-21 15:18:47.499  INFO 7796 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=5C7D4BBC0F37D453E4A174A1A430F30D] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 15:18:47.502  INFO 7796 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 15:18:47.503  INFO 7796 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 15:18:47.508  INFO 7796 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 15:23:19.050  INFO 10556 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 10556 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 15:23:19.055  INFO 10556 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 15:23:19.477  INFO 10556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 15:23:19.479  INFO 10556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 15:23:19.500  INFO 10556 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 15:23:19.844  INFO 10556 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 15:23:19.850  INFO 10556 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 15:23:19.850  INFO 10556 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 15:23:19.908  INFO 10556 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 15:23:19.908  INFO 10556 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 794 ms
+2020-09-21 15:23:20.352  INFO 10556 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 15:23:21.597  INFO 10556 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 15:23:23.946  INFO 10556 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 15:23:23.973  INFO 10556 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@8fcc534, org.springframework.security.web.context.SecurityContextPersistenceFilter@39ab5ef7, org.springframework.security.web.header.HeaderWriterFilter@1a8e9ed9, org.springframework.security.web.authentication.logout.LogoutFilter@19f02280, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6c075e9d, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4f081b5d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@5e599100, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@450f0235, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77cca767, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@696b52bc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3b435211, org.springframework.security.web.session.SessionManagementFilter@12fcb2c3, org.springframework.security.web.access.ExceptionTranslationFilter@191c6e13, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5ec6fede]
+2020-09-21 15:23:23.979  INFO 10556 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 15:23:24.106  INFO 10556 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 15:23:24.279  INFO 10556 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 15:23:24.286  INFO 10556 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.563 seconds (JVM running for 6.653)
+2020-09-21 15:23:30.076  INFO 10556 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=4CB4EB6EE2128CBD06194FCC7119E38B] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 15:23:30.080  INFO 10556 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 15:23:30.080  INFO 10556 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 15:23:30.085  INFO 10556 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 15:26:08.481  INFO 9852 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 9852 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 15:26:08.487  INFO 9852 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 15:26:08.946  INFO 9852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 15:26:08.948  INFO 9852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 15:26:08.969  INFO 9852 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 15:26:09.319  INFO 9852 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 15:26:09.324  INFO 9852 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 15:26:09.325  INFO 9852 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 15:26:09.383  INFO 9852 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 15:26:09.383  INFO 9852 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 834 ms
+2020-09-21 15:26:09.829  INFO 9852 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 15:26:11.065  INFO 9852 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 15:26:13.212  INFO 9852 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 15:26:13.241  INFO 9852 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@361cd35c, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b195203, org.springframework.security.web.header.HeaderWriterFilter@57bd6a8f, org.springframework.security.web.authentication.logout.LogoutFilter@cc9ef8d, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@8fcc534, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@29013ef2, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@58a765ce, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@329dc214, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@23444a36, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@474749b8, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4a642e4b, org.springframework.security.web.session.SessionManagementFilter@517704, org.springframework.security.web.access.ExceptionTranslationFilter@68ea253b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1653b84e]
+2020-09-21 15:26:13.248  INFO 9852 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 15:26:13.386  INFO 9852 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 15:26:13.550  INFO 9852 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 15:26:13.558  INFO 9852 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.448 seconds (JVM running for 6.582)
+2020-09-21 15:26:25.967  INFO 9852 --- [http-nio-8080-exec-2] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=A62B6AAA00B8D596533427CB3E2B408B] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 15:26:25.971  INFO 9852 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 15:26:25.971  INFO 9852 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 15:26:25.976  INFO 9852 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 5 ms
+2020-09-21 15:28:53.533  INFO 17288 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 17288 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 15:28:53.538  INFO 17288 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 15:28:53.973  INFO 17288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 15:28:53.975  INFO 17288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 15:28:53.996  INFO 17288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 15:28:54.333  INFO 17288 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 15:28:54.338  INFO 17288 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 15:28:54.339  INFO 17288 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 15:28:54.394  INFO 17288 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 15:28:54.394  INFO 17288 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 801 ms
+2020-09-21 15:28:54.836  INFO 17288 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 15:28:56.136  INFO 17288 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 15:28:58.260  INFO 17288 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 15:28:58.287  INFO 17288 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@525647f3, org.springframework.security.web.context.SecurityContextPersistenceFilter@268c030f, org.springframework.security.web.header.HeaderWriterFilter@a90e2c1, org.springframework.security.web.authentication.logout.LogoutFilter@49671897, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3554bdc0, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2e56b4d, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@42fc4ac4, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@50211483, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@be164d8, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2a0ea492, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20a24edf, org.springframework.security.web.session.SessionManagementFilter@370ef50b, org.springframework.security.web.access.ExceptionTranslationFilter@5edc3e29, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@784d9bc]
+2020-09-21 15:28:58.293  INFO 17288 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 15:28:58.420  INFO 17288 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 15:28:58.583  INFO 17288 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 15:28:58.591  INFO 17288 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.391 seconds (JVM running for 6.446)
+2020-09-21 15:29:01.731  INFO 17288 --- [http-nio-8080-exec-1] o.a.t.u.h.p.Cookie                       : A cookie header was received [1587970757,1590057138; JSESSIONID=CF6520D86AF4E8940DFA1B5525D05F9E] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2020-09-21 15:29:01.735  INFO 17288 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 15:29:01.735  INFO 17288 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 15:29:01.742  INFO 17288 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 7 ms
+2020-09-21 15:30:36.915  INFO 16380 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 16380 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 15:30:36.922  INFO 16380 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 15:30:37.372  INFO 16380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 15:30:37.374  INFO 16380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 15:30:37.398  INFO 16380 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14ms. Found 0 Redis repository interfaces.
+2020-09-21 15:30:37.764  INFO 16380 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 15:30:37.770  INFO 16380 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 15:30:37.770  INFO 16380 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 15:30:37.826  INFO 16380 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 15:30:37.826  INFO 16380 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 841 ms
+2020-09-21 15:30:38.320  INFO 16380 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 15:30:39.534  INFO 16380 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 15:30:41.559  INFO 16380 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 15:30:41.586  INFO 16380 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f8a9454, org.springframework.security.web.context.SecurityContextPersistenceFilter@191c6e13, org.springframework.security.web.header.HeaderWriterFilter@35bd8bc9, org.springframework.security.web.authentication.logout.LogoutFilter@740a0d5e, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@580902cd, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@30a9e3db, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6f85ee02, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@1e30db85, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1a8e9ed9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@23444a36, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@679d0be8, org.springframework.security.web.session.SessionManagementFilter@45d56062, org.springframework.security.web.access.ExceptionTranslationFilter@51ff3c4b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@8840c98]
+2020-09-21 15:30:41.592  INFO 16380 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 15:30:41.721  INFO 16380 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 15:30:41.890  INFO 16380 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 15:30:41.897  INFO 16380 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.356 seconds (JVM running for 6.48)
+2020-09-21 22:57:24.376  INFO 14472 --- [main] c.s.g.GeekApplication                    : Starting GeekApplication on cueyu with PID 14472 (E:\project\GeekPlatform\target\classes started by x in E:\project\GeekPlatform)
+2020-09-21 22:57:24.383  INFO 14472 --- [main] c.s.g.GeekApplication                    : No active profile set, falling back to default profiles: default
+2020-09-21 22:57:24.842  INFO 14472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-09-21 22:57:24.844  INFO 14472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-09-21 22:57:24.867  INFO 14472 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13ms. Found 0 Redis repository interfaces.
+2020-09-21 22:57:25.227  INFO 14472 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 22:57:25.233  INFO 14472 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2020-09-21 22:57:25.233  INFO 14472 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 22:57:25.287  INFO 14472 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2020-09-21 22:57:25.288  INFO 14472 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 839 ms
+2020-09-21 22:57:25.734  INFO 14472 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2020-09-21 22:57:27.340  INFO 14472 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2020-09-21 22:57:29.470  INFO 14472 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: Ant [pattern='/addUser'], []
+2020-09-21 22:57:29.499  INFO 14472 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@73bb1337, org.springframework.security.web.context.SecurityContextPersistenceFilter@790d8fdd, org.springframework.security.web.header.HeaderWriterFilter@b2c4a8b, org.springframework.security.web.authentication.logout.LogoutFilter@2df65a56, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1e00bfe2, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@370ef50b, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@685f5d0d, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2e56b4d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3dbd7107, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a90e2c1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3830b06c, org.springframework.security.web.session.SessionManagementFilter@43935e9c, org.springframework.security.web.access.ExceptionTranslationFilter@402f8592, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ae2e781]
+2020-09-21 22:57:29.505  INFO 14472 --- [main] o.s.s.c.ThreadPoolTaskExecutor           : Initializing ExecutorService 'taskExecutor'
+2020-09-21 22:57:29.640  INFO 14472 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 22:57:29.804  INFO 14472 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 22:57:29.811  INFO 14472 --- [main] c.s.g.GeekApplication                    : Started GeekApplication in 5.736 seconds (JVM running for 6.85)
+2020-09-21 22:58:55.296  INFO 14472 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 22:58:55.297  INFO 14472 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2020-09-21 22:58:55.303  INFO 14472 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 6 ms

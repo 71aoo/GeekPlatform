@@ -30,10 +30,13 @@ public class MyUserBean implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<SimpleGrantedAuthority> simpleGrantedAuthorities = new ArrayList<>();
         // 登陆成功赋予USER权限
-        simpleGrantedAuthorities.add(new SimpleGrantedAuthority("USER"));
+        simpleGrantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+        System.out.println(simpleGrantedAuthorities);
         // 如果用户teamid为0 表示用户没有队伍 否则赋予TEAM权限
         if (teamId != 0){
-            simpleGrantedAuthorities.add(new SimpleGrantedAuthority("TEAM"));
+            simpleGrantedAuthorities.add(new SimpleGrantedAuthority("ROLE_TEAM"));
+            System.out.println(simpleGrantedAuthorities);
+            System.out.println("team role");
         }
         return simpleGrantedAuthorities;
     }

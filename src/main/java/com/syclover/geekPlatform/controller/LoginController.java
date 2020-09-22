@@ -51,29 +51,18 @@ public class LoginController {
     @Autowired
     private MailService mailService;
 
-    //  返回index模板
-    @RequestMapping({"/","index"})
-    public String index(){
-        return "index";
-    }
-
     //    用户注册控制器
     @PostMapping("/addUser")
     @ResponseBody
-    public ResultT addUser(HttpServletRequest request){
+    public ResultT addUser(String username,String password,String email){
         User user = new User();
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        String iscuit = request.getParameter("iscuit");
-        String email = request.getParameter("email");
 
-        if (iscuit != null) {
-            user.setIsCuit(1);
-        }else {
-            user.setIsCuit(0);
+        // 判断用户名长度
+        if( !(username.length() <= 12 && username.length() > 4)){
+            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
         }
 
-//        密码为空
+        //  密码为空
         if (StringUtils.isEmpty(password) || StringUtils.isEmpty(username) || StringUtils.isEmpty(email)){
             //用户名或者密码或邮箱缺失
             return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
@@ -107,30 +96,12 @@ public class LoginController {
         }
     }
 
-    //    登陆控制器    模板引擎不需要了这些得改 但还不知道怎么改
-    //    改为直接使用邮箱登陆
-//    @PostMapping("/login")
-//    public String login(HttpServletRequest request, HttpSession session){
-//        String username = request.getParameter("username");
-//        String password = request.getParameter("password");
-//        if (StringUtils.isEmpty(username) || StringUtils.isEmpty(password)){
-//            return "index";
-//        }
-//
-//        User user = userService.getLoginUser(username).getData();
-//        if (password.equals(user.getPassword())){
-//            session.setAttribute("user",username);
-//            return "redirect:/profile";
-//        }else{
-//            return "index";
-//        }
-//    }
     @RequestMapping("/login")
     public String login(){
         return "login";
     }
 
-//    登录后跳转至profile路由
+    //    登录后跳转至profile路由
     @GetMapping("/profile")
     public String profile(HttpSession session) throws Exception {
         // 判断session中有无username
@@ -141,7 +112,7 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/api/verifytoken")
+    @RequestMapping("/verifytoken")
     @ResponseBody
     public ResultT verifyToken(@Param("token") String token){
         if (token == null){
@@ -169,7 +140,7 @@ public class LoginController {
     * 用户登陆以后才可以使用接口
     * 接口根据传入的session找到
     * 用户对象，再找到数据库中的email地址*/
-    @RequestMapping("/api/resetToken")
+    @RequestMapping("/resetToken")
     @ResponseBody
     public ResultT activeEmail(HttpSession session) throws Exception{
         String username = SessionGetterUtil.getUsername(session);
@@ -206,6 +177,7 @@ public class LoginController {
         Enumeration<String> attrs = session.getAttributeNames();
         String name = attrs.nextElement().toString();
         SecurityContextImpl value =(SecurityContextImpl) session.getAttribute(name);
+            System.out.println(value);
         UserDetails principal = (UserDetails) value.getAuthentication().getPrincipal();
         String username = principal.getUsername();
         System.out.println("username: "+ username);

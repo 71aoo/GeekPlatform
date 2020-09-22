@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.serviceTest;
 
+import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.BCPEUtils;
@@ -35,5 +36,12 @@ public class UserServiceTest {
         String encodePwd = BCPEUtils.encode("test");
         System.out.println(encodePwd);
         System.out.println(BCPEUtils.matches("tests",encodePwd));
+    }
+
+    @Test
+    public void getDataTest(){
+        String name = "xhytest2";
+        ResultT<User> loginUser = userService.getLoginUser(name);
+        System.out.println(loginUser);
     }
 }

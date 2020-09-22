@@ -26,4 +26,6 @@ public interface UserMapper {
     int updateToken(int id,String token);
 
     MyUserBean getUserBeanByUsername(String username);
+
+    int updateAll(User user);
 }

@@ -30,4 +30,6 @@ public interface UserService {
 
     //更新token
     int updateToken(int id,String token);
+
+    int updateProfile(User user);
 }

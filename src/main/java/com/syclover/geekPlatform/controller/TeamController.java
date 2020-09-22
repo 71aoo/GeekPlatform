@@ -27,7 +27,7 @@ import java.util.UUID;
  */
 
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/api/team/")
 public class TeamController {
 
 
@@ -41,7 +41,7 @@ public class TeamController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/team/add")
+    @PostMapping("/add")
     @ResponseBody
     public ResultT createTeam(@Param("teamname") String teamname, HttpSession session) throws Exception{
         List<String> names = teamService.getAllName().getData();
@@ -65,7 +65,7 @@ public class TeamController {
         }
     }
 
-    @PostMapping("/team/join")
+    @PostMapping("/join")
     @ResponseBody
     public ResultT joinTeam(@Param("token") String token,HttpSession session) throws Exception{
         User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
@@ -80,7 +80,7 @@ public class TeamController {
         }
     }
 
-    @PostMapping("/team/check")
+    @PostMapping("/check")
     @ResponseBody
     public ResultT checkNameVariable(@Param("name") String name){
         List<String> names = teamService.getAllName().getData();
