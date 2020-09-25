@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.service.impl;
 
+import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.UserMapper;
@@ -19,7 +20,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-//    根据id得到用户对象
+    //    根据id得到用户对象
     @Override
     public ResultT<User> getUser(int id) {
         User user = userMapper.getUserById(id);
@@ -42,7 +43,7 @@ public class UserServiceImpl implements UserService {
     public ResultT<User> getLoginUser(String username) {
         User user = userMapper.getUserByUsername(username);
         if (user != null) {
-             return new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
+            return new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
         }else{
             return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null );
         }
@@ -84,6 +85,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public int updateProfile(User user) {
         return userMapper.updateAll(user);
+    }
+
+    @Override
+    public User getByEmail(String email) {
+        return userMapper.getUserByEmail(email);
+    }
+
+    @Override
+    public MyUserBean getUserBeanByEmail(String name) {
+        return userMapper.getUserBeanByEmail(name);
     }
 
 

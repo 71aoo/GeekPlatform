@@ -28,4 +28,8 @@ public interface UserMapper {
     MyUserBean getUserBeanByUsername(String username);
 
     int updateAll(User user);
+
+    User getUserByEmail(String email);
+
+    MyUserBean getUserBeanByEmail(String email);
 }

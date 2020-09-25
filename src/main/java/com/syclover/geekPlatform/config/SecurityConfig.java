@@ -1,5 +1,7 @@
 package com.syclover.geekPlatform.config;
 
+import com.syclover.geekPlatform.config.spring.*;
+import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.service.impl.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -27,15 +29,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     AuthenticationFailureHandler authenticationFailureHandler;  //  登录失败返回的 JSON 格式数据给前端（否则为 html）
 
     @Autowired
-    LogoutSuccessHandler  logoutSuccessHandler;  // 注销成功返回的 JSON 格式数据给前端（否则为 登录时的 html）
+    LogoutSuccessHandler logoutSuccessHandler;  // 注销成功返回的 JSON 格式数据给前端（否则为 登录时的 html）
 
     @Autowired
     AccessDeniedHandler accessDeniedHandler;    // 无权访问返回的 JSON 格式数据给前端（否则为 403 html 页面）
 
-
+    @Autowired
+    EmailAuthenticationSecurityConfig emailAuthenticationSecurityConfig;
 
     @Autowired
     MyUserDetailsService myUserDetailsService;
+
+    @Autowired
+    UserService userService;
 
     protected void configure(HttpSecurity http) throws Exception {
 //        http
@@ -72,7 +78,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
         http.exceptionHandling().accessDeniedHandler(accessDeniedHandler); // 无权访问 JSON 格式的数据
-
+        http.apply(emailAuthenticationSecurityConfig);
     }
 
 
@@ -84,6 +90,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.authenticationProvider(new EmailAuthenticationProvider(userService));
         //内存验证
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).
                 withUser("admin").password(new BCryptPasswordEncoder().encode("testpwd")).roles("USER","ADMIN");

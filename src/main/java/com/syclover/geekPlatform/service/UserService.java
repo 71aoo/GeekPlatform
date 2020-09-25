@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.service;
 
+import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.User;
 
@@ -19,7 +20,7 @@ public interface UserService {
 
     int getTeamId(User user);
 
-//    感觉合成在teamService里面会好一点 但这样需要teamService自动装配一个userMapper
+    //    感觉合成在teamService里面会好一点 但这样需要teamService自动装配一个userMapper
     int updateTeam(int id,long teamid);
 
     //获取最后的id
@@ -31,5 +32,10 @@ public interface UserService {
     //更新token
     int updateToken(int id,String token);
 
+    // 更新用户个人资料
     int updateProfile(User user);
+
+    User getByEmail(String email);
+
+    MyUserBean getUserBeanByEmail(String name);
 }

@@ -1,6 +1,5 @@
-package com.syclover.geekPlatform.config;
+package com.syclover.geekPlatform.config.spring;
 
-import com.alibaba.fastjson.JSON;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import org.springframework.security.core.AuthenticationException;
@@ -22,7 +21,7 @@ public class AjaxAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
 
-        ResultT result = new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+        ResultT result = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(),null);
 
         httpServletResponse.getWriter().write(result.toString());
     }
