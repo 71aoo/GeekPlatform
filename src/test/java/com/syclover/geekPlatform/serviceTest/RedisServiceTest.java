@@ -74,4 +74,10 @@ public class RedisServiceTest {
         Set<String> userKeys = redisService.getUserKeys();
         System.out.println(userKeys);
     }
+
+    @Test
+    public void emailTest(){
+        String name = "cueyu@foxmail.com";
+        redisService.set(RedisUtil.generateEmailKey(name),1);
+    }
 }

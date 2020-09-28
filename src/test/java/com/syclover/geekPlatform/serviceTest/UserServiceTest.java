@@ -1,6 +1,7 @@
 package com.syclover.geekPlatform.serviceTest;
 
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.BCPEUtils;
@@ -43,5 +44,26 @@ public class UserServiceTest {
         String name = "xhytest2";
         ResultT<User> loginUser = userService.getLoginUser(name);
         System.out.println(loginUser);
+    }
+
+    @Test
+    public void getStudent(){
+        String name = "马泽丹";
+        String number = "2020011001";
+        Student student = userService.getStudent(name, number);
+        System.out.println(student);
+    }
+
+    @Test
+    public void updateTest(){
+        String motto = "测试";
+        String IMG = "sssss";
+        int is_cuit = 1;
+        User user = userService.getLoginUser("chenz").getData();
+        user.setMotto(motto);
+        user.setHeaderImg(IMG);
+        user.setIsCuit(is_cuit);
+        int result = userService.updateProfile(user);
+        System.out.println(result);
     }
 }

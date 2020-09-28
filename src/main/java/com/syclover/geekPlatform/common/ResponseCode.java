@@ -19,8 +19,9 @@ public enum ResponseCode {
     NAME_HAVE_ERROR(803,"NAME ALREADY HAVE"), // 名称已被使用
     PARAMETER_MISS_ERROR(804,"PARAMETER MISS"),
     CACHE_EXPIRED(805,"CACHE EXPIRED"),// 缓存过期
-    LOGIN_FIRST_ERROR(806,"USER HAVENT LOGIN"); // 用户未登陆或登陆过期
-
+    LOGIN_FIRST_ERROR(806,"USER HAVENT LOGIN"), // 用户未登陆或登陆过期
+    EMAIL_USED_ERROR(807,"EMAIL HAS BEEN USED"), // 邮箱已被注册
+    STUDENT_NUMBER_USED_ERROR(808,"STUDENT NUMBER HAS BEEN USED"); // 学号已被注册
 
     // 响应码
     private final int code;

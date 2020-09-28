@@ -4,6 +4,7 @@ import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.UserMapper;
+import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.BCPEUtils;
@@ -95,6 +96,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public MyUserBean getUserBeanByEmail(String name) {
         return userMapper.getUserBeanByEmail(name);
+    }
+
+    @Override
+    public Student getStudent(String name, String number) {
+      return userMapper.getStudent(name,number);
     }
 
 

@@ -51,22 +51,41 @@ public class LoginController {
     @Autowired
     private MailService mailService;
 
-    //    用户注册控制器
+    /** 用户注册控制器
+     *
+     * @param username
+     * @param password
+     * @param email
+     * @param name 学生姓名
+     * @param number 学生学号
+     * @return
+     */
     @PostMapping("/addUser")
     @ResponseBody
-    public ResultT addUser(String username,String password,String email){
+    public ResultT addUser(String username,String password,String email,String name,String number){
         User user = new User();
-
-        // 判断用户名长度
-        if( !(username.length() <= 12 && username.length() > 4)){
-            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
-        }
 
         //  密码为空
         if (StringUtils.isEmpty(password) || StringUtils.isEmpty(username) || StringUtils.isEmpty(email)){
             //用户名或者密码或邮箱缺失
             return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
         }
+
+        // 判断用户名长度
+        if( !(username.length() <= 12 && username.length() > 4)){
+            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+        }
+
+        // 判断密码长度
+        if ( !(password.length() >= 5 && password.length() < 16)){
+            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+        }
+
+        // 判断邮箱是否注册
+        if (redisService.get(RedisUtil.generateEmailKey(email)) != null){
+            return new ResultT(ResponseCode.EMAIL_USED_ERROR.getCode(),ResponseCode.EMAIL_USED_ERROR.getMsg(),null);
+        }
+
 
         String token = UUID.randomUUID().toString().replace("-", "");
         user.setUsername(username);
@@ -80,16 +99,33 @@ public class LoginController {
             //用户名已被注册
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }else{
-
+            //注册用户
+            // 如果传入学号和姓名，进入本校学生验证
+            if (!StringUtils.isEmpty(name) || !StringUtils.isEmpty(number)){
+                // 缓存中查找学生学号是否被注册
+                if (redisService.get(RedisUtil.generateStudentKey(number)) == null ){
+                    // 如果在数据库中找到对应的记录
+                    if (userService.getStudent(name,number) != null){
+                        user.setIsCuit(1);
+                    }else{
+                        return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),ResponseCode.PARAMETER_ERROR.getMsg(),null);
+                    }
+                }else{
+                    return new ResultT(ResponseCode.STUDENT_NUMBER_USED_ERROR.getCode(),ResponseCode.STUDENT_NUMBER_USED_ERROR.getMsg(),null);
+                }
+            }
+            userService.registerUser(user);
+            int id = userService.getLastId();
             //发送验证邮件，并将token加入缓存设置过期时间1天
             String content = PlatformUrl + "api/verifytoken?token=" + token;
             mailService.sendSimpleMail(email,"GeekPlatform email check",content);
-            //注册用户
-            userService.registerUser(user);
-            int id = userService.getLastId();
-            //分别把用户名和token加入redis缓存
+            //分别把用户名和token以及email加入redis缓存
             redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
             redisService.set(RedisUtil.generateUserKey(id),username);
+            redisService.set(RedisUtil.generateEmailKey(email),1);
+            if (!StringUtils.isEmpty(number)){
+                redisService.set(RedisUtil.generateStudentKey(number),1);
+            }
             //加入布隆过滤器缓存
             bloomFilterService.add(username);
             return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
@@ -112,7 +148,7 @@ public class LoginController {
         }
     }
 
-    @RequestMapping("/verifytoken")
+    @RequestMapping("/api/verifytoken")
     @ResponseBody
     public ResultT verifyToken(@Param("token") String token){
         if (token == null){
@@ -135,33 +171,35 @@ public class LoginController {
     }
 
 
-    /*
+    /**
     * 接口用于重发邮箱验证邮件
     * 用户登陆以后才可以使用接口
     * 接口根据传入的session找到
     * 用户对象，再找到数据库中的email地址*/
     @RequestMapping("/resetToken")
     @ResponseBody
-    public ResultT activeEmail(HttpSession session) throws Exception{
-        String username = SessionGetterUtil.getUsername(session);
-        if (username == null){
-            // session中没有user 用户没有登陆
-            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
-        }else {
-            // 得到user对象 到数据库中查邮箱
-            User user = userService.getLoginUser(username).getData();
-            String email = user.getEmail();
-            // 再次生成token 更新用户数据库和缓存
-            String token = UUID.randomUUID().toString().replace("-", "");
-            redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
-            int id = user.getId();
-            // 更新对应用户token
-            userService.updateToken(id,token);
-            String content = PlatformUrl + "?token=" + token;
-            mailService.sendSimpleMail(email,"Reset token test",content);
-            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+            public ResultT activeEmail(HttpSession session) throws Exception{
+                String username = SessionGetterUtil.getUsername(session);
+                if (username == null){
+                    // session中没有user 用户没有登陆
+                    return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+                }else {
+                    // 得到user对象 到数据库中查邮箱
+                    User user = userService.getLoginUser(username).getData();
+                    String email = user.getEmail();
+                    // 再次生成token 更新用户数据库和缓存
+                    String token = UUID.randomUUID().toString().replace("-", "");
+                    redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
+                    int id = user.getId();
+                    // 更新对应用户token
+                    userService.updateToken(id,token);
+                    String content = PlatformUrl + "?token=" + token;
+                    mailService.sendSimpleMail(email,"Reset token test",content);
+                    return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
+
+
 
     @RequestMapping("/test")
     @ResponseBody

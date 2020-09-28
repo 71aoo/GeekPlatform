@@ -42,6 +42,12 @@
         <result column="team_id" property="teamId"/>
     </resultMap>
 
+    <!-- Student类   -->
+    <resultMap id="studentMapper" type="com.syclover.geekPlatform.entity.Student">
+        <result column="name" property="name"/>
+        <result column="number" property="number"/>
+    </resultMap>
+
     <!--根据id查找user-->
     <select id="getUserById" resultMap="allColumnsMapper">
         select * from Users where id = #{id}
@@ -98,6 +104,10 @@
     </select>
 
     <update id="updateAll">
-        update Users set motto = #{user.motto},header_img = #{user.header_img},is_cuit = #{user.isCuit} where id = #{user.id} and is_del = 0;
+        update Users set motto = #{user.motto},header_img = #{user.headerImg},is_cuit = #{user.isCuit} where id = #{user.id} and is_del = 0;
     </update>
+
+    <select id="getStudent" resultMap="studentMapper">
+        select * from Data where name = #{name} and number = #{number}
+    </select>
 </mapper>

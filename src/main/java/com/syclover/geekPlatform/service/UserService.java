@@ -2,6 +2,7 @@ package com.syclover.geekPlatform.service;
 
 import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
 
 /**
@@ -38,4 +39,6 @@ public interface UserService {
     User getByEmail(String email);
 
     MyUserBean getUserBeanByEmail(String name);
+
+    Student getStudent(String name,String number);
 }

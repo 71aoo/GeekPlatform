@@ -1,6 +1,7 @@
 package com.syclover.geekPlatform.dao;
 
 import com.syclover.geekPlatform.bean.MyUserBean;
+import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -27,9 +28,11 @@ public interface UserMapper {
 
     MyUserBean getUserBeanByUsername(String username);
 
-    int updateAll(User user);
+    int updateAll(@Param("user") User user);
 
     User getUserByEmail(String email);
 
     MyUserBean getUserBeanByEmail(String email);
+
+    Student getStudent(String name,String number);
 }
