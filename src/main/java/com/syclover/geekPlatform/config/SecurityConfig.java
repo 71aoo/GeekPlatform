@@ -62,10 +62,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                // admin user team接口需要对应权限
-                .antMatchers("/api/admin/**").hasRole("ADMIN")
+                .antMatchers("/challenge/add","/challenge/del","/challenge/challengeInfo","/category/add").hasRole("ADMIN")
                 .antMatchers("/api/user/**").hasRole("USER")
-                .antMatchers("/api/team/**").hasRole("TEAM")
+                .antMatchers("/solve/checkFlag").hasRole("TEAM")
                 .and()
                 .formLogin()  //开启登录
                 .successHandler(authenticationSuccessHandler) // 登录成功

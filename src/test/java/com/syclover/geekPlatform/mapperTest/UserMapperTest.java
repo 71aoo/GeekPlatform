@@ -63,4 +63,11 @@ public class UserMapperTest {
         MyUserBean userBean = userMapper.getUserBeanByUsername("admin");
         System.out.println(userBean);
     }
+
+    @Test
+    void updateTeam(){
+        int id = 11;
+        int teamId = 9;
+        userMapper.updateTeam(teamId,id);
+    }
 }

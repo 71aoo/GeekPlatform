@@ -24,7 +24,7 @@ import javax.servlet.http.HttpSession;
 
 
 @RestController
-@RequestMapping("/api/user/profile")
+@RequestMapping("/user/")
 public class UserController {
 
 

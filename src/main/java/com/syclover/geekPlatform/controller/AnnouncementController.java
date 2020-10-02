@@ -29,20 +29,20 @@ public class AnnouncementController {
     @Autowired
     private AnnouncementMapper announcementMapper;
 
-    @RequestMapping("/getcontent")
-    public String getContent() throws Exception{
+    @RequestMapping("/getContent")
+    public ResultT getContent() {
         try {
             Set<String> announcements = announcementService.getAnnouncements();
             ResultT result = new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), announcements);
-            return JSON.toJSONString(result);
+            return result;
         }catch (Exception e){
             ResultT result = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(), null);
-            return JSON.toJSONString(result);
+            return result;
         }
     }
 
-    @RequestMapping("/addcontent")
-    public String addContent(@Param("content") String content){
+    @RequestMapping("/addContent")
+    public ResultT addContent(@Param("content") String content) {
         // 添加成功
         if (content != null && StringUtils.equals(content,"") == false){
             // 查询id 并在缓存中加入
@@ -50,15 +50,15 @@ public class AnnouncementController {
 
             if (result == 0){
                 ResultT resultT = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(), null);
-                return JSON.toJSONString(resultT);
+                return resultT;
             }
 
             int id = announcementMapper.getLastId().getId();
             announcementService.setAnnouncement(id,content);
-            return (JSON.toJSONString(new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null)));
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }else {
             ResultT result = new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(), ResponseCode.PARAMETER_MISS_ERROR.getMsg(), null);
-            return JSON.toJSONString(result);
+            return result;
         }
     }
 

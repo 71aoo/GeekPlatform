@@ -62,8 +62,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int updateTeam(int id, long teamid) {
-        int result = userMapper.updateTeam(id, teamid);
+    public int updateTeam(int teamId, int id) {
+        int result = userMapper.updateTeam(id, teamId);
         return result;
     }
 

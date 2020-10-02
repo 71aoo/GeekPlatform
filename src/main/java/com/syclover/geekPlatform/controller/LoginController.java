@@ -52,17 +52,14 @@ public class LoginController {
     private MailService mailService;
 
     /** 用户注册控制器
-     *
      * @param username
      * @param password
      * @param email
-     * @param name 学生姓名
-     * @param number 学生学号
      * @return
      */
     @PostMapping("/addUser")
     @ResponseBody
-    public ResultT addUser(String username,String password,String email,String name,String number){
+    public ResultT addUser(String username,String password,String email){
         User user = new User();
 
         //  密码为空
@@ -99,21 +96,6 @@ public class LoginController {
             //用户名已被注册
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }else{
-            //注册用户
-            // 如果传入学号和姓名，进入本校学生验证
-            if (!StringUtils.isEmpty(name) || !StringUtils.isEmpty(number)){
-                // 缓存中查找学生学号是否被注册
-                if (redisService.get(RedisUtil.generateStudentKey(number)) == null ){
-                    // 如果在数据库中找到对应的记录
-                    if (userService.getStudent(name,number) != null){
-                        user.setIsCuit(1);
-                    }else{
-                        return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),ResponseCode.PARAMETER_ERROR.getMsg(),null);
-                    }
-                }else{
-                    return new ResultT(ResponseCode.STUDENT_NUMBER_USED_ERROR.getCode(),ResponseCode.STUDENT_NUMBER_USED_ERROR.getMsg(),null);
-                }
-            }
             userService.registerUser(user);
             int id = userService.getLastId();
             //发送验证邮件，并将token加入缓存设置过期时间1天
@@ -123,30 +105,11 @@ public class LoginController {
             redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
             redisService.set(RedisUtil.generateUserKey(id),username);
             redisService.set(RedisUtil.generateEmailKey(email),1);
-            if (!StringUtils.isEmpty(number)){
-                redisService.set(RedisUtil.generateStudentKey(number),1);
-            }
-            //加入布隆过滤器缓存
             bloomFilterService.add(username);
             return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
 
-    @RequestMapping("/login")
-    public String login(){
-        return "login";
-    }
-
-    //    登录后跳转至profile路由
-    @GetMapping("/profile")
-    public String profile(HttpSession session) throws Exception {
-        // 判断session中有无username
-        if (SessionGetterUtil.getUsername(session) == null){
-            return "index";
-        }else {
-            return "profile";
-        }
-    }
 
     @RequestMapping("/api/verifytoken")
     @ResponseBody
@@ -200,13 +163,12 @@ public class LoginController {
     }
 
 
-
-    @RequestMapping("/test")
-    @ResponseBody
-    public ResultT test(){
-        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
-    }
-
+    /**
+     * 测试用
+     * @param request
+     * @return
+     * @throws NoSuchElementException
+     */
     @RequestMapping("/sessionTest")
     @ResponseBody
     public String session(HttpServletRequest request) throws NoSuchElementException {

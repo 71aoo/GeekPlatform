@@ -15,7 +15,7 @@ public interface UserMapper {
 
     User getUserById(int id);
 
-    int updateTeam(int id,long teamid);
+    int updateTeam(int teamId,int id);
 
     //拿取最新的id用于生成redis键
     User getLastUserId();

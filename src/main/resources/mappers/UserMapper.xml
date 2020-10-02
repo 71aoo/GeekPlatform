@@ -79,9 +79,9 @@
     </insert>
 
     <!--    更新用户的队伍 之后更新全字段-->
-    <insert id="updateTeam">
-        update Users set team_id = #{teamid} where id = #{id}
-    </insert>
+    <update id="updateTeam">
+        update Users set team_id = #{teamId} where id = #{id}
+    </update>
 
     <select id="getLastUserId" resultMap="idMapper">
         select id from Users order by id desc limit 1

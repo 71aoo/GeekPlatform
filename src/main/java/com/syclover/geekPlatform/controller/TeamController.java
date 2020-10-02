@@ -5,19 +5,20 @@ import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.BloomFilterService;
+import com.syclover.geekPlatform.service.RedisService;
 import com.syclover.geekPlatform.service.TeamService;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.RedisUtil;
 import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
+import javax.xml.ws.Response;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,8 +27,8 @@ import java.util.UUID;
  * @Date 2020/8/21
  */
 
-@Controller
-@RequestMapping("/api/team/")
+@RestController
+@RequestMapping("/team/")
 public class TeamController {
 
 
@@ -41,50 +42,91 @@ public class TeamController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/add")
-    @ResponseBody
-    public ResultT createTeam(@Param("teamname") String teamname, HttpSession session) throws Exception{
-        List<String> names = teamService.getAllName().getData();
-        if (names.contains(teamname)){
-            return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
-        }
-        Team team = new Team();
+    @Autowired
+    private RedisService redisService;
+
+//    @PostMapping("/add")
+//    public ResultT createTeam(@Param("teamname") String teamname, HttpSession session) throws Exception{
+//        List<String> names = teamService.getAllName().getData();
+//        if (names.contains(teamname)){
+//            return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
+//        }
+//        Team team = new Team();
+//        User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
+//        if (userService.getTeamId(user) == 0) {
+//            String token = UUID.randomUUID().toString().replace("-", "");
+//            team.setName(teamname);
+//            team.setMemberOne(user);
+//            team.setToken(token);
+//            ResultT<Team> team1 = teamService.createTeam(team);
+//            int getTeamId = teamService.getTeam(teamname).getData().getId();
+//            userService.updateTeam(user.getId(),getTeamId);
+//            return team1;
+//        }else{
+//            //用户已在一只队伍中
+//            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+//        }
+//    }
+
+    @PostMapping("/create")
+    public ResultT createTeam(String teamName,String img,String motto,HttpSession session){
         User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
-        if (userService.getTeamId(user) == 0) {
-            String token = UUID.randomUUID().toString().replace("-", "");
-            team.setName(teamname);
+        user.setPassword(null);
+        if (user.getTeamId() != 0){
+            return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
+        }
+        String token = UUID.randomUUID().toString().replace("-", "");
+        Team team = new Team();
+        if (!StringUtils.isEmpty(teamName) || !StringUtils.isEmpty(img) || !StringUtils.isEmpty(motto)){
+            if (bloomFilterService.contain(teamName)){
+                return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);
+            }
+            List<String> names = teamService.getAllName().getData();
+            if (names.contains(teamName)){
+                return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
+            }
             team.setMemberOne(user);
             team.setToken(token);
-            ResultT<Team> team1 = teamService.createTeam(team);
-            int getTeamId = teamService.getTeam(teamname).getData().getId();
-            userService.updateTeam(user.getId(),getTeamId);
-            return team1;
+            team.setName(teamName);
+            team.setHeaderImg(img);
+            team.setMotto(motto);
+            ResultT<Team> data = teamService.createTeam(team);
+            userService.updateTeam(data.getData().getId(),user.getId());
+            System.out.println("id:" + data.getData().getId());
+            redisService.set(RedisUtil.generateTeamKey(data.getData().getId()),teamName);
+            bloomFilterService.add(teamName);
+            return data;
         }else{
-            //用户已在一只队伍中
-            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
         }
+
     }
 
+
     @PostMapping("/join")
-    @ResponseBody
     public ResultT joinTeam(@Param("token") String token,HttpSession session) throws Exception{
         User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
-        int teamId = user.getTeamId();
-        if (teamId == 0){
-            teamService.addTeamate(user.getId(),token);
-            int id = teamService.getTeamByToken(token).getData().getId();
-            userService.updateTeam(user.getId(),id);
-            return new ResultT<>(ResponseCode.TEAM_JOIN_SUCCESS.getCode(),ResponseCode.TEAM_JOIN_SUCCESS.getMsg(),null);
-        }else{
-            return new ResultT<>(ResponseCode.TEAM_JOIN_FAILED.getCode(),ResponseCode.TEAM_JOIN_FAILED.getMsg(),null);
+        if (user.getTeamId() != 0){
+            return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
+        }
+        Team team = teamService.getTeamByToken(token).getData();
+        if (team != null){
+            if (team.getMemberTwo() == null){
+                teamService.addTeamate(user.getId(),token);
+                userService.updateTeam(user.getId(),team.getId());
+                return new ResultT(ResponseCode.TEAM_JOIN_SUCCESS.getCode(),ResponseCode.TEAM_JOIN_SUCCESS.getMsg(),null);
+            }else {
+                return new ResultT(ResponseCode.TEAM_JOIN_FAILED.getCode(),ResponseCode.TEAM_JOIN_FAILED.getMsg(),null);
+            }
+        }
+        else{
+            return new ResultT(ResponseCode.TEAM_NOT_FOUND.getCode(),ResponseCode.TEAM_NOT_FOUND.getMsg(),null);
         }
     }
 
     @PostMapping("/check")
-    @ResponseBody
     public ResultT checkNameVariable(@Param("name") String name){
-        List<String> names = teamService.getAllName().getData();
-        if (names.contains(name)){
+        if (bloomFilterService.contain(name)){
             //名称已被注册
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }else {

@@ -28,7 +28,8 @@ public class TeamServiceImpl implements TeamService {
         if (result == 0){
             return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
         }else {
-            return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),team);
+            Team newTeam = teamMapper.getTeamByToken(team.getToken());
+            return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),newTeam);
         }
     }
 

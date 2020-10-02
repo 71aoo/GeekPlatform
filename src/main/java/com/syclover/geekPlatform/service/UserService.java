@@ -22,7 +22,7 @@ public interface UserService {
     int getTeamId(User user);
 
     //    感觉合成在teamService里面会好一点 但这样需要teamService自动装配一个userMapper
-    int updateTeam(int id,long teamid);
+    int updateTeam(int teamId,int id);
 
     //获取最后的id
     int getLastId();
