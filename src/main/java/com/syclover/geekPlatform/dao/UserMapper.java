@@ -6,6 +6,8 @@ import com.syclover.geekPlatform.entity.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserMapper {
 
@@ -35,4 +37,7 @@ public interface UserMapper {
     MyUserBean getUserBeanByEmail(String email);
 
     Student getStudent(String name,String number);
+
+    List<User> getAllUser();
+
 }

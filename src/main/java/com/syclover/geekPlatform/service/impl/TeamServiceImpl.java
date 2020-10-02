@@ -4,7 +4,9 @@ import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.TeamMapper;
 import com.syclover.geekPlatform.entity.Team;
+import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.TeamService;
+import com.syclover.geekPlatform.util.CleanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,8 +51,9 @@ public class TeamServiceImpl implements TeamService {
     public ResultT<Team> getTeam(int id) {
         Team team = teamMapper.getTeamById(id);
         if (team == null){
-            return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+            return new ResultT<>(ResponseCode.TEAM_NOT_FOUND.getCode(),ResponseCode.TEAM_NOT_FOUND.getMsg(),null);
         }else {
+            team = CleanUtil.cleanTeam(team);
             return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),team);
         }
     }
@@ -107,6 +110,17 @@ public class TeamServiceImpl implements TeamService {
 
         // 成功返回
         return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), userInTeam);
+    }
+
+    @Override
+    public ResultT<List<Team>> getAllTeam() {
+        List<Team> allTeam = teamMapper.getAllTeam();
+        List<Team> cleanTeams = new ArrayList<>();
+        for (Team team : allTeam){
+            Team cleanTeam = CleanUtil.cleanTeam(team);
+            cleanTeams.add(team);
+        }
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),cleanTeams);
     }
 
 

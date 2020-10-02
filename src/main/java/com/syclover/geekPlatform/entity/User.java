@@ -186,11 +186,15 @@ public class User {
                 ", motto='" + motto + '\'' +
                 ", headerImg='" + headerImg + '\'' +
                 ", isDel=" + isDel +
+                ", points=" + points +
                 ", teamId=" + teamId +
+                ", lastPointsTime=" + lastPointsTime +
                 ", createdTime=" + createdTime +
                 ", updatedTime=" + updatedTime +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", authToken='" + authToken + '\'' +
                 '}';
     }
 }

@@ -17,6 +17,7 @@
         <result column="is_del" property="isDel"/>
         <result column="points" property="points"/>
         <result column="team_id" property="teamId"/>
+        <result column="email" property="email"/>
         <result column="created_time" property="createdTime"/>
         <result column="updated_time" property="updatedTime"/>
         <result column="last_points_time" property="lastPointsTime"/>
@@ -55,7 +56,7 @@
 
     <!-- 查找所有的user -->
     <select id="getAllUser" resultMap="allColumnsMapper">
-        select * from Users
+        select * from Users order by username
     </select>
 
     <!-- 登陆返回的User    -->

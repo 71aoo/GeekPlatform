@@ -96,6 +96,13 @@
             <version>28.1-jre</version>
         </dependency>
 
+        <!--        模板文件依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+
 <!--         spring security依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

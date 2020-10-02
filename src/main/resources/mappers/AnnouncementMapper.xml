@@ -14,10 +14,11 @@
     <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Announcement">
         <result column="id" property="id"/>
         <result column="content" property="content"/>
+        <result column="create_time" property="createdTime"/>
     </resultMap>
 
     <insert id="addAnnouncement">
-        insert into Announcements (content) values (#{content})
+        insert into Announcements (content,create_time) values (#{content},#{createdTime})
     </insert>
 
     <select id="getLastId" resultMap="allColumnsMapper">

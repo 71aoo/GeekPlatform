@@ -25,4 +25,6 @@ public interface TeamService {
 
     // 检查用户是否在队伍里面
     ResultT<Team> checkUserInTeam(String token, int teamID, int userID);
+
+    ResultT<List<Team>> getAllTeam();
 }

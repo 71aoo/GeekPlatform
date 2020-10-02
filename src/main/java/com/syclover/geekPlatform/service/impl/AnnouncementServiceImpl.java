@@ -51,4 +51,9 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
     }
 
+    public List<Announcement> getAll(){
+        List<Announcement> announcements = announcementMapper.getAnnouncements();
+        return announcements;
+    }
+
 }

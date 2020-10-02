@@ -5,6 +5,8 @@ import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
 
+import java.util.List;
+
 /**
  * @Author: Playwi0
  * @Data: 2020/8/12
@@ -41,4 +43,6 @@ public interface UserService {
     MyUserBean getUserBeanByEmail(String name);
 
     Student getStudent(String name,String number);
+
+    List<User> getAllUser();
 }

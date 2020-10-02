@@ -19,11 +19,8 @@ import org.springframework.expression.EvaluationException;
 import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.thymeleaf.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -33,7 +30,7 @@ import java.util.UUID;
 
 import static java.util.UUID.randomUUID;
 
-@Controller
+@RestController
 public class LoginController {
 
     private final String PlatformUrl = "http://localhost:8080/";
@@ -58,7 +55,6 @@ public class LoginController {
      * @return
      */
     @PostMapping("/addUser")
-    @ResponseBody
     public ResultT addUser(String username,String password,String email){
         User user = new User();
 
@@ -111,8 +107,7 @@ public class LoginController {
     }
 
 
-    @RequestMapping("/api/verifytoken")
-    @ResponseBody
+    @RequestMapping("/api/verifyToken")
     public ResultT verifyToken(@Param("token") String token){
         if (token == null){
             return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
@@ -140,52 +135,41 @@ public class LoginController {
     * 接口根据传入的session找到
     * 用户对象，再找到数据库中的email地址*/
     @RequestMapping("/resetToken")
-    @ResponseBody
-            public ResultT activeEmail(HttpSession session) throws Exception{
-                String username = SessionGetterUtil.getUsername(session);
-                if (username == null){
-                    // session中没有user 用户没有登陆
-                    return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
-                }else {
-                    // 得到user对象 到数据库中查邮箱
-                    User user = userService.getLoginUser(username).getData();
-                    String email = user.getEmail();
-                    // 再次生成token 更新用户数据库和缓存
-                    String token = UUID.randomUUID().toString().replace("-", "");
-                    redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
-                    int id = user.getId();
-                    // 更新对应用户token
-                    userService.updateToken(id,token);
-                    String content = PlatformUrl + "?token=" + token;
-                    mailService.sendSimpleMail(email,"Reset token test",content);
-                    return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+    public ResultT activeEmail(HttpSession session) throws Exception{
+        String username = SessionGetterUtil.getUsername(session);
+        if (username == null){
+            // session中没有user 用户没有登陆
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }else {
+            // 得到user对象 到数据库中查邮箱
+            User user = userService.getLoginUser(username).getData();
+            String email = user.getEmail();
+            // 再次生成token 更新用户数据库和缓存
+            String token = UUID.randomUUID().toString().replace("-", "");
+            redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
+            int id = user.getId();
+            // 更新对应用户token
+            userService.updateToken(id,token);
+            String content = PlatformUrl + "?token=" + token;
+            mailService.sendSimpleMail(email,"Reset token test",content);
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
 
-
     /**
-     * 测试用
-     * @param request
+     * 检查用户名是否重复接口
+     * @param name
      * @return
-     * @throws NoSuchElementException
      */
-    @RequestMapping("/sessionTest")
-    @ResponseBody
-    public String session(HttpServletRequest request) throws NoSuchElementException {
-        try{
-        HttpSession session = request.getSession();
-        Enumeration<String> attrs = session.getAttributeNames();
-        String name = attrs.nextElement().toString();
-        SecurityContextImpl value =(SecurityContextImpl) session.getAttribute(name);
-            System.out.println(value);
-        UserDetails principal = (UserDetails) value.getAuthentication().getPrincipal();
-        String username = principal.getUsername();
-        System.out.println("username: "+ username);
-
-        return "test";
-        }catch (NoSuchElementException e){
-            System.out.println("fucked up");
-            return "test";
+    @PostMapping("/checkUserName")
+    public ResultT checkName(String name){
+        if (StringUtils.isEmpty(name)){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+        if (bloomFilterService.contain(name)){
+            return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
+        }else {
+            return new ResultT(ResponseCode.USER_NAME_VALID.getCode(), ResponseCode.USER_NAME_VALID.getMsg(),null);
         }
     }
 

@@ -8,8 +8,12 @@ import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.BCPEUtils;
+import com.syclover.geekPlatform.util.CleanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: Playwi0
@@ -26,10 +30,11 @@ public class UserServiceImpl implements UserService {
     public ResultT<User> getUser(int id) {
         User user = userMapper.getUserById(id);
         if (user != null) {
-            ResultT<User> result = new ResultT<User>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
+            user = CleanUtil.cleanUser(user);
+            ResultT<User> result = new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), user);
             return result;
         }else{
-            return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null );
+            return new ResultT<>(ResponseCode.USER_NOT_FOUND.getCode(),ResponseCode.USER_NOT_FOUND.getMsg(),null );
         }
     }
 
@@ -101,6 +106,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public Student getStudent(String name, String number) {
       return userMapper.getStudent(name,number);
+    }
+
+    @Override
+    public List<User> getAllUser() {
+        List<User> allUser = userMapper.getAllUser();
+        List<User> cleanUser = new ArrayList<>();
+        for (User user : allUser){
+            user = CleanUtil.cleanUser(user);
+            cleanUser.add(user);
+        }
+        return cleanUser;
     }
 
 

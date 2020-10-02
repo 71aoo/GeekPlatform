@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @Author cueyu
@@ -76,13 +77,39 @@ public class UserController {
         }
     }
 
-    @GetMapping("/getdata")
+    /**
+     * 获得用户数据接口
+     * @param session
+     * @return
+     */
+    @GetMapping("/getData")
     public ResultT getData(HttpSession session){
         String username = SessionGetterUtil.getUsername(session);
         System.out.println(username);
         User user = userService.getLoginUser(username).getData();
         user.setPassword(null);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
+    }
+
+    /**
+     * 根据id获得用户接口
+     * @param id
+     * @return
+     */
+    @GetMapping("/getId")
+    public ResultT getUserById(int id){
+        ResultT<User> user = userService.getUser(id);
+        return user;
+    }
+
+    /**
+     * 获取所有用户信息，按姓名排序
+     * @return
+     */
+    @GetMapping("/getAll")
+    public ResultT getAllUser(){
+        List<User> allUser = userService.getAllUser();
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),allUser);
     }
 
 }

@@ -21,4 +21,6 @@ public interface TeamMapper {
     List<Team> getAllName();
 
     Team isUserInTeam(String token, int teamID, int userID);
+
+    List<Team> getAllTeam();
 }

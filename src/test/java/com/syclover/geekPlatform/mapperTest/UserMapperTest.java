@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.messaging.handler.annotation.SendTo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -70,4 +71,16 @@ public class UserMapperTest {
         int teamId = 9;
         userMapper.updateTeam(teamId,id);
     }
+
+    @Test
+    void getAllTest(){
+        List<User> allUser = userMapper.getAllUser();
+        List<User> cleanUsers = new ArrayList<>();
+        for (User user : allUser){
+            user.setPassword(null);
+            cleanUsers.add(user);
+        }
+        System.out.println(allUser);
+    }
+
 }

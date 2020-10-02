@@ -74,4 +74,8 @@
             member_one = #{userID} or
             member_two = #{userID}
     </select>
+
+    <select id="getAllTeam" resultMap="allColumnsMapper">
+        select * from Teams;
+    </select>
 </mapper>
