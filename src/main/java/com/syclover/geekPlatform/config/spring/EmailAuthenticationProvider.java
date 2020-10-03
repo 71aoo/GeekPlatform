@@ -26,16 +26,13 @@ public class EmailAuthenticationProvider implements AuthenticationProvider {
         EmailAuthenticationToken token = (EmailAuthenticationToken) authentication;
         MyUserBean user = userService.getUserBeanByEmail((String) authentication.getPrincipal());
         String password = (String) authentication.getCredentials();
-        System.out.println("password:" + password);
         if (!password.equals(user.getPassword())){
             return null;
         }
-        System.out.println("token principal: " + token.getPrincipal());
 
         if (user == null) {
             throw new InternalAuthenticationServiceException("cannot find any user");
         }
-        System.out.println("provider print: "+ user.getAuthorities());
         UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(user,user.getPassword(),user.getAuthorities());
         result.setDetails(token.getDetails());
         return result;

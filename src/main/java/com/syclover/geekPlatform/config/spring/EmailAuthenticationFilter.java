@@ -38,7 +38,6 @@ public class EmailAuthenticationFilter extends AbstractAuthenticationProcessingF
             email = "";
         }
         email = email.trim();
-        System.out.println("email:" + email);
         EmailAuthenticationToken token = new EmailAuthenticationToken(email,password);
         this.setDetails(request,token);
         // 交给manager去验证

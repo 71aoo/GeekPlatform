@@ -77,7 +77,6 @@ public class TeamController {
             team.setMotto(motto);
             ResultT<Team> data = teamService.createTeam(team);
             userService.updateTeam(data.getData().getId(),user.getId());
-            System.out.println("id:" + data.getData().getId());
             redisService.set(RedisUtil.generateTeamKey(data.getData().getId()),teamName);
             bloomFilterService.add(teamName);
             return data;

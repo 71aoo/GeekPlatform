@@ -85,7 +85,6 @@ public class UserController {
     @GetMapping("/getData")
     public ResultT getData(HttpSession session){
         String username = SessionGetterUtil.getUsername(session);
-        System.out.println(username);
         User user = userService.getLoginUser(username).getData();
         user.setPassword(null);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
