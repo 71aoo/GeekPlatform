@@ -95,8 +95,11 @@ public class UserController {
      * @param id
      * @return
      */
-    @GetMapping("/getId")
-    public ResultT getUserById(int id){
+    @GetMapping("/getInfoById")
+    public ResultT getUserById(Integer id){
+        if (id == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
         ResultT<User> user = userService.getUser(id);
         return user;
     }

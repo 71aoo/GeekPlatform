@@ -119,8 +119,11 @@ public class TeamController {
      * @param name
      * @return
      */
-    @PostMapping("/check")
+    @PostMapping("/checkName")
     public ResultT checkNameVariable(String name){
+        if(StringUtils.isEmpty(name)){
+           return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
         if (bloomFilterService.contain(name)){
             //名称已被注册
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
@@ -134,8 +137,11 @@ public class TeamController {
      * @param id
      * @return
      */
-    @GetMapping("/getId")
-    public ResultT getTeamById(int id){
+    @GetMapping("/getInfoById")
+    public ResultT getTeamById(Integer id){
+        if(id == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
         return teamService.getTeam(id);
     }
 
