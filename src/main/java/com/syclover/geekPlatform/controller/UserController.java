@@ -48,6 +48,9 @@ public class UserController {
     public ResultT getProfile(HttpSession session,String motto,String header_img,String name,String number){
         String username = SessionGetterUtil.getUsername(session);
         User user = userService.getLoginUser(username).getData();
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
         if (!StringUtils.isEmpty(header_img)){
             user.setHeaderImg(header_img);
         }
@@ -55,12 +58,17 @@ public class UserController {
             user.setMotto(motto);
         }
         // 如果传入学号和姓名，进入本校学生验证
-        if (!StringUtils.isEmpty(name) || !StringUtils.isEmpty(number)){
+        if (!StringUtils.isEmpty(name) && !StringUtils.isEmpty(number)){
+            if (user.getStudentId() != null){
+                return new ResultT(ResponseCode.USER_IS_STUDENT.getCode(),ResponseCode.USER_IS_STUDENT.getMsg(),null);
+            }
             // 缓存中查找学生学号是否被注册
             if (redisService.get(RedisUtil.generateStudentKey(number)) == null ){
                 // 如果在数据库中找到对应的记录
                 if (userService.getStudent(name,number) != null){
                     user.setIsCuit(1);
+                    user.setRealName(name);
+                    user.setStudentId(number);
                     redisService.set(RedisUtil.generateStudentKey(number),1);
                 }else{
                     return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),ResponseCode.PARAMETER_ERROR.getMsg(),null);
