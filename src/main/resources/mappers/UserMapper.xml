@@ -21,7 +21,28 @@
         <result column="created_time" property="createdTime"/>
         <result column="updated_time" property="updatedTime"/>
         <result column="last_points_time" property="lastPointsTime"/>
+    </resultMap>
 
+    <resultMap id="userTeamMapper" type="com.syclover.geekPlatform.entity.User">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="real_name" property="realName"/>
+        <result column="student_id" property="studentId"/>
+        <result column="is_cuit" property="isCuit"/>
+        <result column="motto" property="motto"/>
+        <result column="header_img" property="headerImg"/>
+        <result column="is_del" property="isDel"/>
+        <result column="points" property="points"/>
+        <result column="email" property="email"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+        <result column="last_points_time" property="lastPointsTime"/>
+        <result column="team_id" property="teamId"/>
+        <association column="team_id" property="team"
+                     javaType="com.syclover.geekPlatform.entity.Team"
+                     select="com.syclover.geekPlatform.dao.TeamMapper.getUserTeamById">
+        </association>
     </resultMap>
 
     <resultMap id="loginMapper" type="com.syclover.geekPlatform.entity.User">
@@ -110,5 +131,9 @@
 
     <select id="getStudent" resultMap="studentMapper">
         select * from Data where name = #{name} and number = #{number}
+    </select>
+
+    <select id="getTeamUser" resultMap="userTeamMapper">
+        SELECT * FROM Users WHERE id = #{id}
     </select>
 </mapper>

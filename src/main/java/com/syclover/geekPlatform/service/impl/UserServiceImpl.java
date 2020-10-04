@@ -119,5 +119,12 @@ public class UserServiceImpl implements UserService {
         return cleanUser;
     }
 
+    @Override
+    public User getTeamUser(int id) {
+        User teamUser = userMapper.getTeamUser(id);
+        CleanUtil.cleanUser(teamUser);
+        return teamUser;
+    }
+
 
 }

@@ -40,4 +40,5 @@ public interface UserMapper {
 
     List<User> getAllUser();
 
+    User getTeamUser(int id);
 }

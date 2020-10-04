@@ -45,4 +45,6 @@ public interface UserService {
     Student getStudent(String name,String number);
 
     List<User> getAllUser();
+
+    User getTeamUser(int id);
 }

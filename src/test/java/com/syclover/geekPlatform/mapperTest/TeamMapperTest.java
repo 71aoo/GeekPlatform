@@ -39,4 +39,11 @@ public class TeamMapperTest {
         System.out.println(team);
 
     }
+
+    @Test
+    void getTeam(){
+        int id = 14;
+        Team userTeam = teamMapper.getUserTeamById(14);
+        System.out.println(userTeam);
+    }
 }

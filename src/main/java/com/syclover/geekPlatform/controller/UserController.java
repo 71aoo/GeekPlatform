@@ -98,10 +98,10 @@ public class UserController {
     @GetMapping("/getInfoById")
     public ResultT getUserById(Integer id){
         if (id == null){
-            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null  );
         }
-        ResultT<User> user = userService.getUser(id);
-        return user;
+        User user = userService.getTeamUser(id);
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
     }
 
     /**

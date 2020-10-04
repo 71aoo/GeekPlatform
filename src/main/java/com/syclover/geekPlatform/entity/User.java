@@ -41,6 +41,8 @@ public class User {
 
     private String authToken;
 
+    private Team team;
+
     public User() {
     }
 
@@ -176,6 +178,14 @@ public class User {
         this.updatedTime = updatedTime;
     }
 
+    public com.syclover.geekPlatform.entity.Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(com.syclover.geekPlatform.entity.Team team) {
+        this.team = team;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -195,6 +205,7 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", authToken='" + authToken + '\'' +
+                ", team=" + team +
                 '}';
     }
 }

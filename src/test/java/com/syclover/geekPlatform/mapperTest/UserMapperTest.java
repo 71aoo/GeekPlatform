@@ -24,7 +24,7 @@ public class UserMapperTest {
     @Test
     public void getUserByIdTest(){
 
-        User user = userMapper.getUserById(105);
+        User user = userMapper.getUserById(11);
         System.out.println(user);
     }
 
@@ -83,4 +83,9 @@ public class UserMapperTest {
         System.out.println(allUser);
     }
 
+    @Test
+    void getTeamUser(){
+        User teamUser = userMapper.getTeamUser(25);
+        System.out.println(teamUser);
+    }
 }

@@ -17,6 +17,11 @@ public class CleanUtil {
         user.setStudentId(null);
         user.setEmail(null);
         user.setPassword(null);
+        if (user.getTeam() != null){
+            Team team = user.getTeam();
+            Team cleanTeam = CleanUtil.cleanTeam(team);
+            user.setTeam(cleanTeam);
+        }
         return user;
     }
 

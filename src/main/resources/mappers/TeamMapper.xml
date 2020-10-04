@@ -28,6 +28,30 @@
         </association>
     </resultMap>
 
+
+    <resultMap id="allColumnsNameMapper" type="com.syclover.geekPlatform.entity.Team">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="token" property="token"/>
+        <result column="header_img" property="headerImg"/>
+        <result column="motto" property="motto"/>
+        <result column="points" property="points"/>
+        <result column="is_cuit" property="isCuit"/>
+        <result column="is_del" property="isDel"/>
+        <result column="last_points_time" property="lastPointsTime"/>
+        <result column="created_time" property="createdTime"/>
+        <association column="member_one" property="memberOne"
+                     javaType="com.syclover.geekPlatform.entity.User"
+                     select="com.syclover.geekPlatform.dao.UserMapper.getUserById">
+
+        </association>
+        <association column="member_two" property="memberTwo"
+                     javaType="com.syclover.geekPlatform.entity.User"
+                     select="com.syclover.geekPlatform.dao.UserMapper.getUserById">
+
+        </association>
+    </resultMap>
+
     <resultMap id="nameMapper" type="com.syclover.geekPlatform.entity.Team">
         <result column="name" property="name"/>
     </resultMap>
@@ -77,5 +101,9 @@
 
     <select id="getAllTeam" resultMap="allColumnsMapper">
         select * from Teams;
+    </select>
+
+    <select id="getUserTeamById" resultMap="allColumnsNameMapper">
+        select * from Teams where id = #{id}
     </select>
 </mapper>
