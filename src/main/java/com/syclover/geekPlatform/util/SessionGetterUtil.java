@@ -24,11 +24,15 @@ public class SessionGetterUtil {
 
     public static String getUsername(HttpSession session){
             Enumeration<String> attrs = session.getAttributeNames();
-            String name = attrs.nextElement().toString();
-            SecurityContextImpl value =(SecurityContextImpl) session.getAttribute(name);
-            UserDetails principal = (UserDetails) value.getAuthentication().getPrincipal();
-            String username = principal.getUsername();
-            return username;
+            if (attrs.hasMoreElements()){
+                String name = attrs.nextElement().toString();
+                SecurityContextImpl value =(SecurityContextImpl) session.getAttribute(name);
+                UserDetails principal = (UserDetails) value.getAuthentication().getPrincipal();
+                String username = principal.getUsername();
+                return username;
+            }else {
+                return null;
+            }
         }
     }
 

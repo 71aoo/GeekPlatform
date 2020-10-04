@@ -104,7 +104,8 @@ public class TeamController {
             if (team.getMemberTwo() == null){
                 teamService.addTeamate(user.getId(),token);
                 userService.updateTeam(user.getId(),team.getId());
-                return new ResultT(ResponseCode.TEAM_JOIN_SUCCESS.getCode(),ResponseCode.TEAM_JOIN_SUCCESS.getMsg(),null);
+                Team data = teamService.getTeam(team.getId()).getData();
+                return new ResultT(ResponseCode.TEAM_JOIN_SUCCESS.getCode(),ResponseCode.TEAM_JOIN_SUCCESS.getMsg(),data);
             }else {
                 return new ResultT(ResponseCode.TEAM_JOIN_FAILED.getCode(),ResponseCode.TEAM_JOIN_FAILED.getMsg(),null);
             }

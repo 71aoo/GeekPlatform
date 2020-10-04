@@ -76,7 +76,7 @@
     </select>
 
     <!-- 查找所有的user -->
-    <select id="getAllUser" resultMap="allColumnsMapper">
+    <select id="getAllUser" resultMap="userTeamMapper">
         select * from Users order by username
     </select>
 

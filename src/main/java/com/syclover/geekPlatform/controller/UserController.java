@@ -86,6 +86,9 @@ public class UserController {
     public ResultT getData(HttpSession session){
         String username = SessionGetterUtil.getUsername(session);
         User user = userService.getLoginUser(username).getData();
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
         user.setPassword(null);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
     }
