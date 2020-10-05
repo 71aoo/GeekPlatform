@@ -5,6 +5,7 @@ import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.RedisService;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.CleanUtil;
 import com.syclover.geekPlatform.util.RedisUtil;
 import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,7 +98,7 @@ public class UserController {
         if (user == null){
             return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
         }
-        user.setPassword(null);
+        user = CleanUtil.cleanUser(user);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
     }
 

@@ -138,6 +138,9 @@ public class TeamServiceImpl implements TeamService {
 
     @Override
     public ResultT createTeam(String teamName, String img, String motto, User user) {
+        if (!(teamName.length() <= 12)){
+            return new ResultT(ResponseCode.NAME_LENGTH_ERROR.getCode(),ResponseCode.NAME_LENGTH_ERROR.getMsg(),null);
+        }
         ResultT<Team> msg = isContainName(teamName);
         if (msg.getStatus() != 200){
             return msg;
@@ -179,9 +182,33 @@ public class TeamServiceImpl implements TeamService {
         if (teamMapper.updateTeamInfo(team) == 0){
             return new ResultT(ResponseCode.TEAM_UPDATE_ERROR.getCode(),ResponseCode.TEAM_UPDATE_ERROR.getMsg(),null);
         }else{
-            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
+            Team cleanTeam = CleanUtil.cleanTeam(team);
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),cleanTeam);
         }
     }
 
-
+    @Override
+    public ResultT checkCuit(User user) {
+        Team team = user.getTeam();
+        if (team == null){
+            return new ResultT(ResponseCode.CREATE_TEAM_FIRST.getCode(),ResponseCode.CREATE_TEAM_FIRST.getMsg(),null);
+        }
+        team = CleanUtil.cleanTeam(team);
+        if (team.getMemberOne().getIsCuit() == 1){
+            if (team.getMemberTwo() != null){
+                if (team.getMemberTwo().getIsCuit() == 1){
+                    team.setIsCuit(1);
+                    return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
+                }else{
+                    team.setIsCuit(0);
+                    return new ResultT(ResponseCode.TEAM_NOT_CUIT.getCode(),ResponseCode.TEAM_NOT_CUIT.getMsg(),team);
+                }
+            }else{
+                team.setIsCuit(1);
+            }
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
+        }else{
+            return new ResultT(ResponseCode.TEAM_NOT_CUIT.getCode(),ResponseCode.TEAM_NOT_CUIT.getMsg(),team);
+        }
+    }
 }

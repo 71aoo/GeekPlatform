@@ -67,6 +67,7 @@ public class TeamController {
             int teamId = data.getData().getId();
             int id = user.getId();
             userService.updateTeam(teamId,id);
+            teamService.checkCuit(user);
             redisService.set(RedisUtil.generateTeamKey(data.getData().getId()),teamName);
             bloomFilterService.add(teamName);
             return data;
@@ -94,6 +95,7 @@ public class TeamController {
             if (team.getMemberTwo() == null){
                 teamService.addTeamate(user.getId(),token);
                 userService.updateTeam(user.getId(),team.getId());
+                teamService.checkCuit(user);
                 Team data = teamService.getTeam(team.getId()).getData();
                 return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),data);
             }else {
@@ -119,6 +121,20 @@ public class TeamController {
     }
 
 
+    /**
+     * 判断队伍是否是本校队伍
+     * @param session
+     * @return
+     */
+    @RequestMapping("/checkCuit")
+    public ResultT checkIsCuit(HttpSession session){
+        User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
+        return teamService.checkCuit(user);
+    }
+
 
     /**
      * 队伍名是否重复接口
@@ -134,7 +150,7 @@ public class TeamController {
             //名称已被注册
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }else {
-            return new ResultT(ResponseCode.TEAM_NAME_VALID.getCode(),ResponseCode.TEAM_NAME_VALID.getMsg(),null);
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
 

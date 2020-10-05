@@ -81,7 +81,7 @@
     </select>
 
     <!-- 登陆返回的User    -->
-    <select id="getUserByUsername" resultMap="allColumnsMapper">
+    <select id="getUserByUsername" resultMap="userTeamMapper">
         select * from Users where username = #{username}
     </select>
 

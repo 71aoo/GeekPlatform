@@ -66,12 +66,12 @@ public class LoginController {
 
         // 判断用户名长度
         if( !(username.length() <= 12 && username.length() > 4)){
-            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+            return new ResultT(ResponseCode.NAME_LENGTH_ERROR.getCode(),ResponseCode.NAME_LENGTH_ERROR.getMsg(),null);
         }
 
         // 判断密码长度
         if ( !(password.length() >= 5 && password.length() < 16)){
-            return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
+            return new ResultT(ResponseCode.PASSWORD_LENGTH_ERROR.getCode(),ResponseCode.PASSWORD_LENGTH_ERROR.getMsg(),null);
         }
 
         // 判断邮箱是否注册
@@ -169,7 +169,7 @@ public class LoginController {
         if (bloomFilterService.contain(name)){
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }else {
-            return new ResultT(ResponseCode.USER_NAME_VALID.getCode(), ResponseCode.USER_NAME_VALID.getMsg(),null);
+            return new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),null);
         }
     }
 

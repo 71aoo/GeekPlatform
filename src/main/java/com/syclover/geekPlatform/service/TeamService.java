@@ -35,4 +35,6 @@ public interface TeamService {
     ResultT<Team> createTeam(String teamName, String img, String motto, User user);
 
     ResultT<Team> updateTeam(String headerImg,String motto,User teamMember);
+
+    ResultT checkCuit(User user);
 }

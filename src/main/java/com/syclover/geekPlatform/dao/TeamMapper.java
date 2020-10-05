@@ -1,6 +1,7 @@
 package com.syclover.geekPlatform.dao;
 
 import com.syclover.geekPlatform.entity.Team;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -28,5 +29,5 @@ public interface TeamMapper {
 
     Team isContainName(String name);
 
-    int updateTeamInfo(Team team);
+    int updateTeamInfo(@Param("team") Team team);
 }
