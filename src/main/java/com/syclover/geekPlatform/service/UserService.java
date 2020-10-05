@@ -4,6 +4,7 @@ import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.Student;
 import com.syclover.geekPlatform.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -23,7 +24,6 @@ public interface UserService {
 
     int getTeamId(User user);
 
-    //    感觉合成在teamService里面会好一点 但这样需要teamService自动装配一个userMapper
     int updateTeam(int teamId,int id);
 
     //获取最后的id

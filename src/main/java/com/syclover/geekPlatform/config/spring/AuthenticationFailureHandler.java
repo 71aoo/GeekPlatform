@@ -21,7 +21,7 @@ import java.io.IOException;
 public class AuthenticationFailureHandler implements org.springframework.security.web.authentication.AuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        ResultT result = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(),null);
+        ResultT result = new ResultT(ResponseCode.LOGIN_FAILED.getCode(), ResponseCode.LOGIN_FAILED.getMsg(),null);
         httpServletResponse.getWriter().write(JSON.toJSONString(result.toString()));
     }
 }

@@ -46,4 +46,11 @@ public class TeamMapperTest {
         Team userTeam = teamMapper.getUserTeamById(14);
         System.out.println(userTeam);
     }
+
+    @Test
+    void isContainName(){
+        String name = "KKK";
+        Team result = teamMapper.isContainName(name);
+        System.out.println(result.getId());
+    }
 }

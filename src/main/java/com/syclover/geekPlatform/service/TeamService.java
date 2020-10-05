@@ -2,13 +2,15 @@ package com.syclover.geekPlatform.service;
 
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.Team;
+import com.syclover.geekPlatform.entity.User;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface TeamService {
 
 //    创建队伍
-    ResultT<Team> createTeam(Team team);
+    ResultT<Team> addTeam(Team team);
 
 //    加入队伍成员
     ResultT<Team> addTeamate(int id,String token);
@@ -27,4 +29,10 @@ public interface TeamService {
     ResultT<Team> checkUserInTeam(String token, int teamID, int userID);
 
     ResultT<List<Team>> getAllTeam();
+
+    ResultT<Team> isContainName(String name);
+
+    ResultT<Team> createTeam(String teamName, String img, String motto, User user);
+
+    ResultT<Team> updateTeam(String headerImg,String motto,User teamMember);
 }

@@ -56,27 +56,17 @@ public class TeamController {
     @PostMapping("/create")
     public ResultT createTeam(String teamName,String img,String motto,HttpSession session){
         User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
-        user.setPassword(null);
-        if (user.getTeamId() != 0){
-            return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
         }
-        String token = UUID.randomUUID().toString().replace("-", "");
-        Team team = new Team();
-        if (!StringUtils.isEmpty(teamName) || !StringUtils.isEmpty(img) || !StringUtils.isEmpty(motto)){
+        if (!StringUtils.isEmpty(teamName)){
             if (bloomFilterService.contain(teamName)){
                 return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);
             }
-            List<String> names = teamService.getAllName().getData();
-            if (names.contains(teamName)){
-                return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
-            }
-            team.setMemberOne(user);
-            team.setToken(token);
-            team.setName(teamName);
-            team.setHeaderImg(img);
-            team.setMotto(motto);
-            ResultT<Team> data = teamService.createTeam(team);
-            userService.updateTeam(data.getData().getId(),user.getId());
+            ResultT<Team> data = teamService.createTeam(teamName, img, motto, user);
+            int teamId = data.getData().getId();
+            int id = user.getId();
+            userService.updateTeam(teamId,id);
             redisService.set(RedisUtil.generateTeamKey(data.getData().getId()),teamName);
             bloomFilterService.add(teamName);
             return data;
@@ -105,7 +95,7 @@ public class TeamController {
                 teamService.addTeamate(user.getId(),token);
                 userService.updateTeam(user.getId(),team.getId());
                 Team data = teamService.getTeam(team.getId()).getData();
-                return new ResultT(ResponseCode.TEAM_JOIN_SUCCESS.getCode(),ResponseCode.TEAM_JOIN_SUCCESS.getMsg(),data);
+                return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),data);
             }else {
                 return new ResultT(ResponseCode.TEAM_JOIN_FAILED.getCode(),ResponseCode.TEAM_JOIN_FAILED.getMsg(),null);
             }
@@ -114,6 +104,21 @@ public class TeamController {
             return new ResultT(ResponseCode.TEAM_NOT_FOUND.getCode(),ResponseCode.TEAM_NOT_FOUND.getMsg(),null);
         }
     }
+
+    /**
+     * 更新接口
+     * @param headerImg
+     * @param motto
+     * @param session
+     * @return
+     */
+    @PostMapping("/update")
+    public ResultT updateTeamInfo(String headerImg,String motto,HttpSession session){
+        User teamMember = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
+        return teamService.updateTeam(headerImg, motto, teamMember);
+    }
+
+
 
     /**
      * 队伍名是否重复接口

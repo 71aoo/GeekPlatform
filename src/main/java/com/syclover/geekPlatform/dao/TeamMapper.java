@@ -25,4 +25,8 @@ public interface TeamMapper {
     List<Team> getAllTeam();
 
     Team getUserTeamById(int id);
+
+    Team isContainName(String name);
+
+    int updateTeamInfo(Team team);
 }

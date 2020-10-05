@@ -106,4 +106,12 @@
     <select id="getUserTeamById" resultMap="allColumnsNameMapper">
         select * from Teams where id = #{id}
     </select>
+
+    <select id="isContainName" resultMap="allColumnsMapper">
+        select * from Teams where name = #{name}
+    </select>
+
+    <update id="updateTeamInfo">
+        UPDATE Teams SET header_img = #{team.headerImg},motto = #{team.motto} where id = #{team.id}
+    </update>
 </mapper>

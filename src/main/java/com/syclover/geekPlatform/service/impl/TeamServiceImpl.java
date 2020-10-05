@@ -9,9 +9,12 @@ import com.syclover.geekPlatform.service.TeamService;
 import com.syclover.geekPlatform.util.CleanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.StringUtils;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * @Author cueyu
@@ -25,12 +28,13 @@ public class TeamServiceImpl implements TeamService {
 
 //  创建团队
     @Override
-    public ResultT<Team> createTeam(Team team) {
+    public ResultT<Team> addTeam(Team team) {
         int result = teamMapper.addTeam(team);
         if (result == 0){
             return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
         }else {
-            Team newTeam = teamMapper.getTeamByToken(team.getToken());
+            Team data = teamMapper.getTeamByToken(team.getToken());
+            Team newTeam = CleanUtil.cleanTeam(data);
             return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),newTeam);
         }
     }
@@ -121,6 +125,62 @@ public class TeamServiceImpl implements TeamService {
             cleanTeams.add(team);
         }
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),cleanTeams);
+    }
+
+    @Override
+    public ResultT<Team> isContainName(String name) {
+        Team team = teamMapper.isContainName(name);
+        if (team != null){
+            return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);
+        }
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+    }
+
+    @Override
+    public ResultT createTeam(String teamName, String img, String motto, User user) {
+        ResultT<Team> msg = isContainName(teamName);
+        if (msg.getStatus() != 200){
+            return msg;
+        }
+        if (user.getTeamId() != 0){
+            return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
+        }
+        Team team = new Team();
+        user.setPassword(null);
+        String token = UUID.randomUUID().toString().replace("-", "");
+        team.setName(teamName);
+        team.setMemberOne(user);
+        team.setToken(token);
+        if (!StringUtils.isEmpty(img)){
+            team.setHeaderImg(img);
+        }
+        if (!StringUtils.isEmpty(motto)){
+            team.setMotto(motto);
+        }
+        ResultT<Team> data = addTeam(team);
+        return data;
+    }
+
+    @Override
+    public ResultT<Team> updateTeam(String headerImg, String motto,User teamMember) {
+        if (teamMember == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
+
+        Team team = teamMember.getTeam();
+
+        if (!StringUtils.isEmpty(headerImg)){
+            team.setHeaderImg(headerImg);
+        }
+
+        if (!StringUtils.isEmpty(motto)){
+            team.setMotto(motto);
+        }
+        if (teamMapper.updateTeamInfo(team) == 0){
+            return new ResultT(ResponseCode.TEAM_UPDATE_ERROR.getCode(),ResponseCode.TEAM_UPDATE_ERROR.getMsg(),null);
+        }else{
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
+        }
     }
 
 
