@@ -177,4 +177,14 @@ public class TeamController {
         return teamService.getAllTeam();
     }
 
+    /**
+     * 用户获得本队信息
+     * @param session
+     * @return
+     */
+    @GetMapping("/getData")
+    public ResultT getData(HttpSession session){
+        User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
+        return teamService.getData(user);
+    }
 }

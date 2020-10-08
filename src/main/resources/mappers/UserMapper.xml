@@ -136,4 +136,8 @@
     <select id="getTeamUser" resultMap="userTeamMapper">
         SELECT * FROM Users WHERE id = #{id}
     </select>
+
+    <insert id="registerEmail">
+        INSERT INTO Users (email,auth_token) values (#{email},#{token})
+    </insert>
 </mapper>

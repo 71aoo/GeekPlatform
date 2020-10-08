@@ -25,12 +25,6 @@ public class AuthenticationSuccessHandler implements org.springframework.securit
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException, NoSuchElementException {
         try{
-//            HttpSession session = request.getSession();
-//            String username = SessionGetterUtil.getUsername(session);
-//            User data = userService.getLoginUser(username).getData();
-//            data.setPassword(null);
-//            ResultT result = new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),data);
-//            httpServletResponse.getWriter().write(JSON.toJSONString(result.toString()));
             httpServletResponse.getWriter().write("login success!");
         }catch (Exception e){
             httpServletResponse.getWriter().write("something wrong!");

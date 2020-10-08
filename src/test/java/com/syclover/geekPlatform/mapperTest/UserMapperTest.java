@@ -88,4 +88,9 @@ public class UserMapperTest {
         User teamUser = userMapper.getTeamUser(25);
         System.out.println(teamUser);
     }
+
+    @Test
+    void emailTest(){
+        int result = userMapper.registerEmail("testmail@xx.com","123121");
+    }
 }

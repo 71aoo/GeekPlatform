@@ -2,6 +2,7 @@ package com.syclover.geekPlatform.config.spring;
 
 import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.BCPEUtils;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,7 +27,7 @@ public class EmailAuthenticationProvider implements AuthenticationProvider {
         EmailAuthenticationToken token = (EmailAuthenticationToken) authentication;
         MyUserBean user = userService.getUserBeanByEmail((String) authentication.getPrincipal());
         String password = (String) authentication.getCredentials();
-        if (!password.equals(user.getPassword())){
+        if (!BCPEUtils.matches(password,user.getPassword())){
             return null;
         }
 

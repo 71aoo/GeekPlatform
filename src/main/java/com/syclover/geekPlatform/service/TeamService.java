@@ -37,4 +37,6 @@ public interface TeamService {
     ResultT<Team> updateTeam(String headerImg,String motto,User teamMember);
 
     ResultT checkCuit(User user);
+
+    ResultT getData(User user);
 }

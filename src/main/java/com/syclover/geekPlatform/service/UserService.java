@@ -47,4 +47,8 @@ public interface UserService {
     List<User> getAllUser();
 
     User getTeamUser(int id);
+
+    int registerEmail(String email,String token);
+
+    int authEmail(String token);
 }

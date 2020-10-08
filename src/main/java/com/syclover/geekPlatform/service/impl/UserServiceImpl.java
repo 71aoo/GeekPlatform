@@ -126,5 +126,13 @@ public class UserServiceImpl implements UserService {
         return teamUser;
     }
 
+    @Override
+    public int registerEmail(String email,String token) {
+        return userMapper.registerEmail(email,token);
+    }
 
+    @Override
+    public int authEmail(String token) {
+        return 0;
+    }
 }

@@ -12,6 +12,7 @@ public class RedisUtil {
     private final static String ANNOUNCEMENT_PREFIX = "ANNOUNCEMENT_";
     private final static String EMAIL_PREFIX = "EMAIL_INFO_";
     private final static String STUDENT_PREFIX = "STUDENT_";
+    private final static String EMAIL_CODE = "EMAIL_CODE_";
     /*
     * 生成 redis 存储队伍信息的 key
     * */
@@ -44,4 +45,6 @@ public class RedisUtil {
     public static String generateStudentKey(String number){
         return STUDENT_PREFIX + number;
     }
+
+    public static String generateEmailCode(String email) { return EMAIL_CODE + email;}
 }

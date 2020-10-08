@@ -34,7 +34,9 @@ public class TeamServiceImpl implements TeamService {
             return new ResultT<>(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
         }else {
             Team data = teamMapper.getTeamByToken(team.getToken());
+            String token = team.getToken();
             Team newTeam = CleanUtil.cleanTeam(data);
+            newTeam.setToken(token);
             return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),newTeam);
         }
     }
@@ -210,5 +212,22 @@ public class TeamServiceImpl implements TeamService {
         }else{
             return new ResultT(ResponseCode.TEAM_NOT_CUIT.getCode(),ResponseCode.TEAM_NOT_CUIT.getMsg(),team);
         }
+    }
+
+    @Override
+    public ResultT getData(User user) {
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
+
+        if (user.getTeamId() == 0){
+            return new ResultT(ResponseCode.IN_A_TEAM_FIRST.getCode(),ResponseCode.IN_A_TEAM_FIRST.getMsg(),null);
+        }
+
+        Team team = teamMapper.getTeamById(user.getTeamId());
+        String token = team.getToken();
+        team = CleanUtil.cleanTeam(team);
+        team.setToken(token);
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
     }
 }

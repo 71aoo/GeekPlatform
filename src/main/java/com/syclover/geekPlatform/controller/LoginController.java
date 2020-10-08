@@ -33,8 +33,6 @@ import static java.util.UUID.randomUUID;
 @RestController
 public class LoginController {
 
-    private final String PlatformUrl = "http://localhost:8080/";
-
     @Autowired
     private UserService userService;
 
@@ -55,7 +53,7 @@ public class LoginController {
      * @return
      */
     @PostMapping("/addUser")
-    public ResultT addUser(String username,String password,String email){
+    public ResultT addUser(String username,String password,String email,String code){
         User user = new User();
 
         //  密码为空
@@ -85,73 +83,24 @@ public class LoginController {
         user.setPassword(password);
         user.setEmail(email);
         user.setAuthToken(token);
+        String email_code  = (String) redisService.get(RedisUtil.generateEmailCode(email));
+        if (email_code == null){
+            return new ResultT(ResponseCode.CACHE_EXPIRED.getCode(),ResponseCode.CACHE_EXPIRED.getMsg(),null);
+        }
+        if (!email_code.equals(code)){
+            return new ResultT(ResponseCode.EMAIL_USED_ERROR.getCode(),ResponseCode.EMAIL_CODE_WRONG.getMsg(),null);
+        }
 
         //检查用户名是否已经注册
-
         if (bloomFilterService.contain(username)){
             //用户名已被注册
             return new ResultT(ResponseCode.NAME_HAVE_ERROR.getCode(),ResponseCode.NAME_HAVE_ERROR.getMsg(),null);
         }else{
             userService.registerUser(user);
             int id = userService.getLastId();
-            //发送验证邮件，并将token加入缓存设置过期时间1天
-            String content = PlatformUrl + "api/verifytoken?token=" + token;
-            mailService.sendSimpleMail(email,"GeekPlatform email check",content);
-            //分别把用户名和token以及email加入redis缓存
-            redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
             redisService.set(RedisUtil.generateUserKey(id),username);
             redisService.set(RedisUtil.generateEmailKey(email),1);
             bloomFilterService.add(username);
-            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
-        }
-    }
-
-
-    @RequestMapping("/api/verifyToken")
-    public ResultT verifyToken(@Param("token") String token){
-        if (token == null){
-            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
-        }
-
-        //  token在缓存中过期
-        if (redisService.get(RedisUtil.generateEmailToken(token)) == null){
-            return new ResultT(ResponseCode.CACHE_EXPIRED.getCode(),ResponseCode.CACHE_EXPIRED.getMsg(),null);
-        }
-
-        //激活用户的邮箱
-        if (userService.activeEmail(token) != 0){
-            //成功
-            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
-        }else {
-            //token错误或数据库失败
-            return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),ResponseCode.PARAMETER_ERROR.getMsg(),null);
-        }
-    }
-
-
-    /**
-    * 接口用于重发邮箱验证邮件
-    * 用户登陆以后才可以使用接口
-    * 接口根据传入的session找到
-    * 用户对象，再找到数据库中的email地址*/
-    @RequestMapping("/resetToken")
-    public ResultT activeEmail(HttpSession session) throws Exception{
-        String username = SessionGetterUtil.getUsername(session);
-        if (username == null){
-            // session中没有user 用户没有登陆
-            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
-        }else {
-            // 得到user对象 到数据库中查邮箱
-            User user = userService.getLoginUser(username).getData();
-            String email = user.getEmail();
-            // 再次生成token 更新用户数据库和缓存
-            String token = UUID.randomUUID().toString().replace("-", "");
-            redisService.setex(RedisUtil.generateEmailToken(token),86400,1);
-            int id = user.getId();
-            // 更新对应用户token
-            userService.updateToken(id,token);
-            String content = PlatformUrl + "?token=" + token;
-            mailService.sendSimpleMail(email,"Reset token test",content);
             return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
         }
     }
@@ -172,5 +121,29 @@ public class LoginController {
             return new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),null);
         }
     }
+
+    /**
+     * 向用户邮箱发送验证码
+     * @param email
+     * @return
+     */
+    @RequestMapping("/sendCode")
+    public ResultT sendCode(String email){
+        if (email == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+        if (redisService.get(RedisUtil.generateEmailKey(email)) != null){
+            return new ResultT(ResponseCode.EMAIL_USED_ERROR.getCode(),ResponseCode.EMAIL_USED_ERROR.getMsg(),null);
+        }
+        String code = (int)((Math.random()*9+1)*1000)+"";
+        String content = "Welcome to 11th GeekChallenge,your email code is " + code;
+        if (redisService.get(RedisUtil.generateEmailKey(email)) != null){
+            return new ResultT(ResponseCode.CODE_NOT_EXPIRED.getCode(),ResponseCode.CODE_NOT_EXPIRED.getMsg(),null);
+        }
+        mailService.sendSimpleMail(email,"Geek 11th Email code verify",content);
+        redisService.setex(RedisUtil.generateEmailCode(email),360,code);
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+    }
+
 
 }
