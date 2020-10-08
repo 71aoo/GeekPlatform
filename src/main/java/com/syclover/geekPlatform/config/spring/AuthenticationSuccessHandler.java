@@ -27,6 +27,7 @@ public class AuthenticationSuccessHandler implements org.springframework.securit
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException, NoSuchElementException {
         try{
+            // 改掉了返回login success
             httpServletResponse.getWriter().write(String.valueOf(new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null)));
         }catch (Exception e){
             httpServletResponse.getWriter().write(String.valueOf(new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null)));

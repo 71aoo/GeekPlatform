@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface TeamMapper {
 
-    int addTeam(Team team);
+    int addTeam(@Param("team") Team team);
 
     Team getTeamById(int id);
 

@@ -57,7 +57,7 @@
     </resultMap>
 
     <insert id="addTeam">
-        insert into Teams (name,token,member_one) values (#{name},#{token},#{memberOne.id});
+        insert into Teams (name,token,member_one,motto,header_img) values (#{team.name},#{team.token},#{team.memberOne.id},#{team.motto},#{team.headerImg});
     </insert>
 
 <!--    之后改成全字段更新-->

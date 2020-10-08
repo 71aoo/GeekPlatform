@@ -21,6 +21,7 @@
         <result column="created_time" property="createdTime"/>
         <result column="updated_time" property="updatedTime"/>
         <result column="last_points_time" property="lastPointsTime"/>
+        <result column="auth_token" property="authToken"/>
     </resultMap>
 
     <resultMap id="userTeamMapper" type="com.syclover.geekPlatform.entity.User">
@@ -39,6 +40,7 @@
         <result column="updated_time" property="updatedTime"/>
         <result column="last_points_time" property="lastPointsTime"/>
         <result column="team_id" property="teamId"/>
+        <result column="auth_token" property="authToken"/>
         <association column="team_id" property="team"
                      javaType="com.syclover.geekPlatform.entity.Team"
                      select="com.syclover.geekPlatform.dao.TeamMapper.getUserTeamById">

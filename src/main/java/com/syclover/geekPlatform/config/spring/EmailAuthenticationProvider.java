@@ -27,12 +27,12 @@ public class EmailAuthenticationProvider implements AuthenticationProvider {
         EmailAuthenticationToken token = (EmailAuthenticationToken) authentication;
         MyUserBean user = userService.getUserBeanByEmail((String) authentication.getPrincipal());
         String password = (String) authentication.getCredentials();
-        if (!BCPEUtils.matches(password,user.getPassword())){
+        if (user == null) {
             return null;
         }
 
-        if (user == null) {
-            throw new InternalAuthenticationServiceException("cannot find any user");
+        if (!BCPEUtils.matches(password,user.getPassword())){
+            return null;
         }
         UsernamePasswordAuthenticationToken result = new UsernamePasswordAuthenticationToken(user,user.getPassword(),user.getAuthorities());
         result.setDetails(token.getDetails());

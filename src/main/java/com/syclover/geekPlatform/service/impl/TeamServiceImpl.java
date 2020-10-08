@@ -64,7 +64,20 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
-//    根据队名得到队伍对象
+    @Override
+    public ResultT getTeamWithToken(int id) {
+        Team team = teamMapper.getTeamById(id);
+        if (team == null){
+            return new ResultT<>(ResponseCode.TEAM_NOT_FOUND.getCode(),ResponseCode.TEAM_NOT_FOUND.getMsg(),null);
+        }else {
+            String token = team.getToken();
+            team = CleanUtil.cleanTeam(team);
+            team.setToken(token);
+            return new ResultT<Team>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),team);
+        }
+    }
+
+    //    根据队名得到队伍对象
     @Override
     public ResultT<Team> getTeam(String name) {
         Team team = teamMapper.getTeamByName(name);
@@ -184,7 +197,7 @@ public class TeamServiceImpl implements TeamService {
         if (teamMapper.updateTeamInfo(team) == 0){
             return new ResultT(ResponseCode.TEAM_UPDATE_ERROR.getCode(),ResponseCode.TEAM_UPDATE_ERROR.getMsg(),null);
         }else{
-            Team cleanTeam = CleanUtil.cleanTeam(team);
+            Team cleanTeam = CleanUtil.cleanTeamWithToken(team);
             return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),cleanTeam);
         }
     }

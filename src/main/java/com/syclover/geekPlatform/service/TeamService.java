@@ -39,4 +39,6 @@ public interface TeamService {
     ResultT checkCuit(User user);
 
     ResultT getData(User user);
+
+    ResultT<Team> getTeamWithToken(int id);
 }

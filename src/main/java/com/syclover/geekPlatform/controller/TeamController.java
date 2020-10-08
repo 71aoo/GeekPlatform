@@ -96,7 +96,7 @@ public class TeamController {
                 teamService.addTeamate(user.getId(),token);
                 userService.updateTeam(user.getId(),team.getId());
                 teamService.checkCuit(user);
-                Team data = teamService.getTeam(team.getId()).getData();
+                Team data = teamService.getTeamWithToken(team.getId()).getData();
                 return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),data);
             }else {
                 return new ResultT(ResponseCode.TEAM_JOIN_FAILED.getCode(),ResponseCode.TEAM_JOIN_FAILED.getMsg(),null);

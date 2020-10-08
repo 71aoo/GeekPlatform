@@ -98,7 +98,7 @@ public class UserController {
         if (user == null){
             return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
         }
-        user = CleanUtil.cleanUser(user);
+        user = CleanUtil.getSelfInfo(user);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
     }
 
