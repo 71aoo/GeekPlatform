@@ -50,6 +50,7 @@ public class LoginController {
      * @param username
      * @param password
      * @param email
+     * @param code
      * @return
      */
     @PostMapping("/addUser")
@@ -127,7 +128,7 @@ public class LoginController {
      * @param email
      * @return
      */
-    @RequestMapping("/sendCode")
+    @PostMapping("/sendCode")
     public ResultT sendCode(String email){
         if (email == null){
             return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
@@ -137,7 +138,7 @@ public class LoginController {
         }
         String code = (int)((Math.random()*9+1)*1000)+"";
         String content = "Welcome to 11th GeekChallenge,your email code is " + code;
-        if (redisService.get(RedisUtil.generateEmailKey(email)) != null){
+        if (redisService.get(RedisUtil.generateEmailCode(email)) != null){
             return new ResultT(ResponseCode.CODE_NOT_EXPIRED.getCode(),ResponseCode.CODE_NOT_EXPIRED.getMsg(),null);
         }
         mailService.sendSimpleMail(email,"Geek 11th Email code verify",content);
