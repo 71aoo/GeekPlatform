@@ -59,6 +59,9 @@ public class TeamController {
         if (user == null){
             return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
         }
+        if (user.getTeamId() != 0){
+            return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
+        }
         if (!StringUtils.isEmpty(teamName)){
             if (bloomFilterService.contain(teamName)){
                 return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);

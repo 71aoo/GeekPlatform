@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ext.NioPathDeserializer;
 import com.syclover.geekPlatform.bean.MyUserBean;
 import com.syclover.geekPlatform.common.ResponseCode;
@@ -129,21 +130,21 @@ public class LoginController {
      * @return
      */
     @PostMapping("/sendCode")
-    public ResultT sendCode(String email){
+    public String sendCode(String email){
         if (email == null){
-            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+            return JSON.toJSONString(new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null));
         }
         if (redisService.get(RedisUtil.generateEmailKey(email)) != null){
-            return new ResultT(ResponseCode.EMAIL_USED_ERROR.getCode(),ResponseCode.EMAIL_USED_ERROR.getMsg(),null);
+            return JSON.toJSONString(new ResultT(ResponseCode.EMAIL_USED_ERROR.getCode(),ResponseCode.EMAIL_USED_ERROR.getMsg(),null));
         }
         String code = (int)((Math.random()*9+1)*1000)+"";
         String content = "Welcome to 11th GeekChallenge,your email code is " + code;
         if (redisService.get(RedisUtil.generateEmailCode(email)) != null){
-            return new ResultT(ResponseCode.CODE_NOT_EXPIRED.getCode(),ResponseCode.CODE_NOT_EXPIRED.getMsg(),null);
+            return JSON.toJSONString(new ResultT(ResponseCode.CODE_NOT_EXPIRED.getCode(),ResponseCode.CODE_NOT_EXPIRED.getMsg(),null));
         }
         mailService.sendSimpleMail(email,"Geek 11th Email code verify",content);
         redisService.setex(RedisUtil.generateEmailCode(email),360,code);
-        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+        return JSON.toJSONString(new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null));
     }
 
 

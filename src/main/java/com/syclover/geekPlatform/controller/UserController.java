@@ -82,7 +82,8 @@ public class UserController {
         if ( userService.updateProfile(user) == 0){
             return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);
         }else {
-            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+            user = CleanUtil.getSelfInfo(user);
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),user);
         }
     }
 

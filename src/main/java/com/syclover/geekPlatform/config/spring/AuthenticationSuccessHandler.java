@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.config.spring;
 
+import com.alibaba.fastjson.JSON;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.service.UserService;
@@ -28,9 +29,9 @@ public class AuthenticationSuccessHandler implements org.springframework.securit
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException, NoSuchElementException {
         try{
             // 改掉了返回login success
-            httpServletResponse.getWriter().write(String.valueOf(new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null)));
+            httpServletResponse.getWriter().write(JSON.toJSONString(new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), null)));
         }catch (Exception e){
-            httpServletResponse.getWriter().write(String.valueOf(new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null)));
+            httpServletResponse.getWriter().write(JSON.toJSONString(new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null)));
         }
     }
 }
