@@ -30,6 +30,8 @@ public class Challenge {
     private int firstBlood;
     // 逻辑删除
     private int isDel;
+    // 一解决
+    private int isSolved;
     // 创建时间
     private Timestamp createdTime;
     // 修改时间
@@ -130,6 +132,14 @@ public class Challenge {
         this.isDel = isDel;
     }
 
+    public int getIsSolved() {
+        return isSolved;
+    }
+
+    public void setIsSolved(int isSolved) {
+        this.isSolved = isSolved;
+    }
+
     public Timestamp getCreatedTime() {
         return createdTime;
     }
@@ -160,6 +170,7 @@ public class Challenge {
                 ", hidden=" + hidden +
                 ", firstBlood=" + firstBlood +
                 ", isDel=" + isDel +
+                ", isSolved=" + isSolved +
                 ", createdTime=" + createdTime +
                 ", updatedTime=" + updatedTime +
                 '}';

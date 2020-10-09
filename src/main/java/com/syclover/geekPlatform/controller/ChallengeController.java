@@ -1,16 +1,21 @@
 package com.syclover.geekPlatform.controller;
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
-import com.syclover.geekPlatform.entity.Author;
-import com.syclover.geekPlatform.entity.Category;
-import com.syclover.geekPlatform.entity.Challenge;
+import com.syclover.geekPlatform.dao.SolveMapper;
+import com.syclover.geekPlatform.entity.*;
 import com.syclover.geekPlatform.service.ChallengeService;
+import com.syclover.geekPlatform.service.SolveService;
+import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.ChallengeUtil;
+import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
@@ -24,6 +29,12 @@ public class ChallengeController {
 
     @Autowired
     private ChallengeService challengeService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private SolveMapper solveMapper;
 
 
     /**
@@ -120,11 +131,29 @@ public class ChallengeController {
      */
     @RequestMapping("/category")
     @ResponseBody
-    public ResultT<List<Challenge>> getChallengesByCategory(int categoryID){
+    public ResultT<List<Challenge>> getChallengesByCategory(int categoryID, HttpSession session){
 
+        String username = SessionGetterUtil.getUsername(session);
+        User user = userService.getLoginUser(username).getData();
+
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
+
+        Team team = user.getTeam();
+        if (team == null){
+            return new ResultT(ResponseCode.TEAM_NOT_FOUND.getCode(), ResponseCode.TEAM_NOT_FOUND.getMsg(), null);
+        }
+
+        // category下所有题目
         Category category = new Category(categoryID);
-
         ResultT<List<Challenge>> challenges = challengeService.getChallengesByCategory(category);
+
+        // 该队伍已解决题目
+        List<Challenge> solvedChallengesByTeam = solveMapper.getSolvedChallengesByTeam(team);
+        List<Challenge> signSolvedChallenges = ChallengeUtil.signSolvedChallenges(challenges.getData(), solvedChallengesByTeam);
+
+        challenges.setData(signSolvedChallenges);
 
         return challenges;
     }
