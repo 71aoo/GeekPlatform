@@ -103,7 +103,7 @@ public class SolveMapperTest {
     @Test
     public void updatedScore(){
 
-        boolean b = solveMapper.updatedScore(1, 1, 58);
+        boolean b = solveMapper.updatedScore(43, 49, 40);
         System.out.println(b);
     }
 }

@@ -127,7 +127,7 @@
             Users.last_points_time = DATE_FORMAT(NOW(),'%Y-%m-%d %H:%m:%s')
         where
             Teams.id = #{teamID} and
-            Users.id = #{teamID}
+            Users.id = #{userID}
     </update>
 
 </mapper>

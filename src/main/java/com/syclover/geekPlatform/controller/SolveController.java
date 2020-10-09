@@ -46,7 +46,10 @@ public class SolveController {
             return new ResultT(ResponseCode.TEAM_NOT_FOUND.getCode(), ResponseCode.TEAM_NOT_FOUND.getMsg(), null);
         }
 
-        if (user.getId() != userID || teamID != team.getId() || token != team.getToken()){
+        if (user.getId() != userID || teamID != team.getId() || !token.equals(team.getToken()) ){
+
+            System.out.println(token);
+            System.out.println(team.getToken());
 
             return new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(), null);
         }

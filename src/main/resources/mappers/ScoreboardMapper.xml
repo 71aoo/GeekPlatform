@@ -15,7 +15,7 @@
             last_points_time
     </select>
 
-    <select id="getUserScoreboard" resultMap="com.syclover.geekPlatform.dao.UserMapper.allColumnsMapper">
+    <select id="getUserScoreboard" resultMap="com.syclover.geekPlatform.dao.UserMapper.userTeamMapper">
         select
             *
         from
