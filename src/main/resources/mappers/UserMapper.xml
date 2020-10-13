@@ -142,4 +142,12 @@
     <insert id="registerEmail">
         INSERT INTO Users (email,auth_token) values (#{email},#{token})
     </insert>
+
+    <update id="updatePass">
+        UPDATE Users set password = #{user.password} where id = #{user.id}
+    </update>
+
+    <select id="isEmailExist" resultMap="allColumnsMapper">
+        select * from Users where email = #{email} limit 1;
+    </select>
 </mapper>

@@ -88,6 +88,23 @@ public class UserController {
     }
 
     /**
+     * 用户登陆后修改密码
+     * @param session
+     * @param oldPass
+     * @param newPass
+     * @return
+     */
+    @PostMapping("/changePassword")
+    public ResultT changePasswd(HttpSession session,String oldPass,String newPass){
+        String username = SessionGetterUtil.getUsername(session);
+        User user = userService.getLoginUser(username).getData();
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
+        return userService.changePass(user,oldPass,newPass);
+    }
+
+    /**
      * 获得用户数据接口
      * @param session
      * @return

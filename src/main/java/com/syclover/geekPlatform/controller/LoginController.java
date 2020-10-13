@@ -147,5 +147,54 @@ public class LoginController {
         return JSON.toJSONString(new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null));
     }
 
+    /**
+     * 用户找回密码 提供提供email
+     * @param email
+     * @return
+     */
+    @PostMapping("/findPassCode")
+    public ResultT sendFindEmail(String email){
+        if (StringUtils.isEmpty(email)){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+        if (userService.isEmailExist(email) == null){
+            return new ResultT(ResponseCode.EMAIL_NOT_REGISTER.getCode(),ResponseCode.EMAIL_NOT_REGISTER.getMsg(),null);
+        }
+        if (redisService.get(RedisUtil.generatePasswdFoundKey(email)) != null){
+            return new ResultT(ResponseCode.CODE_NOT_EXPIRED.getCode(),ResponseCode.CODE_NOT_EXPIRED.getMsg(),null);
+        }
+
+        String code = (int)((Math.random()*9+1)*100000)+"";
+        String content = "这是您找回密码的验证码: " + code;
+        mailService.sendSimpleMail(email,"极客平台找回密码验证",content);
+
+        redisService.setex(RedisUtil.generatePasswdFoundKey(email),360,code);
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+    }
+
+    /**
+     * 用户找回密码接口 同时修改密码
+     * @param email
+     * @param newPass
+     * @param code
+     * @return
+     */
+    @PostMapping("/findPasswd")
+    public ResultT findPasswd(String email,String newPass,String code){
+        if (StringUtils.isEmpty(email) || StringUtils.isEmpty(newPass) || StringUtils.isEmpty(code)){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+
+        if (redisService.get(RedisUtil.generatePasswdFoundKey(email)) == null){
+            return new ResultT(ResponseCode.CACHE_EXPIRED.getCode(),ResponseCode.CACHE_EXPIRED.getMsg(),null);
+        }
+
+        if (!redisService.get(RedisUtil.generatePasswdFoundKey(email)).equals(code)){
+            return new ResultT(ResponseCode.EMAIL_CODE_WRONG.getCode(),ResponseCode.EMAIL_CODE_WRONG.getMsg(),null);
+        }
+
+        return userService.findPass(email,newPass);
+
+    }
 
 }

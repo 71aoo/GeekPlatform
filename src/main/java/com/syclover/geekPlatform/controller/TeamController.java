@@ -97,7 +97,7 @@ public class TeamController {
         if (team != null){
             if (team.getMemberTwo() == null){
                 teamService.addTeamate(user.getId(),token);
-                userService.updateTeam(user.getId(),team.getId());
+                userService.updateTeam(team.getId(),user.getId());
                 teamService.checkCuit(user);
                 Team data = teamService.getTeamWithToken(team.getId()).getData();
                 return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),data);

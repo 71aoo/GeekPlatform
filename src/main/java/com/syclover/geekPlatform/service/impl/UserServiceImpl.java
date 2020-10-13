@@ -11,6 +11,7 @@ import com.syclover.geekPlatform.util.BCPEUtils;
 import com.syclover.geekPlatform.util.CleanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -134,5 +135,43 @@ public class UserServiceImpl implements UserService {
     @Override
     public int authEmail(String token) {
         return 0;
+    }
+
+    @Override
+    public ResultT changePass(User user, String oldPass, String newPass) {
+        if (StringUtils.isEmpty(oldPass) || StringUtils.isEmpty(newPass)){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+        if (!BCPEUtils.matches(oldPass,user.getPassword())){
+            return new ResultT(ResponseCode.PASSWORD_NOT_MATCH.getCode(),ResponseCode.PASSWORD_NOT_MATCH.getMsg(),null);
+        }
+        if (newPass.length() >= 15 || newPass.length() < 5){
+            return new ResultT(ResponseCode.PASSWORD_LENGTH_ERROR.getCode(),ResponseCode.PASSWORD_LENGTH_ERROR.getMsg(),null);
+        }
+        user.setPassword(BCPEUtils.encode(newPass));
+        int result = userMapper.updatePass(user);
+        if (result == 1){
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+        }else {
+            return new ResultT(ResponseCode.CHANGE_PASS_ERROR.getCode(),ResponseCode.CHANGE_PASS_ERROR.getMsg(),null);
+        }
+    }
+
+    @Override
+    public User isEmailExist(String email) {
+        User user = userMapper.isEmailExist(email);
+        return user;
+    }
+
+    @Override
+    public ResultT findPass(String email,String newPass) {
+        User user = userMapper.getUserByEmail(email);
+        user.setPassword(BCPEUtils.encode(newPass));
+        int result = userMapper.updatePass(user);
+        if (result == 0){
+            return new ResultT(ResponseCode.CHANGE_PASS_ERROR.getCode(),ResponseCode.CHANGE_PASS_ERROR.getMsg(),null);
+        }else{
+            return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
+        }
     }
 }

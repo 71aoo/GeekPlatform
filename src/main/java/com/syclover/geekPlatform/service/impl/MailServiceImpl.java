@@ -42,7 +42,7 @@ public class MailServiceImpl implements MailService {
             mailSender.send(message);
             logger.info("邮件已发送");
         }catch (Exception e){
-            logger.error("发送邮件出错");
+            System.out.println(e);
         }
     }
 }

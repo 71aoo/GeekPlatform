@@ -43,4 +43,8 @@ public interface UserMapper {
     User getTeamUser(int id);
 
     int registerEmail(String email,String token);
+
+    int updatePass(@Param("user") User user);
+
+    User isEmailExist(String email);
 }

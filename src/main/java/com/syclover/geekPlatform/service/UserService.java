@@ -51,4 +51,10 @@ public interface UserService {
     int registerEmail(String email,String token);
 
     int authEmail(String token);
+
+    ResultT changePass(User user,String oldPass,String newPass);
+
+    User isEmailExist(String email);
+
+    ResultT findPass(String email,String newPass);
 }

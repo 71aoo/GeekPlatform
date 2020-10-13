@@ -18,8 +18,8 @@ public class TaskPoolConfig {
     public Executor taskExecutor(){
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         //核心线程10
-        executor.setCorePoolSize(10);
-        executor.setMaxPoolSize(20);
+        executor.setCorePoolSize(100);
+        executor.setMaxPoolSize(150);
         executor.setQueueCapacity(200);
         executor.setKeepAliveSeconds(60);
         executor.setThreadNamePrefix("taskExecutor-");
