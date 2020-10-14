@@ -33,7 +33,7 @@ spring:
 #  邮件发送配置
   mail:
 #    用户名
-    username: 2935867061@qq.com
+    username: syclovergeek@qq.com
 #    授权码
     password: tuhqeaioaeradfbf
 #    smtp服务器地址
