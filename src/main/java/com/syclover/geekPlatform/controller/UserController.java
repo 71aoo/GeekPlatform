@@ -52,32 +52,40 @@ public class UserController {
         if (user == null){
             return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
         }
-        if (!StringUtils.isEmpty(header_img)){
-            user.setHeaderImg(header_img);
+
+
+        if (StringUtils.isEmpty(header_img)){
+            user.setHeaderImg(null);
         }
-        if (!StringUtils.isEmpty(motto)){
-            user.setMotto(motto);
+
+
+        if (StringUtils.isEmpty(motto)){
+            user.setMotto(null);
+        }else if (motto.length() > 20){
+            return new ResultT(ResponseCode.MOTTO_LENGTH_TOO_LONG.getCode(),ResponseCode.MOTTO_LENGTH_TOO_LONG.getMsg(),null);
         }
-        // 如果传入学号和姓名，进入本校学生验证
-        if (!StringUtils.isEmpty(name) && !StringUtils.isEmpty(number)){
-            if (user.getStudentId() != null){
-                return new ResultT(ResponseCode.USER_IS_STUDENT.getCode(),ResponseCode.USER_IS_STUDENT.getMsg(),null);
+
+
+
+        if (StringUtils.isEmpty(name)){
+            user.setRealName(null);
+        }
+
+
+        if (StringUtils.isEmpty(number)){
+            user.setStudentId(null);
+            user.setIsCuit(0);
+        }else{
+            if (number.length() != 10){
+                return new ResultT(ResponseCode.STUDENT_NUMBER_LENGTH_ERROR.getCode(),ResponseCode.STUDENT_NUMBER_LENGTH_ERROR.getMsg(),number);
             }
-            // 缓存中查找学生学号是否被注册
-            if (redisService.get(RedisUtil.generateStudentKey(number)) == null ){
-                // 如果在数据库中找到对应的记录
-                if (userService.getStudent(name,number) != null){
-                    user.setIsCuit(1);
-                    user.setRealName(name);
-                    user.setStudentId(number);
-                    redisService.set(RedisUtil.generateStudentKey(number),1);
-                }else{
-                    return new ResultT(ResponseCode.PARAMETER_ERROR.getCode(),ResponseCode.PARAMETER_ERROR.getMsg(),null);
-                }
-            }else{
-                return new ResultT(ResponseCode.STUDENT_NUMBER_USED_ERROR.getCode(),ResponseCode.STUDENT_NUMBER_USED_ERROR.getMsg(),null);
-            }
+            user.setIsCuit(1);
         }
+
+        user.setMotto(motto);
+        user.setHeaderImg(header_img);
+        user.setRealName(name);
+        user.setStudentId(number);
 
         if ( userService.updateProfile(user) == 0){
             return new ResultT(ResponseCode.ERROR.getCode(),ResponseCode.ERROR.getMsg(),null);

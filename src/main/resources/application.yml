@@ -6,17 +6,17 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    url: jdbc:mysql://121.89.174.31:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
-    password: 123456
-  #    password: P%&#now4
-#    url: jdbc:mysql://rm-bp1pt9k54awsxn5z7jo.mysql.rds.aliyuncs.com:3306/geek?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    #url: jdbc:mysql://121.89.174.31:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    #password: 123456
+    password: P%&#now4
+    url: jdbc:mysql://rm-bp1pt9k54awsxn5z7jo.mysql.rds.aliyuncs.com:3306/geek?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
 
   redis:
     port: 6379
-#    host: r-bp16f78a33136994pd.redis.rds.aliyuncs.com
-    host: 121.89.174.31
-    password: 123456
-#    password: RX@w8*5b
+    host: r-bp16f78a33136994pd.redis.rds.aliyuncs.com
+    #host: 121.89.174.31
+    #password: 123456
+    password: RX@w8*5b
     timeout: 3000
     # 连接池
     lettuce:
@@ -30,14 +30,13 @@ spring:
         # 阻塞时间
         max-wait: -1
 
-#  邮件发送配置
   mail:
-#    用户名
-    username: 2935867061@qq.com
-#    授权码
+  #    用户名
+    username: syclovergeek@qq.com
+  #    授权码
     password: tuhqeaioaeradfbf
-#    smtp服务器地址
-#    host: smtp.163.com
+  #    smtp服务器地址
+  #    host: smtp.163.com
     default-encoding: UTF-8
     host: smtp.qq.com
 
@@ -53,4 +52,3 @@ logging:
 mybatis:
 #  type-aliases-package: com.syclover.geekPlatform.entity
   mapper-locations: classpath:mappers/*.xml
-

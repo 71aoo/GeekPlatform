@@ -30,4 +30,6 @@ public interface TeamMapper {
     Team isContainName(String name);
 
     int updateTeamInfo(@Param("team") Team team);
+
+    boolean updateTeamLastPointTime(int teamID);
 }

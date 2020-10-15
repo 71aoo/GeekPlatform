@@ -20,7 +20,7 @@ import java.io.IOException;
 public class LogoutSuccessHandler implements org.springframework.security.web.authentication.logout.LogoutSuccessHandler {
     @Override
     public void onLogoutSuccess(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Authentication authentication) throws IOException, ServletException {
-        ResultT result = new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(),null);
-        httpServletResponse.getWriter().write(JSON.toJSONString(result.toString()));
+        ResultT result = new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), null);
+        httpServletResponse.getWriter().write(JSON.toJSONString(result));
     }
 }

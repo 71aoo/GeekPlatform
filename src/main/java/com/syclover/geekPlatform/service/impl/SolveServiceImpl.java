@@ -4,6 +4,8 @@ import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.ChallengeMapper;
 import com.syclover.geekPlatform.dao.SolveMapper;
+import com.syclover.geekPlatform.dao.TeamMapper;
+import com.syclover.geekPlatform.dao.UserMapper;
 import com.syclover.geekPlatform.entity.Challenge;
 import com.syclover.geekPlatform.entity.Solve;
 import com.syclover.geekPlatform.entity.Team;
@@ -31,7 +33,11 @@ public class SolveServiceImpl implements SolveService {
     private ChallengeMapper challengeMapper;
 
 
+    @Autowired
+    private UserMapper userMapper;
 
+    @Autowired
+    private TeamMapper teamMapper;
 
     private final static Object LOCK_OBJECT = new Object();
 
@@ -53,6 +59,10 @@ public class SolveServiceImpl implements SolveService {
             return resultT;
         }
 
+        String reallyFlag=challengeMapper.selectFlagById(challengeID);
+        if (!flag.equals(reallyFlag)){
+            return new ResultT(ResponseCode.FLAG_NOT_RIGHT.getCode(),ResponseCode.FLAG_NOT_RIGHT.getMsg(),null);
+        }
         // 判断题目是否已解
         Solve solve = solveMapper.isSolve(teamID, token, challengeID);
 
@@ -100,8 +110,9 @@ public class SolveServiceImpl implements SolveService {
         boolean addSolve = solveMapper.addSolve(solve);
         boolean updatedScore = solveMapper.updatedScore(teamID, userID, challengeID);
         boolean b = challengeMapper.updatedFirstBlood(challengeID);
-
-        if (!addSolve || !updatedScore || !b){
+        boolean userUpdate=userMapper.updateUserLastPointTime(userID);
+        boolean teamUpdate=teamMapper.updateTeamLastPointTime(teamID);
+        if (!addSolve || !updatedScore || !b||!userUpdate||!teamUpdate){
             return new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(), null);
         }
 

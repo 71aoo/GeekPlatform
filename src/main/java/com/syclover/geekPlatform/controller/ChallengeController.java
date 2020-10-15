@@ -3,6 +3,7 @@ package com.syclover.geekPlatform.controller;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.dao.CategoryMapper;
 import com.syclover.geekPlatform.dao.SolveMapper;
 import com.syclover.geekPlatform.entity.*;
 import com.syclover.geekPlatform.service.ChallengeService;
@@ -36,7 +37,8 @@ public class ChallengeController {
     @Autowired
     private SolveMapper solveMapper;
 
-
+    @Autowired
+    private CategoryMapper categoryMapper;
     /**
      * 新增一个题目
      * @param name
@@ -63,11 +65,13 @@ public class ChallengeController {
         challenge.setFlag(flag);
         challenge.setAuthor(new Author(authorID));
 
-
         challenge.setCategory(new Category(categoryID));
         challenge.setHidden(hidden);
 
+
         ResultT resultT = challengeService.addChallenge(challenge);
+
+        categoryMapper.addCount(categoryID);
 
         return resultT;
     }
@@ -154,7 +158,6 @@ public class ChallengeController {
         List<Challenge> signSolvedChallenges = ChallengeUtil.signSolvedChallenges(challenges.getData(), solvedChallengesByTeam);
 
         challenges.setData(signSolvedChallenges);
-
         return challenges;
     }
 

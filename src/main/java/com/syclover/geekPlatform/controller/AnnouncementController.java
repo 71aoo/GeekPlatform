@@ -5,6 +5,7 @@ import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.AnnouncementMapper;
 import com.syclover.geekPlatform.entity.Announcement;
+import com.syclover.geekPlatform.entity.AnnouncementVo;
 import com.syclover.geekPlatform.service.AnnouncementService;
 import com.syclover.geekPlatform.util.RedisUtil;
 import org.apache.ibatis.annotations.Param;
@@ -40,7 +41,7 @@ public class AnnouncementController {
     @RequestMapping("/get")
     public ResultT getContent() {
         try {
-            List<Announcement> announcements = announcementService.getAll();
+            List<AnnouncementVo> announcements = announcementService.getAll();
             ResultT result = new ResultT(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), announcements);
             return result;
         }catch (Exception e){

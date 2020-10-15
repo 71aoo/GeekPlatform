@@ -150,4 +150,8 @@
     <select id="isEmailExist" resultMap="allColumnsMapper">
         select * from Users where email = #{email} limit 1;
     </select>
+    <update id="updateUserLastPointTime" parameterType="integer">
+        update users set last_points_time=now() where id=#{userID};
+    </update>
+
 </mapper>

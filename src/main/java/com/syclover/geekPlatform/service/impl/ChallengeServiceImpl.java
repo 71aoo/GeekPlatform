@@ -8,6 +8,7 @@ import com.syclover.geekPlatform.entity.Challenge;
 import com.syclover.geekPlatform.service.ChallengeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import sun.rmi.transport.Channel;
 
 import java.util.List;
 
@@ -38,7 +39,9 @@ public class ChallengeServiceImpl implements ChallengeService {
 
         // 查询
         List<Challenge> challenges = challengeMapper.getByCategoryID(category.getId());
-
+        for (Challenge challenge:challenges){
+            challenge.setFlag("想看没门");
+        }
         ResultT<List<Challenge>> resultT = new ResultT<List<Challenge>>(ResponseCode.SUCCESS.getCode(),
                 ResponseCode.SUCCESS.getMsg(),
                 challenges);
@@ -62,7 +65,7 @@ public class ChallengeServiceImpl implements ChallengeService {
 
         // 查询
         Challenge challenge = challengeMapper.getByID(id);
-
+        challenge.setFlag("想看没门");
         ResultT<Challenge> resultT = new ResultT<Challenge>(ResponseCode.SUCCESS.getCode(),
                 ResponseCode.SUCCESS.getMsg(),
                 challenge);
