@@ -54,3 +54,15 @@ mybatis:
 #  type-aliases-package: com.syclover.geekPlatform.entity
   mapper-locations: classpath:mappers/*.xml
 
+
+oss:
+  endPoint: oss-cn-beijing.aliyuncs.com
+  bucketName: geekplateform
+  accessKeySecret: ZiiAb64xm2ZcdPdPOBPt7F5BzWVQ81
+  accessKeyId: LTAI4G9h6yUF1BH8NTRzg4Sa
+
+#  AccessKey ID
+#  LTAI4G9h6yUF1BH8NTRzg4Sa
+#  AccessKey Secret
+#  ZiiAb64xm2ZcdPdPOBPt7F5BzWVQ81
+
