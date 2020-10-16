@@ -63,6 +63,9 @@ public class TeamController {
             return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
         }
         if (!StringUtils.isEmpty(teamName)){
+            if (teamName.length()<2||teamName.length()>12){
+                return new ResultT(ResponseCode.TEAM_NAME_LENGTH_ERROR.getCode(),ResponseCode.TEAM_NAME_LENGTH_ERROR.getMsg(),null);
+            }
             if (bloomFilterService.contain(teamName)){
                 return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);
             }

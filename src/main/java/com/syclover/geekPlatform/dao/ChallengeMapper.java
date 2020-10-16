@@ -33,4 +33,5 @@ public interface ChallengeMapper {
     // 标记题目已有解
     boolean updatedFirstBlood(int challengeID);
 
+    String selectFlagById(Integer id);
 }

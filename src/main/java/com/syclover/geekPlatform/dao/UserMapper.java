@@ -47,4 +47,7 @@ public interface UserMapper {
     int updatePass(@Param("user") User user);
 
     User isEmailExist(String email);
+
+    boolean updateUserLastPointTime(int userID);
+
 }

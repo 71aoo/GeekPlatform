@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.config.spring;
 
+import com.alibaba.fastjson.JSON;
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import org.springframework.security.access.AccessDeniedException;
@@ -21,6 +22,6 @@ public class AccessDeniedHandler implements org.springframework.security.web.acc
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
         ResultT result = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(),null);
 
-        httpServletResponse.getWriter().write(result.toString());
+        httpServletResponse.getWriter().write(JSON.toJSONString(result));
     }
 }

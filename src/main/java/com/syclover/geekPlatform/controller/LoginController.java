@@ -138,12 +138,12 @@ public class LoginController {
             return JSON.toJSONString(new ResultT(ResponseCode.EMAIL_USED_ERROR.getCode(),ResponseCode.EMAIL_USED_ERROR.getMsg(),null));
         }
         String code = (int)((Math.random()*9+1)*1000)+"";
-        String content = "Welcome to 11th GeekChallenge,your email code is " + code;
+        String content = "欢迎参加第11届极客大挑战。您的邮箱验证码是： " + code + "。请在一分钟内完成认证";
         if (redisService.get(RedisUtil.generateEmailCode(email)) != null){
             return JSON.toJSONString(new ResultT(ResponseCode.CODE_NOT_EXPIRED.getCode(),ResponseCode.CODE_NOT_EXPIRED.getMsg(),null));
         }
-        mailService.sendSimpleMail(email,"Geek 11th Email code verify",content);
-        redisService.setex(RedisUtil.generateEmailCode(email),360,code);
+        mailService.sendSimpleMail(email,"第11届极客大挑战邮箱验证码",content);
+        redisService.setex(RedisUtil.generateEmailCode(email),60,code);
         return JSON.toJSONString(new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null));
     }
 
@@ -165,10 +165,10 @@ public class LoginController {
         }
 
         String code = (int)((Math.random()*9+1)*100000)+"";
-        String content = "这是您找回密码的验证码: " + code;
+        String content = "这是您找回密码的验证码: " + code+ "。请在一分钟内完成认证";
         mailService.sendSimpleMail(email,"极客平台找回密码验证",content);
 
-        redisService.setex(RedisUtil.generatePasswdFoundKey(email),360,code);
+        redisService.setex(RedisUtil.generatePasswdFoundKey(email),60,code);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),null);
     }
 

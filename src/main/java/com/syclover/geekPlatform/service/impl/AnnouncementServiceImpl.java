@@ -2,15 +2,15 @@ package com.syclover.geekPlatform.service.impl;
 
 import com.syclover.geekPlatform.dao.AnnouncementMapper;
 import com.syclover.geekPlatform.entity.Announcement;
+import com.syclover.geekPlatform.entity.AnnouncementVo;
 import com.syclover.geekPlatform.service.AnnouncementService;
 import com.syclover.geekPlatform.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * @Author cueyu
@@ -51,9 +51,22 @@ public class AnnouncementServiceImpl implements AnnouncementService {
 
     }
 
-    public List<Announcement> getAll(){
+    public List<AnnouncementVo> getAll(){
         List<Announcement> announcements = announcementMapper.getAnnouncements();
-        return announcements;
+        List<AnnouncementVo> announcementVoList= new ArrayList<>();
+        for (Announcement announcement:announcements){
+            announcementVoList.add(assembleAnnouncementVo(announcement));
+        }
+        return announcementVoList;
+    }
+
+    public AnnouncementVo assembleAnnouncementVo(Announcement announcement){
+        AnnouncementVo announcementVo=new AnnouncementVo();
+        announcementVo.setContent(announcement.getContent());
+        announcementVo.setId(announcement.getId());
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        announcementVo.setCreatedTime(simpleDateFormat.format(announcement.getCreatedTime()));
+        return announcementVo;
     }
 
 }

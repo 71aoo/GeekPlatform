@@ -17,9 +17,11 @@
 
     <!-- 插入一个category -->
     <insert id="addCategory">
-        insert into Categories("name") values(#{name})
+        insert into Categories(name) values(#{name})
     </insert>
-
+    <update id="addCount" parameterType="integer">
+        update Categories set count=count+1    where id=#{id}
+        </update>
     <!-- 所有字段映射 -->
     <resultMap id="allColumnsMapper" type="com.syclover.geekPlatform.entity.Category">
         <result column="id" property="id"/>

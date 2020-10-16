@@ -114,4 +114,8 @@
     <update id="updateTeamInfo">
         UPDATE Teams SET header_img = #{team.headerImg},motto = #{team.motto} where id = #{team.id}
     </update>
+
+    <update id="updateTeamLastPointTime" parameterType="integer">
+        update teams set last_points_time=now() where id=#{teamID}
+    </update>
 </mapper>

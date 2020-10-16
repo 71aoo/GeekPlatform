@@ -20,4 +20,6 @@ public interface CategoryMapper {
 
     // 添加一个分类
     boolean addCategory(String name);
+
+    boolean addCount(Integer id);
 }

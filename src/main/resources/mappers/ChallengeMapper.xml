@@ -126,5 +126,7 @@
 
         </association>
     </resultMap>
-
+        <select id="selectFlagById" parameterType="integer" resultType="java.lang.String">
+            select flag from challenges where id= #{id}
+        </select>
 </mapper>

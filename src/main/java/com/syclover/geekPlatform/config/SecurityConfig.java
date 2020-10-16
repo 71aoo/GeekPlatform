@@ -93,7 +93,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.authenticationProvider(new EmailAuthenticationProvider(userService));
         //内存验证
         auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder()).
-                withUser("admin").password(new BCryptPasswordEncoder().encode("testpwd")).roles("USER","ADMIN");
+                withUser("syclover").password(new BCryptPasswordEncoder().encode("88SCdI3@")).roles("USER","ADMIN");
         // 数据库验证
         auth.userDetailsService(myUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
