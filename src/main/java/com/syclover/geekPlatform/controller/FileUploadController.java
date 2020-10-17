@@ -36,7 +36,7 @@ public class FileUploadController {
     public ResultT<String> userUpload(HttpSession session, MultipartFile file){
 
         if (file == null){
-            new ResultT<String>(ResponseCode.ERROR.getCode(), "文件为空", null);
+            return new ResultT<String>(ResponseCode.ERROR.getCode(), "文件为空", null);
         }
 
         String username = SessionGetterUtil.getUsername(session);
@@ -57,7 +57,7 @@ public class FileUploadController {
     public ResultT<String> teamUpload(HttpSession session, MultipartFile file){
 
         if (file == null){
-            new ResultT<String>(ResponseCode.ERROR.getCode(), "文件为空", null);
+            return new ResultT<String>(ResponseCode.ERROR.getCode(), "文件为空", null);
         }
 
         String username = SessionGetterUtil.getUsername(session);

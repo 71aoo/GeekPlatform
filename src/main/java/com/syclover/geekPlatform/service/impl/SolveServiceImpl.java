@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * @Author: Playwi0
  * @Data: 2020/8/19
@@ -85,6 +87,44 @@ public class SolveServiceImpl implements SolveService {
             return recordSolveResultT;
         }
 
+    }
+
+    @Override
+    public ResultT<List<Challenge>> getTeamSolvedChallenge(int teamId) {
+        
+        if (teamId == 0){
+            return new ResultT<>(ResponseCode.PARAMETER_ERROR.getCode(), ResponseCode.PARAMETER_ERROR.getMsg(), null);
+        }
+
+        Team team = new Team();
+        team.setId(teamId);
+        List<Challenge> solvedChallengesByTeam = solveMapper.getSolvedChallengesByTeam(team);
+        
+        for (Challenge c: solvedChallengesByTeam){
+            
+            c.setFlag("");
+        }
+
+        return new ResultT<List<Challenge>>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), solvedChallengesByTeam);
+    }
+
+    @Override
+    public ResultT<List<Challenge>> getUserSolvedChallenge(int userId) {
+        if (userId == 0){
+            return new ResultT<>(ResponseCode.PARAMETER_ERROR.getCode(), ResponseCode.PARAMETER_ERROR.getMsg(), null);
+        }
+
+        User user = new User();
+        user.setId(userId);
+
+        List<Challenge> solvedChallengesByUser = solveMapper.getSolvedChallengesByUser(user);
+
+        for (Challenge c: solvedChallengesByUser){
+
+            c.setFlag("");
+        }
+
+        return new ResultT<List<Challenge>>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMsg(), solvedChallengesByUser);
     }
 
     /*

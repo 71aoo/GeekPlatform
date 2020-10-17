@@ -1,6 +1,9 @@
 package com.syclover.geekPlatform.service;
 
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.entity.Challenge;
+
+import java.util.List;
 
 
 /**
@@ -16,5 +19,9 @@ public interface SolveService {
 //    // 记录队伍解题记录和队伍分数增加
 //    ResultT recordSolve(String flag, String token, int teamID, int userID, int challengeID);
 
+
+    ResultT<List<Challenge>> getTeamSolvedChallenge(int teamId);
+
+    ResultT<List<Challenge>> getUserSolvedChallenge(int userId);
 
 }

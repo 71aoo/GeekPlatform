@@ -2,6 +2,8 @@ package com.syclover.geekPlatform.controller;
 
 import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.dao.SolveMapper;
+import com.syclover.geekPlatform.entity.Challenge;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.SolveService;
@@ -9,11 +11,13 @@ import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.apache.catalina.manager.util.SessionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @Author: Playwi0
@@ -58,4 +62,18 @@ public class SolveController {
 
         return resultT;
     }
+
+
+    @GetMapping("/team/challenge")
+    @ResponseBody
+    public ResultT<List<Challenge>> getTeamSolvedChallenges(int teamID){
+        return  solveService.getTeamSolvedChallenge(teamID);
+    }
+
+    @GetMapping("/user/challenge")
+    @ResponseBody
+    public ResultT<List<Challenge>> getUserSolvedChallenges(int userID){
+        return solveService.getUserSolvedChallenge(userID);
+    }
+
 }
