@@ -102,6 +102,7 @@ public class Solve {
                 "id=" + id +
                 ", team=" + team +
                 ", token='" + token + '\'' +
+                ", challenge=" + challenge +
                 ", user=" + user +
                 ", flag='" + flag + '\'' +
                 ", createdTime=" + createdTime +

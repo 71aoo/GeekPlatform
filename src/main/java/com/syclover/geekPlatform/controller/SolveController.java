@@ -4,6 +4,7 @@ import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.SolveMapper;
 import com.syclover.geekPlatform.entity.Challenge;
+import com.syclover.geekPlatform.entity.Solve;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.SolveService;
@@ -66,7 +67,7 @@ public class SolveController {
 
     @GetMapping("/team/challenge")
     @ResponseBody
-    public ResultT<List<Challenge>> getTeamSolvedChallenges(Integer teamID){
+    public ResultT<List<Solve>> getTeamSolvedChallenges(Integer teamID){
         if (teamID == null){
             return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
         }
@@ -75,7 +76,7 @@ public class SolveController {
 
     @GetMapping("/user/challenge")
     @ResponseBody
-    public ResultT<List<Challenge>> getUserSolvedChallenges(Integer userID){
+    public ResultT<List<Solve>> getUserSolvedChallenges(Integer userID){
         if (userID == null){
             return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
         }
