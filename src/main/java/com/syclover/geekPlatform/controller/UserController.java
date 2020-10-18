@@ -9,6 +9,7 @@ import com.syclover.geekPlatform.util.CleanUtil;
 import com.syclover.geekPlatform.util.RedisUtil;
 import com.syclover.geekPlatform.util.SessionGetterUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -150,8 +151,15 @@ public class UserController {
      * @return
      */
     @GetMapping("/getAll")
-    public ResultT getAllUser(){
-        List<User> allUser = userService.getAllUser();
+    public ResultT getAllUser(Integer page){
+
+        if (page == null){
+            page = 1;
+        }
+
+        page = (page -1) * 50;
+
+        List<User> allUser = userService.getAllUser(page);
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),allUser);
     }
 

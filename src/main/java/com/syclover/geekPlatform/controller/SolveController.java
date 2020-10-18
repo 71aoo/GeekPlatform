@@ -66,13 +66,19 @@ public class SolveController {
 
     @GetMapping("/team/challenge")
     @ResponseBody
-    public ResultT<List<Challenge>> getTeamSolvedChallenges(int teamID){
+    public ResultT<List<Challenge>> getTeamSolvedChallenges(Integer teamID){
+        if (teamID == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
         return  solveService.getTeamSolvedChallenge(teamID);
     }
 
     @GetMapping("/user/challenge")
     @ResponseBody
-    public ResultT<List<Challenge>> getUserSolvedChallenges(int userID){
+    public ResultT<List<Challenge>> getUserSolvedChallenges(Integer userID){
+        if (userID == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
         return solveService.getUserSolvedChallenge(userID);
     }
 

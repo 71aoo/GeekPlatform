@@ -79,7 +79,7 @@
 
     <!-- 查找所有的user -->
     <select id="getAllUser" resultMap="userTeamMapper">
-        select * from Users order by username
+        select * from Users order by username limit #{page},50
     </select>
 
     <!-- 登陆返回的User    -->

@@ -31,9 +31,19 @@ public class ScoreboardController {
      */
     @RequestMapping("/team")
     @ResponseBody
-    public ResultT<List<Team>> teamsScoreboard(){
+    public ResultT<List<Team>> teamsScoreboard(Integer page){
 
-        ResultT<List<Team>> resultT = scoreboardService.allTeamsScoreboard();
+
+        if (page == null){
+            page = 1;
+        }
+
+        page = (page -1) * 50;
+
+
+        ResultT<List<Team>> resultT = scoreboardService.allTeamsScoreboard(page);
+
+
 
         return resultT;
     }
@@ -44,9 +54,15 @@ public class ScoreboardController {
      */
     @RequestMapping("/user")
     @ResponseBody
-    public ResultT<List<User>> usersScoreboard(){
+    public ResultT<List<User>> usersScoreboard(Integer page){
 
-        ResultT<List<User>> resultT = scoreboardService.allUsersScoreboard();
+        if (page == null){
+            page = 1;
+        }
+
+        page = (page -1) * 50;
+
+        ResultT<List<User>> resultT = scoreboardService.allUsersScoreboard(page);
 
         return resultT;
     }

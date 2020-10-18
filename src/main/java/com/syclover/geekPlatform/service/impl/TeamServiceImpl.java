@@ -133,8 +133,8 @@ public class TeamServiceImpl implements TeamService {
     }
 
     @Override
-    public ResultT<List<Team>> getAllTeam() {
-        List<Team> allTeam = teamMapper.getAllTeam();
+    public ResultT<List<Team>> getAllTeam(int page) {
+        List<Team> allTeam = teamMapper.getAllTeam(page);
         List<Team> cleanTeams = new ArrayList<>();
         for (Team team : allTeam){
             Team cleanTeam = CleanUtil.cleanTeam(team);

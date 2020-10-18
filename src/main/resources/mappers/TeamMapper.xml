@@ -100,7 +100,7 @@
     </select>
 
     <select id="getAllTeam" resultMap="allColumnsMapper">
-        select * from Teams;
+        select * from Teams limit #{page},50;
     </select>
 
     <select id="getUserTeamById" resultMap="allColumnsNameMapper">

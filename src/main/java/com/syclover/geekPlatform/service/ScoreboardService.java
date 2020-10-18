@@ -14,9 +14,9 @@ import java.util.List;
 public interface ScoreboardService {
 
     // 队伍积分榜
-    ResultT<List<Team>> allTeamsScoreboard();
+    ResultT<List<Team>> allTeamsScoreboard(int page);
 
     // 用户积分榜
-    ResultT<List<User>> allUsersScoreboard();
+    ResultT<List<User>> allUsersScoreboard(int page);
 
 }

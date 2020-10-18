@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sun.rmi.transport.Channel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,12 +40,19 @@ public class ChallengeServiceImpl implements ChallengeService {
 
         // 查询
         List<Challenge> challenges = challengeMapper.getByCategoryID(category.getId());
+
+        List<Challenge> displayChallenge = new ArrayList<>();
+
         for (Challenge challenge:challenges){
-            challenge.setFlag("想看没门");
+            challenge.setFlag("");
+            if (challenge.getHidden() == 0) {
+                displayChallenge.add(challenge);
+            }
         }
+
         ResultT<List<Challenge>> resultT = new ResultT<List<Challenge>>(ResponseCode.SUCCESS.getCode(),
                 ResponseCode.SUCCESS.getMsg(),
-                challenges);
+                displayChallenge);
 
         return resultT;
     }

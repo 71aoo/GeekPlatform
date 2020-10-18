@@ -23,7 +23,7 @@ public interface TeamMapper {
 
     Team isUserInTeam(String token, int teamID, int userID);
 
-    List<Team> getAllTeam();
+    List<Team> getAllTeam(int page);
 
     Team getUserTeamById(int id);
 

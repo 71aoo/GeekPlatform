@@ -12,7 +12,7 @@
             Teams
         order by
             points DESC,
-            last_points_time ;
+            last_points_time limit #{page},50;
     </select>
 
     <select id="getUserScoreboard" resultMap="com.syclover.geekPlatform.dao.UserMapper.userTeamMapper">
@@ -22,7 +22,7 @@
             Users
         order by
             points DESC,
-            last_points_time ;
+            last_points_time limit #{page},50;
     </select>
 
 </mapper>

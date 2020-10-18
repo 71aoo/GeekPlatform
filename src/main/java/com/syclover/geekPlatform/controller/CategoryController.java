@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.controller;
 
+import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.Category;
 import com.syclover.geekPlatform.service.CategoryService;
@@ -54,7 +55,11 @@ public class CategoryController {
      */
     @RequestMapping("/get")
     @ResponseBody
-    public ResultT getByID(int categoryID){
+    public ResultT getByID(Integer categoryID){
+
+        if (categoryID == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
 
         ResultT<Category> resultT = categoryService.getCategoryByID(categoryID);
 

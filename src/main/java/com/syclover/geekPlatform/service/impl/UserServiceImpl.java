@@ -110,8 +110,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUser() {
-        List<User> allUser = userMapper.getAllUser();
+    public List<User> getAllUser(int page) {
+
+        List<User> allUser = userMapper.getAllUser(page);
         List<User> cleanUser = new ArrayList<>();
         for (User user : allUser){
             user = CleanUtil.cleanUser(user);

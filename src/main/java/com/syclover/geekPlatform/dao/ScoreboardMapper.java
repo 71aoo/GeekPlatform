@@ -14,8 +14,8 @@ import java.util.List;
 @Repository
 public interface ScoreboardMapper {
 
-   List<Team> getTeamScoreboard();
+   List<Team> getTeamScoreboard(int page);
 
-   List<User> getUserScoreboard();
+   List<User> getUserScoreboard(int page);
 
 }

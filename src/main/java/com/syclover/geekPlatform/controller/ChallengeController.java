@@ -11,6 +11,8 @@ import com.syclover.geekPlatform.service.SolveService;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.ChallengeUtil;
 import com.syclover.geekPlatform.util.SessionGetterUtil;
+import javafx.util.BuilderFactory;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -135,7 +137,11 @@ public class ChallengeController {
      */
     @RequestMapping("/category")
     @ResponseBody
-    public ResultT<List<Challenge>> getChallengesByCategory(int categoryID, HttpSession session){
+    public ResultT<List<Challenge>> getChallengesByCategory(Integer categoryID, HttpSession session){
+
+        if (categoryID == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
 
         String username = SessionGetterUtil.getUsername(session);
         User user = userService.getLoginUser(username).getData();
@@ -168,7 +174,11 @@ public class ChallengeController {
      */
     @RequestMapping("/info")
     @ResponseBody
-    public ResultT<Challenge> getChallengeByID(int challengeID){
+    public ResultT<Challenge> getChallengeByID(Integer challengeID){
+
+        if (challengeID == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
 
         ResultT<Challenge> challenge = challengeService.getChallengesByID(challengeID);
 

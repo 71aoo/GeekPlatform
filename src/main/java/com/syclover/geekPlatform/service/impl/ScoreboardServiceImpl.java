@@ -26,9 +26,9 @@ public class ScoreboardServiceImpl implements ScoreboardService {
 
 
     @Override
-    public ResultT<List<Team>> allTeamsScoreboard() {
+    public ResultT<List<Team>> allTeamsScoreboard(int page) {
 
-        List<Team> teams = scoreboardMapper.getTeamScoreboard();
+        List<Team> teams = scoreboardMapper.getTeamScoreboard(page);
         List<Team> cleanTeams = new ArrayList<>();
         for (Team team : teams){
             Team cleanTeam = CleanUtil.cleanTeam(team);
@@ -38,9 +38,9 @@ public class ScoreboardServiceImpl implements ScoreboardService {
     }
 
     @Override
-    public ResultT<List<User>> allUsersScoreboard() {
+    public ResultT<List<User>> allUsersScoreboard(int page) {
 
-        List<User> users = scoreboardMapper.getUserScoreboard();
+        List<User> users = scoreboardMapper.getUserScoreboard(page);
         List<User> cleanUsers = new ArrayList<>();
         for (User user : users){
             CleanUtil.cleanUser(user);

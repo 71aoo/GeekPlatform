@@ -44,7 +44,7 @@ public interface UserService {
 
     Student getStudent(String name,String number);
 
-    List<User> getAllUser();
+    List<User> getAllUser(int page);
 
     User getTeamUser(int id);
 

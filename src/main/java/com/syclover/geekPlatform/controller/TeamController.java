@@ -185,8 +185,11 @@ public class TeamController {
      * @return
      */
     @GetMapping("/getAll")
-    public ResultT getAllTeam(){
-        return teamService.getAllTeam();
+    public ResultT getAllTeam(Integer page){
+        if(page == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+        return teamService.getAllTeam(page);
     }
 
     /**
