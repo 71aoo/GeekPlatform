@@ -70,6 +70,9 @@ public class TeamController {
                 return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);
             }
             ResultT<Team> data = teamService.createTeam(teamName, img, motto, user);
+            if (data==null){
+                return new ResultT(ResponseCode.TEAM_CREATE_ERROR.getCode(),ResponseCode.TEAM_CREATE_ERROR.getMsg(),null);
+            }
             int teamId = data.getData().getId();
             int id = user.getId();
             userService.updateTeam(teamId,id);
@@ -93,6 +96,9 @@ public class TeamController {
     @PostMapping("/join")
     public ResultT joinTeam( String token,HttpSession session) {
         User user = userService.getLoginUser(SessionGetterUtil.getUsername(session)).getData();
+        if (user == null){
+            return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
+        }
         if (user.getTeamId() != 0){
             return new ResultT(ResponseCode.USER_HAS_IN_TEAM.getCode(),ResponseCode.USER_HAS_IN_TEAM.getMsg(),null);
         }

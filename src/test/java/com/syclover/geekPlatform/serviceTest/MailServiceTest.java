@@ -17,9 +17,13 @@ public class MailServiceTest {
 
     @Test
     public void testSimpleMail(){
-        String content = "test Email content:http://www.cueyu.com";
-        mailService.sendSimpleMail("cueyu@foxmail.com","test simple mail",content);
+        for (int i=0;i<50;i++) {
+            String content = "test Email content:http://www.cueyu.com";
+            mailService.sendSimpleMail("cueyu@foxmail.com", "test simple mail", content);
+        }
     }
+
+
 
 
 }

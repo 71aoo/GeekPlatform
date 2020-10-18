@@ -25,15 +25,13 @@ public class MailServiceImpl implements MailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Value("${spring.mail.username}")
-    private String sender;
 
 
     @Async("taskExecutor")
     @Override
     public void sendSimpleMail(String receiver, String subject, String content) {
         SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom(sender);
+        message.setFrom("syclovergeek@qq.com");
         message.setTo(receiver);
         message.setText(content);
         message.setSubject(subject);

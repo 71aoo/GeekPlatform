@@ -8,6 +8,7 @@ import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.TeamService;
 import com.syclover.geekPlatform.util.CleanUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 import org.thymeleaf.util.StringUtils;
 
@@ -137,7 +138,7 @@ public class TeamServiceImpl implements TeamService {
         List<Team> cleanTeams = new ArrayList<>();
         for (Team team : allTeam){
             Team cleanTeam = CleanUtil.cleanTeam(team);
-            cleanTeams.add(team);
+            cleanTeams.add(cleanTeam);
         }
         return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),cleanTeams);
     }
@@ -187,13 +188,31 @@ public class TeamServiceImpl implements TeamService {
 
         Team team = teamMember.getTeam();
 
-        if (!StringUtils.isEmpty(headerImg)){
+        if (team == null){
+            return new ResultT(ResponseCode.IN_A_TEAM_FIRST.getCode(),ResponseCode.IN_A_TEAM_FIRST.getMsg(),null);
+        }
+
+
+        if (StringUtils.isEmpty(headerImg)){
+            team.setHeaderImg("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67");
+        }else{
+            headerImg = headerImg + "?x-oss-process=image/auto-orient,1/quality,q_67";
             team.setHeaderImg(headerImg);
         }
 
-        if (!StringUtils.isEmpty(motto)){
-            team.setMotto(motto);
+
+
+        if (StringUtils.isEmpty(motto)){
+            team.setMotto(null);
+        }else if (motto.length() > 20){
+            return new ResultT(ResponseCode.MOTTO_LENGTH_TOO_LONG.getCode(),ResponseCode.MOTTO_LENGTH_TOO_LONG.getMsg(),null);
         }
+
+        team.setMotto(motto);
+
+
+
+
         if (teamMapper.updateTeamInfo(team) == 0){
             return new ResultT(ResponseCode.TEAM_UPDATE_ERROR.getCode(),ResponseCode.TEAM_UPDATE_ERROR.getMsg(),null);
         }else{

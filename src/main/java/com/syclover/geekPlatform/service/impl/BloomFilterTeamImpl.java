@@ -34,7 +34,7 @@ public class BloomFilterTeamImpl implements BloomFilterService {
         //获取所有的TEAM_INFO键
         Set<String> allKeys = redisService.getTeamKeys();
         //创建布隆过滤器实例
-        bf = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), allKeys.size());
+        bf = BloomFilter.create(Funnels.stringFunnel(Charsets.UTF_8), 100000);
 
         //将redis缓存中的值遍历插入
         for (String key : allKeys){

@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -55,7 +56,10 @@ public class UserController {
 
 
         if (StringUtils.isEmpty(header_img)){
-            user.setHeaderImg(null);
+            user.setHeaderImg("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67");
+        }else{
+            header_img = header_img + "?x-oss-process=image/auto-orient,1/quality,q_67";
+            user.setHeaderImg(header_img);
         }
 
 
@@ -83,7 +87,6 @@ public class UserController {
         }
 
         user.setMotto(motto);
-        user.setHeaderImg(header_img);
         user.setRealName(name);
         user.setStudentId(number);
 
