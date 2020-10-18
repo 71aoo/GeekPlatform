@@ -45,9 +45,9 @@
 
 
     <!-- 找某用户所有解答的题目按时间排序 -->
-    <select id="getSolvedChallengesByUser" resultMap="com.syclover.geekPlatform.dao.ChallengeMapper.allColumnsMapper">
+    <select id="getSolvedChallengesByUser" resultMap="allColumnsMapper">
         select
-            Challenges.*
+            Solves.*
         from
             Solves,
             Challenges,
@@ -61,9 +61,9 @@
     </select>
 
     <!-- 找出某队伍所有解答的题目按时间排序 -->
-    <select id="getSolvedChallengesByTeam" resultMap="com.syclover.geekPlatform.dao.ChallengeMapper.allColumnsMapper">
+    <select id="getSolvedChallengesByTeam" resultMap="allColumnsMapper">
         select
-            Challenges.*
+            Solves.*
         from
             Solves,
             Challenges,

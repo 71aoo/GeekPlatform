@@ -1,5 +1,6 @@
 package com.syclover.geekPlatform.util;
 
+import com.syclover.geekPlatform.entity.Solve;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
 
@@ -75,5 +76,16 @@ public class CleanUtil {
         team.setMemberOne(m1);
         team.setMemberTwo(m2);
         return team;
+    }
+
+    public static void cleanSolve(Solve solve){
+
+        if (solve != null){
+            solve.setFlag(null);
+            solve.setToken(null);
+            solve.setTeam(null);
+            solve.setUser(null);
+            solve.getChallenge().setFlag(null);
+        }
     }
 }

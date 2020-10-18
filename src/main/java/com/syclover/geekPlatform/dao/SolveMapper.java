@@ -20,10 +20,10 @@ public interface SolveMapper {
     boolean addSolve(Solve solve);
 
     // 找某用户所有解答的题目按时间排序
-    List<Challenge> getSolvedChallengesByUser(User user);
+    List<Solve> getSolvedChallengesByUser(User user);
 
     // 找出某队伍所有解答的题目按时间排序
-    List<Challenge> getSolvedChallengesByTeam(Team team);
+    List<Solve> getSolvedChallengesByTeam(Team team);
 
     // 根据 Solve 表得出用户个人总分
     int getPointsByUser(User user);

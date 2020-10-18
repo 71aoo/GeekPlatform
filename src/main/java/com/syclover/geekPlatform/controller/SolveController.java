@@ -4,6 +4,7 @@ import com.syclover.geekPlatform.common.ResponseCode;
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.SolveMapper;
 import com.syclover.geekPlatform.entity.Challenge;
+import com.syclover.geekPlatform.entity.Solve;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.SolveService;
@@ -66,13 +67,13 @@ public class SolveController {
 
     @GetMapping("/team/challenge")
     @ResponseBody
-    public ResultT<List<Challenge>> getTeamSolvedChallenges(int teamID){
+    public ResultT<List<Solve>> getTeamSolvedChallenges(int teamID){
         return  solveService.getTeamSolvedChallenge(teamID);
     }
 
     @GetMapping("/user/challenge")
     @ResponseBody
-    public ResultT<List<Challenge>> getUserSolvedChallenges(int userID){
+    public ResultT<List<Solve>> getUserSolvedChallenges(int userID){
         return solveService.getUserSolvedChallenge(userID);
     }
 

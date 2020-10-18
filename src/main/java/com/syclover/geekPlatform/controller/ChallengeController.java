@@ -24,7 +24,7 @@ import java.util.List;
  * @Data: 2020/8/29
  */
 @RestController
-@RequestMapping("challenge")
+@RequestMapping("/challenge")
 public class ChallengeController {
 
 
@@ -154,7 +154,7 @@ public class ChallengeController {
         ResultT<List<Challenge>> challenges = challengeService.getChallengesByCategory(category);
 
         // 该队伍已解决题目
-        List<Challenge> solvedChallengesByTeam = solveMapper.getSolvedChallengesByTeam(team);
+        List<Solve> solvedChallengesByTeam = solveMapper.getSolvedChallengesByTeam(team);
         List<Challenge> signSolvedChallenges = ChallengeUtil.signSolvedChallenges(challenges.getData(), solvedChallengesByTeam);
 
         challenges.setData(signSolvedChallenges);

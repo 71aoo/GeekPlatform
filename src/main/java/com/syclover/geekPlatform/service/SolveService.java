@@ -2,6 +2,7 @@ package com.syclover.geekPlatform.service;
 
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.entity.Challenge;
+import com.syclover.geekPlatform.entity.Solve;
 
 import java.util.List;
 
@@ -20,8 +21,8 @@ public interface SolveService {
 //    ResultT recordSolve(String flag, String token, int teamID, int userID, int challengeID);
 
 
-    ResultT<List<Challenge>> getTeamSolvedChallenge(int teamId);
+    ResultT<List<Solve>> getTeamSolvedChallenge(int teamId);
 
-    ResultT<List<Challenge>> getUserSolvedChallenge(int userId);
+    ResultT<List<Solve>> getUserSolvedChallenge(int userId);
 
 }
