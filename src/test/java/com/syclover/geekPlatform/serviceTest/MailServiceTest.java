@@ -1,15 +1,18 @@
 package com.syclover.geekPlatform.serviceTest;
 
 import com.syclover.geekPlatform.common.ResultT;
+import com.syclover.geekPlatform.dao.SolveMapper;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
 import com.syclover.geekPlatform.service.MailService;
 import com.syclover.geekPlatform.service.ScoreboardService;
 import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.util.CleanUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +30,10 @@ public class MailServiceTest {
 
     @Autowired
     private ScoreboardService scoreboardService;
+
+    @Autowired
+    private SolveMapper solveMapper;
+
 
     @Test
     public void testSimpleMail(){
@@ -49,5 +56,17 @@ public class MailServiceTest {
         ResultT<List<User>> listResultT1 = scoreboardService.allUsersScoreboard(1);
         System.out.println("TEam:"+listResultT);
         System.out.println("User:"+ listResultT1);
+    }
+
+    @Test
+    void solveTest(){
+        List<User> userSolveInfo = solveMapper.getUserSolveInfo(103, 0);
+        List<User> cleanInfoList = new ArrayList();
+        for (User user : userSolveInfo){
+            User cleanUser = CleanUtil.cleanUser(user);
+            cleanInfoList.add(cleanUser);
+        }
+
+        System.out.println(cleanInfoList);
     }
 }

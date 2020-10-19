@@ -70,7 +70,7 @@ public class TeamController {
                 return new ResultT(ResponseCode.TEAM_NAME_USED.getCode(),ResponseCode.TEAM_NAME_USED.getMsg(),null);
             }
             ResultT<Team> data = teamService.createTeam(teamName, img, motto, user);
-            if (data==null){
+            if (data.getData()==null){
                 return new ResultT(ResponseCode.TEAM_CREATE_ERROR.getCode(),ResponseCode.TEAM_CREATE_ERROR.getMsg(),null);
             }
             int teamId = data.getData().getId();
@@ -186,8 +186,8 @@ public class TeamController {
      */
     @GetMapping("/getAll")
     public ResultT getAllTeam(Integer page){
-        if(page == null){
-            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        if(page == null || page <= 0){
+            page =1;
         }
         return teamService.getAllTeam(page);
     }

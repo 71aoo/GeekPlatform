@@ -20,7 +20,7 @@ import java.io.IOException;
 public class AccessDeniedHandler implements org.springframework.security.web.access.AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AccessDeniedException e) throws IOException, ServletException {
-        ResultT result = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(),null);
+        ResultT result = new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(), ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
 
         httpServletResponse.getWriter().write(JSON.toJSONString(result));
     }

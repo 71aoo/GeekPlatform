@@ -37,4 +37,6 @@ public interface SolveMapper {
     // 更新用户和队伍分数
     boolean updatedScore(@Param("teamID") int teamID,@Param("userID") int userID,@Param("challengeID") int challengeID);
 
+    List<User> getUserSolveInfo(@Param("challengeID") int challengeID,@Param("page") int page);
+
 }

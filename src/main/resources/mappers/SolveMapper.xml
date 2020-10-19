@@ -24,6 +24,19 @@
 
     </resultMap>
 
+    <resultMap id="userCleanMapper" type="com.syclover.geekPlatform.entity.User">
+        <result column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="is_cuit" property="isCuit"/>
+        <result column="motto" property="motto"/>
+        <result column="points" property="points"/>
+        <result column="team_id" property="teamId"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_time" property="updatedTime"/>
+        <result column="last_points_time" property="lastPointsTime"/>
+    </resultMap>
+
+
     <!-- 解决添加 -->
     <insert id="addSolve" parameterType="com.syclover.geekPlatform.entity.Solve">
         INSERT INTO
@@ -129,5 +142,12 @@
             Teams.id = #{teamID} and
             Users.id = #{userID}
     </update>
+
+    <select id="getUserSolveInfo" resultMap="userCleanMapper">
+        select *
+        from users
+        join solves
+        on users.id = solves.user_id and solves.challenge_id = #{challengeID} limit #{page},50
+    </select>
 
 </mapper>

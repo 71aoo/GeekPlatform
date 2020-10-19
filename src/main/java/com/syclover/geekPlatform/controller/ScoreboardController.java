@@ -34,7 +34,7 @@ public class ScoreboardController {
     public ResultT<List<Team>> teamsScoreboard(Integer page){
 
 
-        if (page == null){
+        if (page == null || page <= 0){
             page = 1;
         }
 
@@ -56,7 +56,7 @@ public class ScoreboardController {
     @ResponseBody
     public ResultT<List<User>> usersScoreboard(Integer page){
 
-        if (page == null){
+        if (page == null || page <= 0){
             page = 1;
         }
 

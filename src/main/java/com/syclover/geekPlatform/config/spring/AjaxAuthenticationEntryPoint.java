@@ -22,7 +22,7 @@ public class AjaxAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
 
-        ResultT result = new ResultT(ResponseCode.ERROR.getCode(), ResponseCode.ERROR.getMsg(),null);
+        ResultT result = new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(), ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
 
         httpServletResponse.getWriter().write(JSON.toJSONString(result));
     }

@@ -185,6 +185,30 @@ public class ChallengeController {
         return challenge;
     }
 
+    /**
+     * 查看某个题目的解出用户
+     * @param challengeID
+     * @param page
+     * @return
+     */
+    @RequestMapping("/solveInfo")
+    @ResponseBody
+    public ResultT getChallengeSolveInfo(Integer challengeID,Integer page){
+
+        if (challengeID == null){
+            return new ResultT(ResponseCode.PARAMETER_MISS_ERROR.getCode(),ResponseCode.PARAMETER_MISS_ERROR.getMsg(),null);
+        }
+
+        if (page == null || page <= 0){
+            page = 1;
+        }
+
+        page = (page -1) * 50;
+
+        List<User> userSolveInfo = solveMapper.getUserSolveInfo(challengeID, page);
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),userSolveInfo);
+
+    }
 
 
 }

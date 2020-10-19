@@ -58,7 +58,12 @@ public class UserController {
 
         if (StringUtils.isEmpty(header_img)){
             user.setHeaderImg("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67");
-        }else{
+        } else if (header_img == "https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67") {
+            user.setHeaderImg(header_img);
+        } else {
+            if (header_img.length() >= 200){
+                return new ResultT(ResponseCode.INPUT_LENGTH_TOO_LONG.getCode(),ResponseCode.INPUT_LENGTH_TOO_LONG.getMsg(),null);
+            }
             header_img = header_img + "?x-oss-process=image/auto-orient,1/quality,q_67";
             user.setHeaderImg(header_img);
         }
@@ -74,6 +79,8 @@ public class UserController {
 
         if (StringUtils.isEmpty(name)){
             user.setRealName(null);
+        }else if (name.length() > 10){
+            return new ResultT(213,"真实姓名过长",null);
         }
 
 
@@ -153,7 +160,7 @@ public class UserController {
     @GetMapping("/getAll")
     public ResultT getAllUser(Integer page){
 
-        if (page == null){
+        if (page == null || page <= 0){
             page = 1;
         }
 
