@@ -10,6 +10,7 @@ import com.syclover.geekPlatform.service.ChallengeService;
 import com.syclover.geekPlatform.service.SolveService;
 import com.syclover.geekPlatform.service.UserService;
 import com.syclover.geekPlatform.util.ChallengeUtil;
+import com.syclover.geekPlatform.util.CleanUtil;
 import com.syclover.geekPlatform.util.SessionGetterUtil;
 import javafx.util.BuilderFactory;
 import org.apache.ibatis.annotations.Param;
@@ -17,8 +18,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -206,7 +207,14 @@ public class ChallengeController {
         page = (page -1) * 50;
 
         List<User> userSolveInfo = solveMapper.getUserSolveInfo(challengeID, page);
-        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),userSolveInfo);
+        List<User> cleanUserInfo = new ArrayList<>();
+
+        for (User user : userSolveInfo){
+            User cleanUser = CleanUtil.cleanUser(user);
+            cleanUserInfo.add(cleanUser);
+        }
+
+        return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),cleanUserInfo);
 
     }
 
