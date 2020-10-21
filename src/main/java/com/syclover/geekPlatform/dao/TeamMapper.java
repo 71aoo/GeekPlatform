@@ -32,4 +32,6 @@ public interface TeamMapper {
     int updateTeamInfo(@Param("team") Team team);
 
     boolean updateTeamLastPointTime(int teamID);
+
+    boolean updateCuitTeam(int id);
 }

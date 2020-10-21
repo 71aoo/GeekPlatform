@@ -2,11 +2,11 @@ package com.syclover.geekPlatform.serviceTest;
 
 import com.syclover.geekPlatform.common.ResultT;
 import com.syclover.geekPlatform.dao.SolveMapper;
+import com.syclover.geekPlatform.entity.Category;
+import com.syclover.geekPlatform.entity.Challenge;
 import com.syclover.geekPlatform.entity.Team;
 import com.syclover.geekPlatform.entity.User;
-import com.syclover.geekPlatform.service.MailService;
-import com.syclover.geekPlatform.service.ScoreboardService;
-import com.syclover.geekPlatform.service.UserService;
+import com.syclover.geekPlatform.service.*;
 import com.syclover.geekPlatform.util.CleanUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +34,12 @@ public class MailServiceTest {
     @Autowired
     private SolveMapper solveMapper;
 
+    @Autowired
+    private ChallengeService challengeService;
+
+    @Autowired
+    private CategoryService categoryService;
+
 
     @Test
     public void testSimpleMail(){
@@ -45,8 +51,9 @@ public class MailServiceTest {
 
     @Test
     public void getUserService() {
-        List<User> allUser = userService.getAllUser(1);
-        System.out.println(allUser);
+        Category data = categoryService.getCategoryByID(6).getData();
+        List<Challenge> data1 = challengeService.getChallengesByCategory(data).getData();
+        System.out.println(data1);
     }
 
 

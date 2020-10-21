@@ -195,7 +195,14 @@ public class TeamServiceImpl implements TeamService {
 
         if (StringUtils.isEmpty(headerImg)){
             team.setHeaderImg("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67");
-        }else{
+        }
+        else if (headerImg.equals("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67")){
+            team.setHeaderImg(headerImg);
+        }
+        else{
+            if (headerImg.length() >= 200){
+                return new ResultT(ResponseCode.INPUT_LENGTH_TOO_LONG.getCode(),ResponseCode.INPUT_LENGTH_TOO_LONG.getMsg(),null);
+            }
             headerImg = headerImg + "?x-oss-process=image/auto-orient,1/quality,q_67";
             team.setHeaderImg(headerImg);
         }
@@ -232,6 +239,7 @@ public class TeamServiceImpl implements TeamService {
             if (team.getMemberTwo() != null){
                 if (team.getMemberTwo().getIsCuit() == 1){
                     team.setIsCuit(1);
+                    teamMapper.updateCuitTeam(team.getId());
                     return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
                 }else{
                     team.setIsCuit(0);
@@ -240,6 +248,7 @@ public class TeamServiceImpl implements TeamService {
             }else{
                 team.setIsCuit(1);
             }
+            teamMapper.updateCuitTeam(team.getId());
             return new ResultT(ResponseCode.SUCCESS.getCode(),ResponseCode.SUCCESS.getMsg(),team);
         }else{
             return new ResultT(ResponseCode.TEAM_NOT_CUIT.getCode(),ResponseCode.TEAM_NOT_CUIT.getMsg(),team);

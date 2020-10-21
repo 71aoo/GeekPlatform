@@ -55,10 +55,9 @@ public class UserController {
             return new ResultT(ResponseCode.LOGIN_FIRST_ERROR.getCode(),ResponseCode.LOGIN_FIRST_ERROR.getMsg(),null);
         }
 
-
         if (StringUtils.isEmpty(header_img)){
             user.setHeaderImg("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67");
-        } else if (header_img == "https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67") {
+        } else if (header_img.equals("https://geekplateform.oss-cn-beijing.aliyuncs.com/BaseHeaderImg.png?x-oss-process=image/auto-orient,1/quality,q_67")) {
             user.setHeaderImg(header_img);
         } else {
             if (header_img.length() >= 200){

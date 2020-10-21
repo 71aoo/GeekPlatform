@@ -12,7 +12,7 @@
 
     <!-- 根据 category id 查询 -->
     <select id="getByCategoryID" resultMap="allColumnsMapper">
-        select * from Challenges where category = #{id} and is_del = 0 and hidden =0
+        select * from Challenges where category = #{id} and is_del = 0 and hidden =0 order by score
     </select>
 
     <!-- 根据 category name 查询 -->

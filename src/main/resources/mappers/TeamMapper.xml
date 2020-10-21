@@ -118,4 +118,8 @@
     <update id="updateTeamLastPointTime" parameterType="integer">
         update teams set last_points_time=now() where id=#{teamID}
     </update>
+
+    <update id="updateCuitTeam">
+        update teams set is_cuit = 1 where id = #{id}
+    </update>
 </mapper>
